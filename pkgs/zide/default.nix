@@ -60,10 +60,10 @@ stdenv.mkDerivation (
       cp -r . $out/share/zide/
 
       # 创建包装后的可执行文件
-      for script in bin/*; do
-        if [[ -f "$script" && -x "$script" ]]; then
+      for script in bin/zide bin/zide-pick bin/zide-edit bin/zide-rename; do
+        if [[ -f "$script" ]]; then
           scriptName=$(basename "$script")
-          makeWrapper "$script" "$out/bin/$scriptName" \
+          makeWrapper "$out/share/zide/$script" "$out/bin/$scriptName" \
             --set ZIDE_DIR "$out/share/zide" \
             --prefix PATH : "${lib.makeBinPath (
         [
@@ -91,6 +91,7 @@ stdenv.mkDerivation (
         "--set ZIDE_USE_LF_CONFIG \"false\""}
         fi
       done
+
 
       # 确保脚本可执行
       chmod +x $out/bin/*
