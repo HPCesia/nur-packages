@@ -18,6 +18,10 @@ buildNpmPackage rec {
 
   npmPackFlags = ["--ignore-scripts"];
 
+  postInstall = ''
+    cp -rv dist/ $out
+  '';
+
   meta = {
     description = "A minimalistic opinionated Mastodon web client.";
     homepage = "https://phanpy.social/";
