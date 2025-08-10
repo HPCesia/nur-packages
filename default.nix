@@ -12,4 +12,5 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   zide = pkgs.callPackage ./pkgs/zide {};
+  phanpy = pkgs.callPackage ./pkgs/phanpy {};
 }
