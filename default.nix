@@ -13,4 +13,5 @@
 
   zide = pkgs.callPackage ./pkgs/zide.nix {};
   phanpy = pkgs.callPackage ./pkgs/phanpy.nix {};
+  harmonoid = pkgs.callPackage ./pkgs/harmonoid.nix {};
 }
