@@ -11,6 +11,6 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  zide = pkgs.callPackage ./pkgs/zide {};
-  phanpy = pkgs.callPackage ./pkgs/phanpy {};
+  zide = pkgs.callPackage ./pkgs/zide.nix {};
+  phanpy = pkgs.callPackage ./pkgs/phanpy.nix {};
 }

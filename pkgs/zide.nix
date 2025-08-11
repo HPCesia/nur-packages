@@ -37,7 +37,6 @@ stdenv.mkDerivation (
       coreutils
     ];
 
-    # 允许通过 override 调整的参数
     passthru = {
       defaultLayout = "default";
       defaultFilePicker = "yazi";
@@ -52,14 +51,11 @@ stdenv.mkDerivation (
     installPhase = ''
       runHook preInstall
 
-      # 创建安装目录
       mkdir -p $out/share/zide
       mkdir -p $out/bin
 
-      # 复制所有文件到共享目录
       cp -r . $out/share/zide/
 
-      # 创建包装后的可执行文件
       for script in bin/zide bin/zide-pick bin/zide-edit bin/zide-rename; do
         if [[ -f "$script" ]]; then
           scriptName=$(basename "$script")
@@ -93,7 +89,6 @@ stdenv.mkDerivation (
       done
 
 
-      # 确保脚本可执行
       chmod +x $out/bin/*
 
       runHook postInstall
