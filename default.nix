@@ -14,4 +14,5 @@
   zide = pkgs.callPackage ./pkgs/zide.nix {};
   phanpy = pkgs.callPackage ./pkgs/phanpy.nix {};
   harmonoid = pkgs.callPackage ./pkgs/harmonoid.nix {};
+  lazy-nix-helper-nvim = pkgs.callPackage ./pkgs/lazy-nix-helper-nvim.nix {};
 }
