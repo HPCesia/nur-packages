@@ -16,6 +16,5 @@
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  example-package = pkgs.callPackage ./pkgs/example-package {};
   particle-music = pkgs.callPackage ./pkgs/particle-music {};
 }
