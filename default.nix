@@ -17,5 +17,6 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   dwproton-bin = pkgs.callPackage ./pkgs/dwproton-bin {};
+  harmonoid = pkgs.callPackage ./pkgs/harmonoid {};
   particle-music = pkgs.callPackage ./pkgs/particle-music {};
 }
