@@ -16,5 +16,6 @@
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  dwproton-bin = pkgs.callPackage ./pkgs/dwproton-bin {};
   particle-music = pkgs.callPackage ./pkgs/particle-music {};
 }
