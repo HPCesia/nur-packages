@@ -8,8 +8,7 @@
   makeDesktopItem,
 }:
 flutter341.buildFlutterApplication rec {
-  name = "particle-music";
-  pname = "ParticleMusic";
+  pname = "particle-music";
   version = "2.1.2";
 
   src = fetchFromGitHub {
@@ -42,6 +41,10 @@ flutter341.buildFlutterApplication rec {
     --prefix LD_LIBRARY_PATH : $out/app/ParticleMusic/lib:${lib.makeLibraryPath [mpv]}
   '';
 
+  postFixup = ''
+    mv "$out/bin/ParticleMusic" "$out/bin/${pname}"
+  '';
+
   desktopItems = [
     (makeDesktopItem {
       name = "ParticleMusic";
@@ -55,7 +58,6 @@ flutter341.buildFlutterApplication rec {
   meta = {
     description = "A cross-platform local music player based on Flutter";
     homepage = "https://github.com/AfalpHy/ParticleMusic";
-    mainProgram = "ParticleMusic";
     licence = with lib.licenses; [asl20];
     platforms = lib.platforms.linux;
   };
