@@ -49,9 +49,10 @@ flutter341.buildFlutterApplication rec {
     (makeDesktopItem {
       name = "ParticleMusic";
       exec = pname;
-      icon = "ParticleMusic";
+      icon = "${src}/assets/app_icon.png";
       genericName = "Music Player";
       desktopName = "Particle Music";
+      categories = ["AudioVideo" "Audio" "Player" "Music"];
     })
   ];
 
