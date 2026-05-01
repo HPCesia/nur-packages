@@ -5,8 +5,8 @@
   autoPatchelfHook,
   makeWrapper,
   dpkg,
-  gtk3,
-  mpv,
+  wrapGAppsHook3,
+  mpv-unwrapped,
   xdg-utils,
   zenity,
 }:
@@ -33,11 +33,11 @@ stdenvNoCC.mkDerivation rec {
     makeWrapper
     autoPatchelfHook
     dpkg
+    wrapGAppsHook3
   ];
 
   buildInputs = [
-    gtk3
-    mpv
+    mpv-unwrapped
     xdg-utils
     zenity
   ];
@@ -56,7 +56,7 @@ stdenvNoCC.mkDerivation rec {
   postFixup = ''
     wrapProgram $out/bin/harmonoid \
       --prefix PATH : ${lib.makeBinPath buildInputs} \
-      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [mpv]}:$out/share/harmonoid/lib"
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [mpv-unwrapped]}:$out/share/harmonoid/lib"
   '';
 
   meta = {
