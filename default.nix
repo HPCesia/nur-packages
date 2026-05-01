@@ -19,6 +19,7 @@
   dwproton-bin = pkgs.callPackage ./pkgs/dwproton-bin {};
   harmonoid = pkgs.callPackage ./pkgs/harmonoid {};
   helixPlugins = pkgs.callPackage ./pkgs/helix-plugins {};
+  localbooru-bin = pkgs.callPackage ./pkgs/localbooru-bin {};
   musly-player = pkgs.callPackage ./pkgs/musly-player {};
   particle-music = pkgs.callPackage ./pkgs/particle-music {};
 }

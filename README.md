@@ -10,6 +10,7 @@
 | ---------------- | -------------------------------- | ----------- | --------------- |
 | `dwproton-bin`   | [dwproton-bin][dwproton]         | `10.0-26`   | BSD-3-Clause    |
 | `harmonoid`      | [harmonoid][harmonoid]           | `0.3.22`    | **Unfree**      |
+| `localbooru-bin` | [localbooru-bin][localbooru]     | `1.6.1`     | GPL-3.0         |
 | `musly-player`   | [musly-player][musly]            | `1.0.8`     | CC-BY-NC-SA 4.0 |
 | `particle-music` | [particle-music][particle-music] | `2.1.2`     | Apache-2.0      |
 
@@ -26,5 +27,6 @@
 [helixPlugins/helix-file-watcher]: https://github.com/mattwparas/helix-file-watcher
 [helixPlugins/scooter.hx]: https://github.com/thomasschafer/scooter.hx
 [helixPlugins/wakatime.hx]: https://github.com/Xerxes-2/wakatime.hx
+[localbooru]: https://github.com/resucutie/localbooru
 [musly]: https://github.com/dddevid/Musly
 [particle-music]: https://github.com/AfalpHy/ParticleMusic
