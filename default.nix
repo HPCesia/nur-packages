@@ -6,7 +6,8 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-{pkgs ? import <nixpkgs> {}}: {
+{pkgs ? import <nixpkgs> {}}:
+{
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
   lib = import ./lib {inherit pkgs;}; # functions
@@ -15,16 +16,18 @@
   # darwinModules = { }; # nix-darwin modules
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
-
-  dwproton-bin = pkgs.callPackage ./pkgs/dwproton-bin {};
-
-  harmonoid = pkgs.callPackage ./pkgs/harmonoid {};
-
-  helixPlugins = pkgs.callPackage ./pkgs/helix-plugins {};
-
-  localbooru-bin = pkgs.callPackage ./pkgs/localbooru-bin {};
-
-  musly-player = pkgs.callPackage ./pkgs/musly-player {};
-
-  particle-music = pkgs.callPackage ./pkgs/particle-music {};
 }
+// (pkgs.lib.makeScope pkgs.newScope (self:
+    with self; {
+      dwproton-bin = callPackage ./pkgs/dwproton-bin {};
+
+      harmonoid = callPackage ./pkgs/harmonoid {};
+
+      helixPlugins = callPackage ./pkgs/helix-plugins {};
+
+      localbooru-bin = callPackage ./pkgs/localbooru-bin {};
+
+      musly-player = callPackage ./pkgs/musly-player {};
+
+      particle-music = callPackage ./pkgs/particle-music {};
+    }))
