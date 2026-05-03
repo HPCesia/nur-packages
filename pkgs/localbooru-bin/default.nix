@@ -29,8 +29,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     mpv-unwrapped
-    xdg-user-dirs
-    zenity
   ];
 
   dontWrapGApps = true;
@@ -46,6 +44,7 @@ stdenv.mkDerivation rec {
     makeWrapper $out/usr/share/localbooru/localbooru $out/bin/localbooru \
       "''${gappsWrapperArgs[@]}" \
       --prefix LD_LIBRARY_PATH : $out/usr/share/localbooru/lib:${lib.makeLibraryPath [mpv-unwrapped]} \
+      --prefix PATH : ${lib.makeBinPath [xdg-user-dirs zenity]}
   '';
 
   meta = {
