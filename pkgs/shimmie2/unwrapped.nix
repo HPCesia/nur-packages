@@ -15,7 +15,7 @@
       hash = "sha256-hhQ37nrnndBgv5NRZ8wuwqCSPNNk4LlhLBlRdf+vlGE=";
     };
 
-    vendorHash = "sha256-tSDAv+/2ftciOBaFGk1chvAztijiOHKhQfgdItzo9i0=";
+    vendorHash = "sha256-qItFGSLgwq0ryx5ByTbMwXSjwD5ev0iOb0E3Y9JF3XU=";
 
     postInstall = ''
       mkdir -p $out/share/php/${finalAttrs.pname}/data
@@ -29,11 +29,13 @@
     };
   })
 ).overrideAttrs (_: prev: {
-  # Fix FOD nix store path reference error
+  # Fix FOD nix store path reference error and non-reproducible error
   # See https://phip1611.de/blog/fixing-illegal-path-references-in-fixed-output-derivation-in-nix/
+  #
+  # I use overrideAttrs because composerVendor has too many default args
   composerVendor = prev.composerVendor.overrideAttrs {
     preInstall = ''
-      rm -rf vendor/ifixit/php-akismet/.git/hooks
+      rm -rf vendor/ifixit/php-akismet/.git
     '';
   };
 })
