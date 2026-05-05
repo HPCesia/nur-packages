@@ -27,6 +27,8 @@
 
       localbooru-bin = callPackage ./pkgs/localbooru-bin {};
 
+      mo2-lint = callPackage ./pkgs/mo2-lint {};
+
       musly-player = callPackage ./pkgs/musly-player {};
 
       particle-music = callPackage ./pkgs/particle-music {};
