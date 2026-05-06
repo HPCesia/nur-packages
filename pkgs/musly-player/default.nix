@@ -2,28 +2,34 @@
   lib,
   fetchFromGitHub,
   flutter341,
+  pkg-config,
   alsa-lib,
+  libnotify,
   mpv-unwrapped,
   copyDesktopItems,
   makeDesktopItem,
 }:
 flutter341.buildFlutterApplication rec {
   pname = "musly-player";
-  version = "1.0.8";
+  version = "1.0.11";
 
   src = fetchFromGitHub {
     owner = "dddevid";
     repo = "Musly";
     tag = "v${version}";
-    hash = "sha256-7Ot7pmYH85wsNF7trH34mxSvhlWWu4RB5wnEvTFTczg=";
+    hash = "sha256-7zXY6RZfGVTKxQZXHU1ab4hKalNjTkyR61t0Bzh9Am4=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
 
-  nativeBuildInputs = [copyDesktopItems];
+  nativeBuildInputs = [
+    copyDesktopItems
+    pkg-config
+  ];
 
   buildInputs = [
     alsa-lib
+    libnotify
   ];
 
   extraWrapProgramArgs = ''
