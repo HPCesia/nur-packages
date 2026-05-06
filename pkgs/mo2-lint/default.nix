@@ -134,11 +134,10 @@
 
     nativeBuildInputs = [makeWrapper];
 
-    buildInputs = [killall];
-
     postPatch = ''
       sed -i 's/Path(__file__)/Path(__file__).parent/g' src/mo2-lint/util/internal_file.py || true
       sed -i 's/copy2(src, dest)/copy2(src, dest); import os; os.chmod(dest, 0o644)/g' src/mo2-lint/__init__.py
+      sed -i 's/copy2(internal_path, output)/copy2(internal_path, output); import os; os.chmod(output, 0o644)/g' src/mo2-lint/util/nexus/install_handler.py
       sed -i '1s/^/import sys; sys.argv[0] = "${finalAttrs.pname}"\n/' src/mo2-lint/__init__.py
     '';
 
