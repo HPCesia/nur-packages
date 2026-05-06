@@ -3,7 +3,7 @@
   fetchFromGitHub,
   flutter341,
   libappindicator,
-  mpv,
+  mpv-unwrapped,
   copyDesktopItems,
   makeDesktopItem,
 }:
@@ -19,6 +19,7 @@ flutter341.buildFlutterApplication rec {
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
+
   gitHashes = {
     audio_service_win = "sha256-MkZj8EmIe6WQmDFT+lBLdHTBLjLwh1YonZoZYPG4W7I=";
     audio_tags_lofty = "sha256-FztC266h0z0+JtzXUIe8gEVHjVZuL6MJR1pOF1+0igk=";
@@ -38,7 +39,7 @@ flutter341.buildFlutterApplication rec {
   ];
 
   extraWrapProgramArgs = ''
-    --prefix LD_LIBRARY_PATH : $out/app/ParticleMusic/lib:${lib.makeLibraryPath [mpv]}
+    --prefix LD_LIBRARY_PATH : $out/app/ParticleMusic/lib:${lib.makeLibraryPath [mpv-unwrapped]}
   '';
 
   postFixup = ''

@@ -3,7 +3,7 @@
   fetchFromGitHub,
   flutter341,
   alsa-lib,
-  mpv,
+  mpv-unwrapped,
   copyDesktopItems,
   makeDesktopItem,
 }:
@@ -27,7 +27,7 @@ flutter341.buildFlutterApplication rec {
   ];
 
   extraWrapProgramArgs = ''
-    --prefix LD_LIBRARY_PATH : $out/app/musly/lib:${lib.makeLibraryPath [mpv]}
+    --prefix LD_LIBRARY_PATH : $out/app/musly/lib:${lib.makeLibraryPath [mpv-unwrapped]}
   '';
 
   postFixup = ''
