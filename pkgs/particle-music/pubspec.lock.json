@@ -96,7 +96,7 @@
       "description": {
         "path": ".",
         "ref": "main",
-        "resolved-ref": "bd0baa77d3e75f629b4f76fd9693fb2faac65a1d",
+        "resolved-ref": "77215997b1b3f5eebeace8643f1731a2793b9470",
         "url": "https://github.com/AfalpHy/audio_tags_lofty.git"
       },
       "source": "git",
@@ -131,6 +131,16 @@
       },
       "source": "hosted",
       "version": "1.4.1"
+    },
+    "charset": {
+      "dependency": "direct main",
+      "description": {
+        "name": "charset",
+        "sha256": "27802032a581e01ac565904ece8c8962564b1070690794f0072f6865958ce8b9",
+        "url": "https://pub.dev"
+      },
+      "source": "hosted",
+      "version": "2.0.1"
     },
     "clock": {
       "dependency": "transitive",
@@ -949,6 +959,16 @@
       },
       "source": "hosted",
       "version": "2.1.8"
+    },
+    "pool": {
+      "dependency": "direct main",
+      "description": {
+        "name": "pool",
+        "sha256": "978783255c543aa3586a1b3c21f6e9d720eb315376a915872c61ef8b5c20177d",
+        "url": "https://pub.dev"
+      },
+      "source": "hosted",
+      "version": "1.5.2"
     },
     "posix": {
       "dependency": "transitive",

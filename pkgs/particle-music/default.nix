@@ -9,20 +9,20 @@
 }:
 flutter341.buildFlutterApplication rec {
   pname = "particle-music";
-  version = "2.1.2";
+  version = "2.2.1";
 
   src = fetchFromGitHub {
     owner = "AfalpHy";
     repo = "ParticleMusic";
     tag = "v${version}";
-    hash = "sha256-sPNln6HAAg4W7fzEb18rbZroQTm/cUw5PrvFLsnqZ+Q=";
+    hash = "sha256-b6c5ZDmbTo0nRvoVMhAq+xbfTw0tpAwHE0cbW0qWXlU=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
 
   gitHashes = {
     audio_service_win = "sha256-MkZj8EmIe6WQmDFT+lBLdHTBLjLwh1YonZoZYPG4W7I=";
-    audio_tags_lofty = "sha256-FztC266h0z0+JtzXUIe8gEVHjVZuL6MJR1pOF1+0igk=";
+    audio_tags_lofty = "sha256-h1bflJY1SaqYWnqkz7D9thMaObXq8J0MriA6wDz0WdM=";
     media_kit_libs_android_audio = "sha256-27u8cPSThJFvYV1iMWjFMXfqrpQPtT9OwoezrKXtyt4=";
     media_kit_libs_ios_audio = "sha256-27u8cPSThJFvYV1iMWjFMXfqrpQPtT9OwoezrKXtyt4=";
     media_kit_libs_macos_audio = "sha256-27u8cPSThJFvYV1iMWjFMXfqrpQPtT9OwoezrKXtyt4=";
