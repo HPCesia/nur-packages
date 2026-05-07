@@ -161,14 +161,12 @@
       mkdir -p $out/bin
       makeWrapper ${runtime-python-deps}/bin/python $out/bin/${finalAttrs.pname} \
         --add-flags "$out/share/mo2-lint/src/mo2-lint/__init__.py" \
-        --chdir "$out/share/mo2-lint" \
         --prefix PYTHONPATH : "$out/share/mo2-lint/src" \
         --set MEIPASS "$out/share/mo2-lint" \
         --set _MEIPASS2 "$out/share/mo2-lint" \
         --set-default LOGURU_LEVEL "INFO"
       makeWrapper ${runtime-python-deps}/bin/python $out/share/mo2-lint/dist/nxm-handler \
         --add-flags "$out/share/mo2-lint/src/nxm-handler/__init__.py" \
-        --chdir "$out/share/mo2-lint" \
         --prefix PYTHONPATH : "$out/share/mo2-lint/src" \
         --set MEIPASS "$out/share/mo2-lint" \
         --set _MEIPASS2 "$out/share/mo2-lint" \
