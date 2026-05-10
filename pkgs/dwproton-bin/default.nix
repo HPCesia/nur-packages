@@ -5,11 +5,11 @@
 }:
 pkgs.stdenv.mkDerivation rec {
   pname = "dwproton";
-  version = "10.0-26";
+  version = "11.0-1";
 
   src = pkgs.fetchurl {
     url = "https://dawn.wine/dawn-winery/dwproton/releases/download/dwproton-${version}/dwproton-${version}-x86_64.tar.xz";
-    hash = "sha256-p7WGDt2JJX208VW0w9ozHolGBNNKEmDa71cZJy+r8Z8=";
+    hash = "sha256-5RjicnGSmlXHL/eEdTY+1aTHpkt2PcLo7FFRYBHPx2s=";
   };
 
   nativeBuildInputs = [pkgs.xz];
