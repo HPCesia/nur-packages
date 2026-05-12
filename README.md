@@ -8,7 +8,7 @@
 
 | **Path**             | **Name**                         | **Version**             | **License**     | **Description**                     |
 | -------------------- | -------------------------------- | ----------------------- | --------------- | ----------------------------------- |
-| `dwproton-bin`       | [dwproton-bin][dwproton]         | `10.0-26`               | BSD-3-Clause    | Modifed Proton builds               |
+| `dwproton-bin`       | [dwproton-bin][dwproton]         | `11.0-1`                | BSD-3-Clause    | Modifed Proton builds               |
 | `harmonoid`          | [harmonoid][harmonoid]           | `0.3.22`                | **Unfree**      | Music player                        |
 | `localbooru-bin`     | [localbooru-bin][localbooru]     | `1.6.1`                 | GPL-3.0         | Local booru collection              |
 | `mo2-lint`           | [mo2-lint][mo2-lint]             | `0-unstable-2026-03-24` | GPL-3.0         | Mod Organizer 2 installer for Linux |
@@ -16,6 +16,7 @@
 | `particle-music`     | [particle-music][particle-music] | `2.2.1`                 | Apache-2.0      | Music player                        |
 | `shimmie2`           | [shimmie2][shimmie2]             | `2.12.2`                | GPL-2.0         | Image gallery (aka booru)           |
 | `shimmie2-unwrapped` | [shimmie2-unwrapped][shimmie2]   | `2.12.2`                | GPL-2.0         | Image gallery (aka booru)           |
+| `spritz-wine-bin`    | [spritiz-wine-bin][spritz-wine]  | -                       | MIT             | Spritz-Wine builds for some games   |
 
 ### Helix Plugins
 
@@ -35,3 +36,4 @@
 [musly]: https://github.com/dddevid/Musly
 [particle-music]: https://github.com/AfalpHy/ParticleMusic
 [shimmie2]: https://github.com/shish/shimmie2
+[spritz-wine]: https://github.com/NelloKudo/spritz-wine

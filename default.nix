@@ -35,4 +35,6 @@
 
       shimmie2-unwrapped = callPackage ./pkgs/shimmie2/unwrapped.nix {};
       shimmie2 = callPackage ./pkgs/shimmie2 {};
+
+      spritz-wine-bin = callPackage ./pkgs/spritz-wine-bin {};
     }))

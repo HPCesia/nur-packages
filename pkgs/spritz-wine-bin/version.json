@@ -1,0 +1,50 @@
+{
+  "tkg": {
+    "11.7-1": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.7-1/spritz-wine-tkg-staging-wow64-11.7-1-x86_64.tar.xz",
+      "hash": "sha256-/vnPRFdysmqVGmbRmMOEkcjcKLoh8nz7i2L25kEEXEo="
+    },
+    "10.15-9": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-9/spritz-wine-tkg-staging-wow64-10.15-9-x86_64.tar.xz",
+      "hash": "sha256-9Cf4ymz9lrkRnggA80S+jdNWHBfc7nHNZHA+hr9wSwg="
+    },
+    "10.15-8": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-8/spritz-wine-tkg-staging-wow64-10.15-8-x86_64.tar.xz",
+      "hash": "sha256-R19R1R5KNHDeEIG/ORC3vsK3vyKFTyuwbGy9Jk+uSJs="
+    },
+    "10.15-7": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-7/spritz-wine-tkg-staging-wow64-10.15-7-x86_64.tar.xz",
+      "hash": "sha256-pXdwCqBG4dA6nmhJtkqH6QgARHuqs6Hhy9RmtJ1P3Wg="
+    },
+    "10.15-6": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-6/spritz-wine-tkg-staging-wow64-10.15-6-x86_64.tar.xz",
+      "hash": "sha256-mV9x/XlfoIUZR9HLd4SFM5pmO+TN6q1adCfmMRTLUxo="
+    }
+  },
+  "cachyos": {
+    "10.0-9": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-9/spritz-wine-cachyos-wow64-10.0-9-x86_64.tar.xz",
+      "hash": "sha256-N1RNAPTdtgpk5NRmiOvblkVL2X8WYw2X33vY3SBzmsY="
+    },
+    "10.0-8": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-8/spritz-wine-cachyos-wow64-10.0-8-x86_64.tar.xz",
+      "hash": "sha256-Cmw0D+yltE9osJvEd2lzMSYqR1gGuxWdC2v5yEmBd14="
+    },
+    "10.0-7": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-7/spritz-wine-cachyos-wow64-10.0-7-x86_64.tar.xz",
+      "hash": "sha256-M6MSIura3i5ZVqOJXV4WWuaz+io6tFscApwCDjHcyNQ="
+    },
+    "10.0-6": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-6/spritz-wine-cachyos-wow64-10.0-6-x86_64.tar.xz",
+      "hash": "sha256-PJVWc2s8XPd6qDGvsJ/VezN+3TXVdLHLl+Ne1XuC/Hk="
+    },
+    "10.0-5": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-5/spritz-wine-cachyos-wow64-10.0-5-x86_64.tar.xz",
+      "hash": "sha256-CYjHWQnAqUK2+5RrtzbEXVvuq6lF4sV98qPKcd9o1fk="
+    },
+    "10.0-4": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-4/spritz-wine-cachyos-wow64-10.0-4-x86_64.tar.xz",
+      "hash": "sha256-fjuLdaC5O0fPijPkfvSewaz5sGXPPSQajEJOG7IJ8Ng="
+    }
+  }
+}
