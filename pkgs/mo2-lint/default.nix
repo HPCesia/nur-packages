@@ -9,7 +9,6 @@
   unzip,
   makeWrapper,
   protontricks,
-  killall,
 }: let
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
@@ -178,7 +177,7 @@
     meta = {
       description = "An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python.";
       homepage = "https://github.com/Furglitch/modorganizer2-linux-installer/tree/rewrite";
-      licence = lib.licenses.gpl3Only;
+      licence = lib.licenses.gpl3;
       platforms = ["x86_64-linux"];
     };
   });
