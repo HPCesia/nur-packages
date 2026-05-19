@@ -4,36 +4,27 @@
 
 ## Packages List
 
+<!-- BEGIN_PACKAGE_TABLE -->
 ### Common
 
-| **Path**             | **Name**                         | **Version**             | **License**     | **Description**                     |
-| -------------------- | -------------------------------- | ----------------------- | --------------- | ----------------------------------- |
-| `dwproton-bin`       | [dwproton-bin][dwproton]         | `11.0-2`                | BSD-3-Clause    | Modifed Proton builds               |
-| `harmonoid`          | [harmonoid][harmonoid]           | `0.3.22`                | **Unfree**      | Music player                        |
-| `localbooru-bin`     | [localbooru-bin][localbooru]     | `1.6.1`                 | GPL-3.0         | Local booru collection              |
-| `mo2-lint`           | [mo2-lint][mo2-lint]             | `0-unstable-2026-03-24` | GPL-3.0         | Mod Organizer 2 installer for Linux |
-| `musly-player`       | [musly-player][musly]            | `1.0.13`                | CC-BY-NC-SA 4.0 | Subsonic-compatible music client    |
-| `particle-music`     | [particle-music][particle-music] | `2.2.1`                 | Apache-2.0      | Music player                        |
-| `shimmie2`           | [shimmie2][shimmie2]             | `2.12.2`                | GPL-2.0         | Image gallery (aka booru)           |
-| `shimmie2-unwrapped` | [shimmie2-unwrapped][shimmie2]   | `2.12.2`                | GPL-2.0         | Image gallery (aka booru)           |
-| `spritz-wine-bin`    | [spritiz-wine-bin][spritz-wine]  | -                       | MIT             | Spritz-Wine builds for some games   |
+| Path | Name | Version | License | Description |
+| --- | --- | --- | --- | --- |
+| `dwproton-bin` | [dwproton](https://dawn.wine/dawn-winery/dwproton) | `11.0-2` | [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) | Dawn Winery's custom Proton fork with fixes for various games |
+| `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.22` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
+| `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
+| `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer/tree/rewrite) | `0-unstable-2026-03-24` | [GPL-3.0](https://spdx.org/licenses/GPL-3.0.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
+| `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `1.0.13` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
+| `particle-music` | [particle-music](https://github.com/AfalpHy/ParticleMusic) | `2.2.1` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform local music player based on Flutter |
+| `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0](https://spdx.org/licenses/GPL-2.0.html) | An easy-to-install community image gallery (aka booru) |
+| `shimmie2-unwrapped` | [shimmie2-unwrapped](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0](https://spdx.org/licenses/GPL-2.0.html) | An easy-to-install community image gallery (aka booru) |
+| `spritz-wine-bin` | [spritz-wine-bin](https://github.com/NelloKudo/spritz-wine) | `-` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 
-### Helix Plugins
+### helixPlugins
 
-| **Path**                          | **Name**                                              | **Version**           | **License**   |
-| --------------------------------- | ----------------------------------------------------- | --------------------- | ------------- |
-| `helixPlugins.helix-file-watcher` | [helix-file-watcher][helixPlugins/helix-file-watcher] | `unstable-2026-03-08` | Not specified |
-| `helixPlugins.wakatime-hx`        | [wakatime.hx][helixPlugins/wakatime.hx]               | `unstable-2026-05-01` | MIT           |
-| `helixPlugins.scooter-hx`         | [sooter.hx][helixPlugins/scooter.hx]                  | `unstable-2026-03-15` | MIT           |
+| Path | Name | Version | License | Description |
+| --- | --- | --- | --- | --- |
+| `helixPlugins.helix-file-watcher` | [helix-file-watcher](https://github.com/mattwparas/helix-file-watcher) | `unstable-2026-03-08` | Not specified | Helix file watcher plugin |
+| `helixPlugins.scooter-hx` | [scooter.hx](https://github.com/thomasschafer/scooter.hx) | `unstable-2026-03-15` | [MIT](https://spdx.org/licenses/MIT.html) | Interactive find-and-replace Helix plugin |
+| `helixPlugins.wakatime-hx` | [wakatime.hx](https://github.com/Xerxes-2/wakatime.hx) | `unstable-2026-05-01` | [MIT](https://spdx.org/licenses/MIT.html) | Wakatime plugin for Helix Steel |
 
-[dwproton]: https://dawn.wine/dawn-winery/dwproton
-[harmonoid]: https://harmonoid.com/
-[helixPlugins/helix-file-watcher]: https://github.com/mattwparas/helix-file-watcher
-[helixPlugins/scooter.hx]: https://github.com/thomasschafer/scooter.hx
-[helixPlugins/wakatime.hx]: https://github.com/Xerxes-2/wakatime.hx
-[localbooru]: https://github.com/resucutie/localbooru
-[mo2-lint]: https://github.com/Furglitch/modorganizer2-linux-installer
-[musly]: https://github.com/dddevid/Musly
-[particle-music]: https://github.com/AfalpHy/ParticleMusic
-[shimmie2]: https://github.com/shish/shimmie2
-[spritz-wine]: https://github.com/NelloKudo/spritz-wine
+<!-- END_PACKAGE_TABLE -->

@@ -28,6 +28,6 @@ buildHelixPlugin {
   meta = {
     description = "Helix file watcher plugin";
     homepage = "https://github.com/mattwparas/helix-file-watcher";
-    license = lib.licenses.unfree; # Unclear licensing status. Marked as unfree.
+    # license = lib.licenses.unfree; # Unclear licensing status. Marked as unfree.
   };
 }
