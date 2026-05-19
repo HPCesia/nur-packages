@@ -33,6 +33,8 @@
 
       musly-player = callPackage ./pkgs/musly-player {};
 
+      nocturne = callPackage ./pkgs/nocturne {};
+
       particle-music = callPackage ./pkgs/particle-music {};
 
       shimmie2-unwrapped = callPackage ./pkgs/shimmie2/unwrapped.nix {};
