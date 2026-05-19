@@ -23,6 +23,7 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
+| `helixPlugins.file-tree` | [file-tree.hx](https://github.com/mattwparas/file-tree.hx) | `unstable-2026-05-01` | Not specified | File tree for helix, using Steel. |
 | `helixPlugins.helix-file-watcher` | [helix-file-watcher](https://github.com/mattwparas/helix-file-watcher) | `unstable-2026-03-08` | Not specified | Helix file watcher plugin |
 | `helixPlugins.scooter-hx` | [scooter.hx](https://github.com/thomasschafer/scooter.hx) | `unstable-2026-03-15` | [MIT](https://spdx.org/licenses/MIT.html) | Interactive find-and-replace Helix plugin |
 | `helixPlugins.wakatime-hx` | [wakatime.hx](https://github.com/Xerxes-2/wakatime.hx) | `unstable-2026-05-01` | [MIT](https://spdx.org/licenses/MIT.html) | Wakatime plugin for Helix Steel |
