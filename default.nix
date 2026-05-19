@@ -25,6 +25,8 @@
 
       helixPlugins = callPackage ./pkgs/helix-plugins {};
 
+      kelivo = callPackage ./pkgs/kelivo {};
+
       localbooru-bin = callPackage ./pkgs/localbooru-bin {};
 
       mo2-lint = callPackage ./pkgs/mo2-lint {};
