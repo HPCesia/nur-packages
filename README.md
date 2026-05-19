@@ -8,7 +8,7 @@
 
 | **Path**             | **Name**                         | **Version**             | **License**     | **Description**                     |
 | -------------------- | -------------------------------- | ----------------------- | --------------- | ----------------------------------- |
-| `dwproton-bin`       | [dwproton-bin][dwproton]         | `11.0-1`                | BSD-3-Clause    | Modifed Proton builds               |
+| `dwproton-bin`       | [dwproton-bin][dwproton]         | `11.0-2`                | BSD-3-Clause    | Modifed Proton builds               |
 | `harmonoid`          | [harmonoid][harmonoid]           | `0.3.22`                | **Unfree**      | Music player                        |
 | `localbooru-bin`     | [localbooru-bin][localbooru]     | `1.6.1`                 | GPL-3.0         | Local booru collection              |
 | `mo2-lint`           | [mo2-lint][mo2-lint]             | `0-unstable-2026-03-24` | GPL-3.0         | Mod Organizer 2 installer for Linux |
