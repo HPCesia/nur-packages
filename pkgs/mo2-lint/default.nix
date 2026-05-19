@@ -13,8 +13,8 @@
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
-    rev = "9901250df943d4c478ad98b2e4cc8e0193a07973";
-    hash = "sha256-Y6lkg3sCNKkudsrZnm0kyw9c/KFpfVhbh0DjRwjb7vw=";
+    rev = "1b65232ba514ad77fc881c366a4a00578040a436";
+    hash = "sha256-Ydpcv0TD/AlbNjX+fsYCjlmYSlJvKscGyAm5kTetKmQ=";
   };
 
   python-embed = fetchurl {
@@ -128,7 +128,7 @@
   mo2-lint = stdenv.mkDerivation (finalAttrs: {
     name = "mo2-lint";
     pname = "mo2-lint";
-    version = "0-unstable-2026-03-24";
+    version = "0-unstable-2026-05-18";
     src = mo2-lint-src;
 
     nativeBuildInputs = [makeWrapper];
@@ -176,8 +176,8 @@
 
     meta = {
       description = "An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python.";
-      homepage = "https://github.com/Furglitch/modorganizer2-linux-installer/tree/rewrite";
-      licence = lib.licenses.gpl3;
+      homepage = "https://github.com/Furglitch/modorganizer2-linux-installer";
+      licence = lib.licenses.gpl3Plus;
       platforms = ["x86_64-linux"];
     };
   });
