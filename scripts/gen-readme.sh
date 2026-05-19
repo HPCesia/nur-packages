@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 README="$REPO_DIR/README.md"
-TEMP_TABLE="/tmp/nur-packages-readme-table.md"
+TEMP_TABLE="${TMPDIR:-/tmp}/nur-packages-readme-table.md"
 SYSTEM="${NIX_SYSTEM:-x86_64-linux}"
 
 echo "==> Evaluating package metadata via nix..."
