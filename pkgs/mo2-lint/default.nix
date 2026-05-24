@@ -10,11 +10,13 @@
   makeWrapper,
   protontricks,
 }: let
+  version = "7.0.0-rc3";
+
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
-    rev = "1b65232ba514ad77fc881c366a4a00578040a436";
-    hash = "sha256-Ydpcv0TD/AlbNjX+fsYCjlmYSlJvKscGyAm5kTetKmQ=";
+    rev = version;
+    hash = "sha256-vFzpLmqjCwgsmQwLksY9VQFZ4BFeI8FmgPikV4VG2+g=";
   };
 
   python-embed = fetchurl {
@@ -115,6 +117,7 @@
       python-dotenv
       inquirerpy
       loguru
+      packaging
       patool
       psutil
       pydantic
@@ -128,16 +131,34 @@
   mo2-lint = stdenv.mkDerivation (finalAttrs: {
     name = "mo2-lint";
     pname = "mo2-lint";
-    version = "0-unstable-2026-05-18";
+
+    inherit version;
     src = mo2-lint-src;
 
     nativeBuildInputs = [makeWrapper];
 
     postPatch = ''
+      # Fix fallback path: upstream uses Path(__file__).resolve() which points
+      # to the py file itself, but joinpath needs a directory. Add .parent so the
+      # fallback resolves to src/mo2-lint/ where the cfg/dist symlinks live.
+      # `|| true` for forward-compat if upstream fixes this in a future release.
       sed -i 's/Path(__file__)/Path(__file__).parent/g' src/mo2-lint/util/internal_file.py || true
+
+      # Nix store files have 0o444 (read-only). When copy2 places config files
+      # from the store into ~/.config/mo2-lint/, they must be made writable.
       sed -i 's/copy2(src, dest)/copy2(src, dest); import os; os.chmod(dest, 0o644)/g' src/mo2-lint/__init__.py
+
+      # Same read-only Nix store issue for downloaded mod archives etc.
       sed -i 's/copy2(internal_path, output)/copy2(internal_path, output); import os; os.chmod(output, 0o644)/g' src/mo2-lint/util/nexus/install_handler.py
+
+      # click uses sys.argv[0] for prog_name in help/version output. Set it to
+      # the package name instead of a nix store path or plain "python".
       sed -i '1s/^/import sys; sys.argv[0] = "${finalAttrs.pname}"\n/' src/mo2-lint/__init__.py
+
+      # pre_init() is called at module import time (before CLI arg parsing) and
+      # hardcodes TRACE, dumping ~40 lines of config parse dumps and trace
+      # messages. Bump to WARNING so only real issues show during startup.
+      sed -i 's/add_loggers(log_level="TRACE", script="mo2-lint", process="pre-check")/add_loggers(log_level="WARNING", script="mo2-lint", process="pre-check")/' src/mo2-lint/__init__.py
     '';
 
     buildPhase = ''
