@@ -11,13 +11,13 @@
 }:
 flutter338.buildFlutterApplication {
   pname = "kelivo";
-  version = "1.1.13";
+  version = "1.1.15";
 
   src = fetchFromGitHub {
     owner = "Chevey339";
     repo = "kelivo";
-    rev = "7acbdc3d70c649076edceeaa9570ec7c6fa893ac";
-    hash = "sha256-87uAF9Tm+cZwbc2WS9g9+RpYCZuLJMwNKF/pCZSJQtU=";
+    rev = "87c85a51a381adfa2e378365eb1a1d7f54cc8ab0";
+    hash = "sha256-5fVZ3KVkmojjUIFAnkWMhnNz64QIIbSHUhwvLfQCIgo=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
