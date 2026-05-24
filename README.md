@@ -17,8 +17,8 @@
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `1.0.13` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
 | `nocturne` | [nocturne](https://github.com/Jeffser/Nocturne) | `1.1.1` | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) | An Adwaita Music Player / Library Manager  |
 | `particle-music` | [particle-music](https://github.com/AfalpHy/ParticleMusic) | `2.2.1` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform local music player based on Flutter |
-| `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0](https://spdx.org/licenses/GPL-2.0.html) | An easy-to-install community image gallery (aka booru) |
-| `shimmie2-unwrapped` | [shimmie2-unwrapped](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0](https://spdx.org/licenses/GPL-2.0.html) | An easy-to-install community image gallery (aka booru) |
+| `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0-or-later](https://spdx.org/licenses/GPL-2.0-or-later.html) | An easy-to-install community image gallery (aka booru) |
+| `shimmie2-unwrapped` | [shimmie2-unwrapped](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0-or-later](https://spdx.org/licenses/GPL-2.0-or-later.html) | An easy-to-install community image gallery (aka booru) |
 | `spritz-wine-bin` | [spritz-wine-bin](https://github.com/NelloKudo/spritz-wine) | `-` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 
 ### helixPlugins
