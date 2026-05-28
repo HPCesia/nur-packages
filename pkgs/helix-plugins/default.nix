@@ -7,6 +7,8 @@ lib.makeScope newScope (
     with self; {
       buildHelixPlugin = callPackage ./build-helix-plugin.nix {};
 
+      fcitx-focus = callPackage ./fcitx-focus.nix {};
+
       file-tree = callPackage ./file-tree-hx.nix {};
 
       helix-file-watcher = callPackage ./helix-file-watcher {};
