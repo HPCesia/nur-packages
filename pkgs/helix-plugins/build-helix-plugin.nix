@@ -12,36 +12,43 @@
   name ? "helixplugin-${pname}-${version}",
   ...
 } @ attrs:
-stdenv.mkDerivation (attrs
-  // {
-    inherit name;
+stdenv.mkDerivation (finalAttrs:
+    attrs
+    // {
+      inherit name;
 
-    nativeBuildInputs =
-      [steel]
-      ++ (lib.optionals (lib.hasAttr "cargoDeps" attrs) [
-        cargo
-        rustc
-        rustPlatform.cargoSetupHook
-      ]);
+      nativeBuildInputs =
+        [steel]
+        ++ (lib.optionals (lib.hasAttr "cargoDeps" attrs) [
+          cargo
+          rustc
+          rustPlatform.cargoSetupHook
+        ]);
 
-    buildPhase = ''
-      runHook preBuild
+      buildPhase = ''
+        runHook preBuild
 
-      export STEEL_HOME=$TMPDIR/target_steel
-      mkdir -p $STEEL_HOME
-      forge install
+        export STEEL_HOME=$TMPDIR/target_steel
+        mkdir -p $STEEL_HOME
+        forge install
 
-      mv $STEEL_HOME ./
+        mv $STEEL_HOME ./
 
-      runHook postBuild
-    '';
+        runHook postBuild
+      '';
 
-    installPhase = ''
-      runHook preInstall
+      installPhase = ''
+        runHook preInstall
 
-      mkdir -p $out
-      cp -r ./target_steel/* $out
+        mkdir -p $out/cogs
 
-      runHook postInstall
-    '';
-  })
+        if [ -z "$(find ./target_steel/native -maxdepth 0 -empty)" ]; then
+          cp -r ./target_steel/native $out/
+        fi
+
+        plugin_name=$(cd ./target_steel/cogs && ls -1 | head -n1)
+        ln -s "${finalAttrs.src}" "$out/cogs/$plugin_name"
+
+        runHook postInstall
+      '';
+    })
