@@ -15,8 +15,8 @@
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
-    rev = version;
-    hash = "sha256-vFzpLmqjCwgsmQwLksY9VQFZ4BFeI8FmgPikV4VG2+g=";
+    rev = "d402ed2a696f40e881e90feecfe3adc28a4df84a";
+    hash = "sha256-XZgI09b1h9U6znn6HC1kO5Hru9dVbZWOxlnwOCmih0k=";
   };
 
   python-embed = fetchurl {
