@@ -5,9 +5,7 @@
   stdenv,
   python3,
   fetchFromGitHub,
-  fetchFromGitLab,
   gtk4,
-  shared-mime-info,
   libadwaita,
   libsecret,
   meson,
@@ -19,85 +17,56 @@
   gst_all_1,
   gobject-introspection,
   xdg-user-dirs,
-}: let
-  gtk4New = gtk4.overrideAttrs (old: rec {
-    version = "4.22.1";
-    nativeBuildInputs = old.nativeBuildInputs ++ [shared-mime-info];
-    src = fetchFromGitLab {
-      domain = "gitlab.gnome.org";
-      owner = "GNOME";
-      repo = "gtk";
-      tag = version;
-      hash = "sha256-MTW5qCq3Sj0aSGPfGQphN1t4cs4rPbLPBc7BRgOktDE=";
-    };
-  });
-  libadwaitaNew = (
-    (libadwaita.overrideAttrs (_: rec {
-      version = "1.9.0";
-      src = fetchFromGitLab {
-        domain = "gitlab.gnome.org";
-        owner = "GNOME";
-        repo = "libadwaita";
-        tag = version;
-        hash = "sha256-JAKP8CjLCKGZvHoB26ih/J3xAru4wiVf/ObG0L8r4pY=";
-      };
-    })).override
-    {
-      gtk4 = gtk4New;
-    }
-  );
-in
-  stdenv.mkDerivation {
-    pname = "nocturne";
-    version = "1.1.1";
+}:
+stdenv.mkDerivation {
+  pname = "nocturne";
+  version = "1.2.2";
 
-    src = fetchFromGitHub {
-      owner = "Jeffser";
-      repo = "Nocturne";
-      rev = "74f1420a9a2171e48440686f083720ba49a554aa";
-      hash = "sha256-7B9wtuxfsF6brtLkIEeWII4IvXwdJHnZ1Wr3uLfoqHU=";
-    };
+  src = fetchFromGitHub {
+    owner = "Jeffser";
+    repo = "Nocturne";
+    rev = "4ff2e1d0cb0dce0f16b37dd6b207d2fdb36b1cb1";
+    hash = "sha256-SCK7XDifXlCcyJ0L9pXtQrAeQbqMcJAWUKyrVL4FEQE=";
+  };
 
-    nativeBuildInputs = [
-      (blueprint-compiler.override {
-        libadwaita = libadwaitaNew;
-      })
-      desktop-file-utils
-      gobject-introspection
-      meson
-      ninja
-      pkg-config
-      wrapGAppsHook4
-    ];
+  nativeBuildInputs = [
+    blueprint-compiler
+    desktop-file-utils
+    gobject-introspection
+    meson
+    ninja
+    pkg-config
+    wrapGAppsHook4
+  ];
 
-    buildInputs = [
-      gst_all_1.gstreamer
-      gtk4New
-      libadwaitaNew
-      libsecret
-      xdg-user-dirs
-      (python3.withPackages (py:
-        with py; [
-          colorthief
-          (callPackage ./mpris-server.nix {})
-          requests
-          syncedlyrics
-          tinytag
-        ]))
-    ];
+  buildInputs = [
+    gst_all_1.gstreamer
+    gtk4
+    libadwaita
+    libsecret
+    xdg-user-dirs
+    (python3.withPackages (py:
+      with py; [
+        colorthief
+        (callPackage ./mpris-server.nix {})
+        requests
+        syncedlyrics
+        tinytag
+      ]))
+  ];
 
-    preFixup = ''
-      gappsWrapperArgs+=(
-        --prefix GI_TYPELIB_PATH : "${gtk4New}/lib/girepository-1.0"
-        --prefix GI_TYPELIB_PATH : "${libadwaitaNew}/lib/girepository-1.0"
-        --prefix PATH : "${lib.getBin xdg-user-dirs}/bin"
-      )
-    '';
+  preFixup = ''
+    gappsWrapperArgs+=(
+      --prefix GI_TYPELIB_PATH : "${gtk4}/lib/girepository-1.0"
+      --prefix GI_TYPELIB_PATH : "${libadwaita}/lib/girepository-1.0"
+      --prefix PATH : "${lib.getBin xdg-user-dirs}/bin"
+    )
+  '';
 
-    meta = with lib; {
-      description = "An Adwaita Music Player / Library Manager ";
-      homepage = "https://github.com/Jeffser/Nocturne";
-      license = licenses.gpl3Plus;
-      platforms = platforms.linux;
-    };
-  }
+  meta = with lib; {
+    description = "An Adwaita Music Player / Library Manager ";
+    homepage = "https://github.com/Jeffser/Nocturne";
+    license = licenses.gpl3Plus;
+    platforms = platforms.linux;
+  };
+}
