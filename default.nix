@@ -21,6 +21,8 @@
     with self; {
       dwproton-bin = callPackage ./pkgs/dwproton-bin {};
 
+      elio = callPackage ./pkgs/elio {};
+
       harmonoid = callPackage ./pkgs/harmonoid {};
 
       helixPlugins = callPackage ./pkgs/helix-plugins {};
