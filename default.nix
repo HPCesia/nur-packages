@@ -6,8 +6,7 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-{pkgs ? import <nixpkgs> {}}:
-{
+{pkgs ? import <nixpkgs> {}}: {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
   lib = import ./lib {inherit pkgs;}; # functions
@@ -16,31 +15,29 @@
   # darwinModules = { }; # nix-darwin modules
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
+
+  dwproton-bin = pkgs.callPackage ./pkgs/dwproton-bin {};
+
+  elio = pkgs.callPackage ./pkgs/elio {};
+
+  harmonoid = pkgs.callPackage ./pkgs/harmonoid {};
+
+  helixPlugins = pkgs.callPackage ./pkgs/helix-plugins {};
+
+  kelivo = pkgs.callPackage ./pkgs/kelivo {};
+
+  localbooru-bin = pkgs.callPackage ./pkgs/localbooru-bin {};
+
+  mo2-lint = pkgs.callPackage ./pkgs/mo2-lint {};
+
+  musly-player = pkgs.callPackage ./pkgs/musly-player {};
+
+  nocturne = pkgs.callPackage ./pkgs/nocturne {};
+
+  particle-music = pkgs.callPackage ./pkgs/particle-music {};
+
+  shimmie2-unwrapped = pkgs.callPackage ./pkgs/shimmie2/unwrapped.nix {};
+  shimmie2 = pkgs.callPackage ./pkgs/shimmie2 {};
+
+  spritz-wine-bin = pkgs.callPackage ./pkgs/spritz-wine-bin {};
 }
-// (pkgs.lib.makeScope pkgs.newScope (self:
-    with self; {
-      dwproton-bin = callPackage ./pkgs/dwproton-bin {};
-
-      elio = callPackage ./pkgs/elio {};
-
-      harmonoid = callPackage ./pkgs/harmonoid {};
-
-      helixPlugins = callPackage ./pkgs/helix-plugins {};
-
-      kelivo = callPackage ./pkgs/kelivo {};
-
-      localbooru-bin = callPackage ./pkgs/localbooru-bin {};
-
-      mo2-lint = callPackage ./pkgs/mo2-lint {};
-
-      musly-player = callPackage ./pkgs/musly-player {};
-
-      nocturne = callPackage ./pkgs/nocturne {};
-
-      particle-music = callPackage ./pkgs/particle-music {};
-
-      shimmie2-unwrapped = callPackage ./pkgs/shimmie2/unwrapped.nix {};
-      shimmie2 = callPackage ./pkgs/shimmie2 {};
-
-      spritz-wine-bin = callPackage ./pkgs/spritz-wine-bin {};
-    }))

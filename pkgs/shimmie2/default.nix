@@ -2,7 +2,8 @@
   writeShellApplication,
   bubblewrap,
   php,
-  shimmie2-unwrapped,
+  callPackage,
+  shimmie2-unwrapped ? callPackage ./unwrapped.nix {},
   defaultDataDir ? "$HOME/.shimmie2",
 }:
 writeShellApplication {
