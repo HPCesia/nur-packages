@@ -26,6 +26,8 @@
 
   kelivo = pkgs.callPackage ./pkgs/kelivo {};
 
+  miaomiaowu = pkgs.callPackage ./pkgs/miaomiaowu {};
+
   localbooru-bin = pkgs.callPackage ./pkgs/localbooru-bin {};
 
   mo2-lint = pkgs.callPackage ./pkgs/mo2-lint {};

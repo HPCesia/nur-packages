@@ -14,6 +14,7 @@
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.22` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.1.15` | [AGPL-3.0-or-later](https://spdx.org/licenses/AGPL-3.0-or-later.html) | LLM chat client |
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
+| `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.7.8` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
 | `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer) | `7.0.0-rc3` | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `1.0.13` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
 | `nocturne` | [nocturne](https://github.com/Jeffser/Nocturne) | `1.2.2` | [GPL-3.0-or-later](https://spdx.org/licenses/GPL-3.0-or-later.html) | An Adwaita Music Player / Library Manager  |
