@@ -1,5 +1,5 @@
 {
-  # Add your NixOS modules here
-  #
   mihomo = ./mihomo.nix;
+
+  sub-store = ./sub-store.nix;
 }

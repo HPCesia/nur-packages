@@ -71,10 +71,18 @@ in {
         }
         // (lib.optionalAttrs (cfg.frontend.enable) {
           SUB_STORE_FRONTEND_PATH = "${cfg.frontend.package}";
-          SUB_STORE_FRONTEND_PORT = toString cfg.frontend.port;
           SUB_STORE_FRONTEND_HOST = cfg.frontend.address;
           SUB_STORE_FRONTEND_BACKEND_PATH = cfg.frontend.backendPath;
         })
+        // (
+          if (cfg.port == cfg.frontend.port)
+          then {
+            SUB_STORE_BACKEND_MERGE = true;
+          }
+          else {
+            SUB_STORE_FRONTEND_PORT = toString cfg.frontend.port;
+          }
+        )
         // cfg.environment.extra;
 
       serviceConfig =
