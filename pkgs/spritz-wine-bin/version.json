@@ -1,38 +1,4 @@
 {
-  "tkg": {
-    "11.9-1": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.9-1/spritz-wine-tkg-staging-wow64-11.9-1-x86_64.tar.xz",
-      "hash": "sha256-SlPhLNnOA5gt678UX5XkDLb5E236+I5UXZ/bA/i0AOQ="
-    },
-    "11.8-1": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.8-1/spritz-wine-tkg-staging-wow64-11.8-1-x86_64.tar.xz",
-      "hash": "sha256-1LOptV+uvNevV1CqvYWVPn6NLuF2spnZvZzF6nIUFEk="
-    },
-    "11.7-2": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.7-2/spritz-wine-tkg-staging-wow64-11.7-2-x86_64.tar.xz",
-      "hash": "sha256-D+Z/aYrZ8jcCw9tU12reWUW+4gUCVMCDXvtW090Yo24="
-    },
-    "11.7-1": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.7-1/spritz-wine-tkg-staging-wow64-11.7-1-x86_64.tar.xz",
-      "hash": "sha256-/vnPRFdysmqVGmbRmMOEkcjcKLoh8nz7i2L25kEEXEo="
-    },
-    "10.15-9": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-9/spritz-wine-tkg-staging-wow64-10.15-9-x86_64.tar.xz",
-      "hash": "sha256-9Cf4ymz9lrkRnggA80S+jdNWHBfc7nHNZHA+hr9wSwg="
-    },
-    "10.15-8": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-8/spritz-wine-tkg-staging-wow64-10.15-8-x86_64.tar.xz",
-      "hash": "sha256-R19R1R5KNHDeEIG/ORC3vsK3vyKFTyuwbGy9Jk+uSJs="
-    },
-    "10.15-7": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-7/spritz-wine-tkg-staging-wow64-10.15-7-x86_64.tar.xz",
-      "hash": "sha256-pXdwCqBG4dA6nmhJtkqH6QgARHuqs6Hhy9RmtJ1P3Wg="
-    },
-    "10.15-6": {
-      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-6/spritz-wine-tkg-staging-wow64-10.15-6-x86_64.tar.xz",
-      "hash": "sha256-mV9x/XlfoIUZR9HLd4SFM5pmO+TN6q1adCfmMRTLUxo="
-    }
-  },
   "cachyos": {
     "10.0-11": {
       "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-11/spritz-wine-cachyos-wow64-10.0-11-x86_64.tar.xz",
@@ -65,6 +31,50 @@
     "10.0-4": {
       "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-cachyos-aagl-v10.0-4/spritz-wine-cachyos-wow64-10.0-4-x86_64.tar.xz",
       "hash": "sha256-fjuLdaC5O0fPijPkfvSewaz5sGXPPSQajEJOG7IJ8Ng="
+    }
+  },
+  "dwproton": {
+    "11.0-3": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-dwproton-11.0-3/wine-dwproton-wow64-11.0-3-x86_64.tar.xz",
+      "hash": "sha256-DiwrBpHQohAtsn5dyaLqzeo5MZh5xy9XO3JpUGojAR0="
+    }
+  },
+  "tkg": {
+    "11.9-2": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/spritz-wine-11.9-2/spritz-wine-tkg-staging-wow64-11.9-2-x86_64.tar.xz",
+      "hash": "sha256-6RZicArA8N8pBJ3jOUsZl0mh6QzY3/m7Ed3k2sRUmJM="
+    },
+    "11.9-1": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.9-1/spritz-wine-tkg-staging-wow64-11.9-1-x86_64.tar.xz",
+      "hash": "sha256-SlPhLNnOA5gt678UX5XkDLb5E236+I5UXZ/bA/i0AOQ="
+    },
+    "11.8-1": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.8-1/spritz-wine-tkg-staging-wow64-11.8-1-x86_64.tar.xz",
+      "hash": "sha256-1LOptV+uvNevV1CqvYWVPn6NLuF2spnZvZzF6nIUFEk="
+    },
+    "11.7-2": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.7-2/spritz-wine-tkg-staging-wow64-11.7-2-x86_64.tar.xz",
+      "hash": "sha256-D+Z/aYrZ8jcCw9tU12reWUW+4gUCVMCDXvtW090Yo24="
+    },
+    "11.7-1": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v11.7-1/spritz-wine-tkg-staging-wow64-11.7-1-x86_64.tar.xz",
+      "hash": "sha256-/vnPRFdysmqVGmbRmMOEkcjcKLoh8nz7i2L25kEEXEo="
+    },
+    "10.15-9": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-9/spritz-wine-tkg-staging-wow64-10.15-9-x86_64.tar.xz",
+      "hash": "sha256-9Cf4ymz9lrkRnggA80S+jdNWHBfc7nHNZHA+hr9wSwg="
+    },
+    "10.15-8": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-8/spritz-wine-tkg-staging-wow64-10.15-8-x86_64.tar.xz",
+      "hash": "sha256-R19R1R5KNHDeEIG/ORC3vsK3vyKFTyuwbGy9Jk+uSJs="
+    },
+    "10.15-7": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-7/spritz-wine-tkg-staging-wow64-10.15-7-x86_64.tar.xz",
+      "hash": "sha256-pXdwCqBG4dA6nmhJtkqH6QgARHuqs6Hhy9RmtJ1P3Wg="
+    },
+    "10.15-6": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-6/spritz-wine-tkg-staging-wow64-10.15-6-x86_64.tar.xz",
+      "hash": "sha256-mV9x/XlfoIUZR9HLd4SFM5pmO+TN6q1adCfmMRTLUxo="
     }
   }
 }
