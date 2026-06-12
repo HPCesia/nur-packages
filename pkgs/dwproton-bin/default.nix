@@ -1,18 +1,19 @@
 # Modify From https://github.com/powerofthe69/nix-gaming-edge
 {
-  pkgs,
+  lib,
+  stdenv,
+  fetchzip,
   renameInternalName ? true,
 }:
-pkgs.stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "dwproton";
-  version = "11.0-2";
+  version = "11.0-4";
 
-  src = pkgs.fetchurl {
-    url = "https://dawn.wine/dawn-winery/dwproton/releases/download/dwproton-${version}/dwproton-${version}-x86_64.tar.xz";
-    hash = "sha256-h8agHudNEYccm55l2M2TN6YvRvQHEqnEdj+NVxUXlds=";
+  src = fetchzip {
+    url = "https://dawn.wine/dawn-winery/dwproton/releases/download/dwproton-11.0-4/dwproton-11.0-4-x86_64.tar.xz";
+    hash = "sha256-t5dLTIN+KSCQIG8spzN6soOhfCnnc+OgBoQWBdtJQFM=";
   };
 
-  nativeBuildInputs = [pkgs.xz];
   outputs = [
     "out"
     "steamcompattool"
@@ -25,11 +26,14 @@ pkgs.stdenv.mkDerivation rec {
     mkdir -p $steamcompattool
     cp -r ./* $steamcompattool/
 
+    # Remove broken symlinks from upstream tarball
+    find $steamcompattool -xtype l -delete
+
     # Modify the display name
     sed -i -r "s|\"display_name\".*|\"display_name\" \"dwproton\"|" \
       $steamcompattool/compatibilitytool.vdf
 
-    ${pkgs.lib.optionalString renameInternalName ''
+    ${lib.optionalString renameInternalName ''
       sed -i -r 's|"dwproton-[^"]*"(\s*// Internal name)|"dwproton"\1|' $steamcompattool/compatibilitytool.vdf
     ''}
 
@@ -45,10 +49,10 @@ pkgs.stdenv.mkDerivation rec {
     runHook postInstall
   '';
 
-  meta = with pkgs.lib; {
+  meta = {
     description = "Dawn Winery's custom Proton fork with fixes for various games";
     homepage = "https://dawn.wine/dawn-winery/dwproton";
-    license = licenses.bsd3;
+    license = lib.licenses.bsd3;
     platforms = ["x86_64-linux"];
   };
 }
