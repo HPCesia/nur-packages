@@ -2,6 +2,9 @@
   "expand_attrs": {
     "helixPlugins": {
       "heading": true
+    },
+    "spritz-wine-bin": {
+      "heading": false
     }
   }
 }

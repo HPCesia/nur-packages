@@ -1,22 +1,30 @@
 {
   lib,
-  newScope,
+  fetchzip,
   buildHelper,
 }: let
-  versions = lib.importJSON ./version.json;
+  versionData = lib.importJSON ./version.json;
+  versions = versionData.tkg;
+
+  allVersions =
+    lib.mapAttrs (
+      version: src:
+        buildHelper {
+          name = "spritz-wine-tkg";
+          inherit version;
+          src = fetchzip src;
+        }
+    )
+    versions;
+
+  latestKey = builtins.head (lib.sort (a: b: builtins.compareVersions a b > 0) (builtins.attrNames versions));
+  latest = allVersions.${latestKey};
+
+  versionedAttrs =
+    lib.mapAttrs' (
+      version: drv:
+        lib.nameValuePair (lib.replaceStrings ["."] ["_"] version) drv
+    )
+    allVersions;
 in
-  lib.makeScope newScope (
-    self:
-      lib.mapAttrs' (
-        version: src:
-          lib.nameValuePair (lib.replaceString "." "_" version) (
-            self.callPackage ({fetchzip}:
-              buildHelper {
-                name = "spritz-wine-tkg";
-                inherit version;
-                src = fetchzip src;
-              }) {}
-          )
-      )
-      versions.tkg
-  )
+  latest // versionedAttrs
