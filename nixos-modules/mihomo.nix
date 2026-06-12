@@ -113,7 +113,10 @@ in {
           ];
 
           ExecStartPre = "+${pkgs.writeShellScript "mihomo-pre-start" ''
-            ${utils.genJqSecretsReplacementSnippet cfg.config "/run/mihomo/config.yaml"}
+            ${utils.genJqSecretsReplacementSnippet cfg.config "/run/mihomo/config.json"}
+            ${lib.getExe pkgs.yq-go} --input-format 'json' --output-format 'yaml' \
+                /run/mihomo/config.json > /run/mihomo/config.yaml
+            rm /run/mihomo/config.json
             chown --reference=/run/mihomo /run/mihomo/config.yaml
           ''}";
 
