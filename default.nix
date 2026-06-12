@@ -36,7 +36,6 @@
 
   particle-music = pkgs.callPackage ./pkgs/particle-music {};
 
-  shimmie2-unwrapped = pkgs.callPackage ./pkgs/shimmie2/unwrapped.nix {};
   shimmie2 = pkgs.callPackage ./pkgs/shimmie2 {};
 
   spritz-wine-bin = pkgs.callPackage ./pkgs/spritz-wine-bin {};
