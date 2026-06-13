@@ -11,7 +11,7 @@ lib.makeScope newScope (
 
       file-tree = callPackage ./file-tree-hx.nix {};
 
-      helix-file-watcher = callPackage ./helix-file-watcher {};
+      helix-file-watcher = callPackage ./helix-file-watcher.nix {};
 
       scooter-hx = callPackage ./scooter-hx.nix {};
 
