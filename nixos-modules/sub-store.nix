@@ -77,7 +77,7 @@ in {
         // (
           if (cfg.port == cfg.frontend.port)
           then {
-            SUB_STORE_BACKEND_MERGE = true;
+            SUB_STORE_BACKEND_MERGE = "true";
           }
           else {
             SUB_STORE_FRONTEND_PORT = toString cfg.frontend.port;
