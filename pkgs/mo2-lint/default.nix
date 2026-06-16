@@ -34,7 +34,7 @@
 
     outputHashMode = "recursive";
     outputHashAlgo = "sha256";
-    outputHash = "sha256-Oa7kncQpU4HXv/aq7cXrJ5xW+MiNG8P14NJw8Kp2cXA=";
+    outputHash = "sha256-n9/lI0r3vi0KzkXlkKImOLBOBJu8OT2lYSr/l2gY+dI=";
 
     nativeBuildInputs = [python3 python3Packages.pip];
 
@@ -47,7 +47,18 @@
         --python-version 3.13 \
         --only-binary=:all: \
         --dest $out \
-        pyinstaller loguru pyyaml pip pefile pywin32-ctypes colorama win32-setctime
+        altgraph==0.17.5 \
+        colorama==0.4.6 \
+        loguru==0.7.3 \
+        packaging==26.2 \
+        pefile==2024.8.26 \
+        pip==26.1.2 \
+        pyinstaller==6.21.0 \
+        pyinstaller_hooks_contrib==2026.6 \
+        pywin32-ctypes==0.2.3 \
+        pyyaml==6.0.3 \
+        setuptools==82.0.1 \
+        win32-setctime==1.2.0
     '';
   };
 
