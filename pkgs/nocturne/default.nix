@@ -20,13 +20,13 @@
 }:
 stdenv.mkDerivation {
   pname = "nocturne";
-  version = "1.2.2";
+  version = "1.3.0";
 
   src = fetchFromGitHub {
     owner = "Jeffser";
     repo = "Nocturne";
-    rev = "4ff2e1d0cb0dce0f16b37dd6b207d2fdb36b1cb1";
-    hash = "sha256-SCK7XDifXlCcyJ0L9pXtQrAeQbqMcJAWUKyrVL4FEQE=";
+    rev = "0df23a0886aab0abb229309858979d05a4c29c26";
+    hash = "sha256-z7E4PVSp7HDarnJeQFrJ/HznxUT+b6xTF0QTm5ffvTQ=";
   };
 
   nativeBuildInputs = [
@@ -48,7 +48,7 @@ stdenv.mkDerivation {
     (python3.withPackages (py:
       with py; [
         colorthief
-        (callPackage ./mpris-server.nix {})
+        mpris-server
         requests
         syncedlyrics
         tinytag
