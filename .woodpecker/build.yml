@@ -3,10 +3,9 @@
 labels:
   tier: high
 
-# NOTE: For my machine's network reason, disable this CI
-# when:
-#   - event: [push, manual]
-#     branch: main
+when:
+  - event: [push, manual]
+    branch: main
 
 matrix:
   NIX_BRANCH:
