@@ -10,13 +10,13 @@
   makeWrapper,
   protontricks,
 }: let
-  version = "7.0.0-rc3";
+  version = "7.0.0-rc5";
 
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
-    rev = "d402ed2a696f40e881e90feecfe3adc28a4df84a";
-    hash = "sha256-XZgI09b1h9U6znn6HC1kO5Hru9dVbZWOxlnwOCmih0k=";
+    rev = "78c1d4aa617216b4d77e917a8ce48e39e3d7335e";
+    hash = "sha256-9sWaKHyXwZUPLk865QHVnowM8H15H4NkXzuo/jH7lkg=";
   };
 
   python-embed = fetchurl {
