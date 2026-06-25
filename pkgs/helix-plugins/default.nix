@@ -15,6 +15,8 @@ lib.makeScope newScope (
 
       helix-file-watcher = callPackage ./helix-file-watcher.nix {};
 
+      oil = callPackage ./oil.nix {};
+
       scooter = callPackage ./scooter.nix {};
       scooter-hx = selfLib.renamePackage "helixPlugins.scooter-hx" "helixPlugins.scooter" self.scooter;
 
