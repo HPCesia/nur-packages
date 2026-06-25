@@ -21,7 +21,7 @@
 | `particle-music` | [particle-music](https://github.com/AfalpHy/ParticleMusic) | `2.2.1` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform local music player based on Flutter |
 | `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0-or-later](https://spdx.org/licenses/GPL-2.0-or-later.html) | An easy-to-install community image gallery (aka booru) |
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
-| `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-3](https://github.com/NelloKudo/spritz-wine) | `11.0-3` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
+| `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-4](https://github.com/NelloKudo/spritz-wine) | `11.0-4` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.tkg` | [spritz-wine-tkg-bin-11.9-2](https://github.com/NelloKudo/spritz-wine) | `11.9-2` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 
 ### helixPlugins
