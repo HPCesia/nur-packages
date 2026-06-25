@@ -80,7 +80,8 @@ let
             license = getLic v.meta;
           }};
         in
-          if isDer v then [ pkgInfo ]
+          if isDer v then
+            if v.meta.nurRenamed or false then [] else [ pkgInfo ]
           else if isScope v then collect fullPrefix v
           else []
       ) names;

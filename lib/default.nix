@@ -1,7 +1,13 @@
-{ pkgs }:
-
+{pkgs}:
 with pkgs.lib; {
-  # Add your library functions here
-  #
-  # hexint = x: hexvals.${toLower x};
+  renamePackage = oldName: newName: drv:
+    derivations.warnOnInstantiate
+    "${oldName} has been renamed to ${newName}"
+    (drv.overrideAttrs (old: {
+      meta =
+        (old.meta or {})
+        // {
+          nurRenamed = true;
+        };
+    }));
 }
