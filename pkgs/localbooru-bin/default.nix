@@ -52,7 +52,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/resucutie/localbooru";
     mainProgram = "localbooru";
     platforms = ["x86_64-linux"];
-    license = lib.licenses.gpl3Plus;
+    license = lib.licenses.gpl3Only;
     sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
   };
 }

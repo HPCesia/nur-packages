@@ -209,7 +209,7 @@
     meta = {
       description = "An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python.";
       homepage = "https://github.com/Furglitch/modorganizer2-linux-installer";
-      licence = lib.licenses.gpl3Plus;
+      licence = lib.licenses.gpl3Only;
       platforms = ["x86_64-linux"];
     };
   });

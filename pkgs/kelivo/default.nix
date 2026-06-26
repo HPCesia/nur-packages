@@ -58,7 +58,7 @@ flutter338.buildFlutterApplication {
   meta = {
     description = "LLM chat client";
     homepage = "https://github.com/Chevey339/kelivo";
-    license = lib.licenses.agpl3Plus;
+    license = lib.licenses.agpl3Only;
     platforms = ["x86_64-linux" "aarch64-linux"];
   };
 }

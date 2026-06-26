@@ -24,7 +24,7 @@
     meta = {
       description = "An easy-to-install community image gallery (aka booru)";
       homepage = "https://github.com/shish/shimmie2";
-      licence = lib.licenses.gpl2Plus;
+      licence = lib.licenses.gpl2Only;
       platforms = lib.platforms.linux;
     };
   })

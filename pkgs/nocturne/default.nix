@@ -66,7 +66,7 @@ stdenv.mkDerivation {
   meta = with lib; {
     description = "An Adwaita Music Player / Library Manager ";
     homepage = "https://github.com/Jeffser/Nocturne";
-    license = licenses.gpl3Plus;
+    license = licenses.gpl3Only;
     platforms = platforms.linux;
   };
 }
