@@ -21,7 +21,7 @@ steps:
       - install -Dm644 /etc/nix/nix.conf ./.nixconf
       - echo "access-tokens = github.com=$${GITHUB_TOKEN}" >> ./.nixconf/nix.conf
       - echo "experimental-features = nix-command flakes" >> ./.nixconf/nix.conf
-      - echo "NIX_PATH=https://github.com/NixOS/nixpkgs/archive/refs/heads/${NIX_BRANCH}.tar.gz" >> .envvars
+      - echo "NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/${NIX_BRANCH}.tar.gz" >> .envvars
       - echo "NIX_CONF_DIR=$(realpath ./.nixconf)" >> .envvars
     environment:
       GITHUB_TOKEN:
