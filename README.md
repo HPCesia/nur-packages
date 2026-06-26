@@ -1,5 +1,7 @@
 # nur-packages
 
+[![status-badge](https://ci.codeberg.org/api/badges/17214/status.svg)](https://ci.codeberg.org/repos/17214)
+
 **My personal [NUR](https://github.com/nix-community/NUR) repository**
 
 ## Packages List
