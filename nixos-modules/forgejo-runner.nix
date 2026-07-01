@@ -24,7 +24,7 @@
   _tokenXorTokenFile = server:
     (server.token == null && server.tokenFile != null)
     || (server.token != null && server.tokenFile == null);
-  tokenXorTokenFile = instance: lib.any _tokenXorTokenFile (lib.attrValues instance.servers);
+  tokenXorTokenFile = instance: (lib.attrValues instance.servers) == [] || lib.any _tokenXorTokenFile (lib.attrValues instance.servers);
 
   utils = pkgs.callPackage "${pkgs.path}/nixos/lib/utils.nix" {};
 in {
