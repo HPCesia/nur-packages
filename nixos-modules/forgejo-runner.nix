@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   lib,
   config,
@@ -27,7 +26,7 @@
     || (server.token != null && server.tokenFile == null);
   tokenXorTokenFile = instance: lib.any _tokenXorTokenFile (lib.attrValues instance.servers);
 
-  utils = pkgs.callPackage "${inputs.nixpkgs}/nixos/lib/utils.nix" {};
+  utils = pkgs.callPackage "${pkgs.path}/nixos/lib/utils.nix" {};
 in {
   options.services.forgejo-runner = {
     package = lib.mkPackageOption pkgs "forgejo-runner" {};
