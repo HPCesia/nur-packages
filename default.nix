@@ -23,6 +23,8 @@ in {
 
   elio = callPackage ./pkgs/elio {};
 
+  gitmal = callPackage ./pkgs/gitmal {};
+
   harmonoid = callPackage ./pkgs/harmonoid {};
 
   helixPlugins = callPackage ./pkgs/helix-plugins {};
