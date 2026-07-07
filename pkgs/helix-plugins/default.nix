@@ -15,6 +15,8 @@ lib.makeScope newScope (
 
       forest = callPackage ./forest.nix {};
 
+      glyph = callPackage ./glyph.nix {};
+
       helix-file-watcher = callPackage ./helix-file-watcher.nix {};
 
       oil = callPackage ./oil.nix {};
