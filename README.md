@@ -38,7 +38,7 @@
 | `helixPlugins.glyph` | [glyph.hx](https://github.com/Ra77a3l3-jar/glyph.hx) | `unstable-2026-07-06` | [MIT](https://spdx.org/licenses/MIT.html) | Shared icon library for Helix plugins |
 | `helixPlugins.helix-file-watcher` | [helix-file-watcher](https://github.com/mattwparas/helix-file-watcher) | `unstable-2026-05-21` | Not specified | Helix file watcher plugin |
 | `helixPlugins.oil` | [oil.hx](https://github.com/Ra77a3l3-jar/oil.hx) | `unstable-2026-06-21` | [MIT](https://spdx.org/licenses/MIT.html) | File Manager in a buffer for Helix editor |
-| `helixPlugins.scooter` | [scooter.hx](https://github.com/thomasschafer/scooter.hx) | `unstable-2026-03-15` | [MIT](https://spdx.org/licenses/MIT.html) | Interactive find-and-replace Helix plugin |
+| `helixPlugins.scooter` | [scooter.hx](https://github.com/thomasschafer/scooter.hx) | `unstable-2026-06-22` | [MIT](https://spdx.org/licenses/MIT.html) | Interactive find-and-replace Helix plugin |
 | `helixPlugins.trail` | [trail.hx](https://github.com/Ra77a3l3-jar/trail.hx) | `unstable-2026-07-06` | [MIT](https://spdx.org/licenses/MIT.html) | A recent-project picker for Helix |
 | `helixPlugins.wakatime` | [wakatime.hx](https://github.com/Xerxes-2/wakatime.hx) | `unstable-2026-05-01` | [MIT](https://spdx.org/licenses/MIT.html) | Wakatime plugin for Helix Steel |
 
