@@ -21,7 +21,7 @@
 | `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.7.8` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
 | `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer) | `7.0.0-rc5` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `1.0.13` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
-| `nocturne` | [nocturne](https://github.com/Jeffser/Nocturne) | `1.3.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An Adwaita Music Player / Library Manager  |
+| `nocturne` | [nocturne](https://github.com/Jeffser/Nocturne) | `1.3.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An Adwaita Music Player / Library Manager  |
 | `particle-music` | [particle-music](https://github.com/AfalpHy/ParticleMusic) | `2.2.1` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform local music player based on Flutter |
 | `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.2` | [GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html) | An easy-to-install community image gallery (aka booru) |
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
