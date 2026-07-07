@@ -13,6 +13,8 @@ lib.makeScope newScope (
       file-tree = callPackage ./file-tree.nix {};
       file-tree-hx = selfLib.renamePackage "helixPlugins.file-tree-hx" "helixPlugins.file-tree" self.file-tree;
 
+      forest = callPackage ./forest.nix {};
+
       helix-file-watcher = callPackage ./helix-file-watcher.nix {};
 
       oil = callPackage ./oil.nix {};
