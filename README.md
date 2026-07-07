@@ -11,6 +11,7 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
+| `artalk` | [artalk](https://github.com/ArtalkJS/Artalk) | `2.9.1` | [MIT](https://spdx.org/licenses/MIT.html) | Self-hosted comment system |
 | `dwproton-bin` | [dwproton](https://dawn.wine/dawn-winery/dwproton) | `11.0-5` | [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) | Dawn Winery's custom Proton fork with fixes for various games |
 | `elio` | [elio](https://github.com/elio-fm/elio) | `1.8.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |

@@ -19,6 +19,8 @@ in {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  artalk = callPackage ./pkgs/artalk {};
+
   dwproton-bin = callPackage ./pkgs/dwproton-bin {};
 
   elio = callPackage ./pkgs/elio {};
