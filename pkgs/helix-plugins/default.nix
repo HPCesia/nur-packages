@@ -24,6 +24,8 @@ lib.makeScope newScope (
       scooter = callPackage ./scooter.nix {};
       scooter-hx = selfLib.renamePackage "helixPlugins.scooter-hx" "helixPlugins.scooter" self.scooter;
 
+      trail = callPackage ./trail.nix {};
+
       wakatime = callPackage ./wakatime.nix {};
       wakatime-hx = selfLib.renamePackage "helixPlugins.wakatime-hx" "helixPlugins.wakatime" self.wakatime;
     }
