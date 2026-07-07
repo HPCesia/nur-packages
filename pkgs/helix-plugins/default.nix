@@ -19,6 +19,8 @@ lib.makeScope newScope (
 
       helix-file-watcher = callPackage ./helix-file-watcher.nix {};
 
+      notify = callPackage ./notify.nix {};
+
       oil = callPackage ./oil.nix {};
 
       scooter = callPackage ./scooter.nix {};
