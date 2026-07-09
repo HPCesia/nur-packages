@@ -6,13 +6,13 @@
 }:
 buildHelixPlugin {
   pname = "forest.hx";
-  version = "unstable-2026-07-07";
+  version = "unstable-2026-07-08";
 
   src = fetchFromGitHub {
     owner = "Ra77a3l3-jar";
     repo = "forest.hx";
-    rev = "612036f93b2bbff6b4c68022544d8f0d8480c4fd";
-    hash = "sha256-km3DCDyPd9RGZ7ekbWplSoG40+zpRQvYKIpPGGyBPzU=";
+    rev = "3c599e23c05af95b799f8560c2489cc2821d9c91";
+    hash = "sha256-scg0cV4yQoyf/9MzMNvWnDi5cbjTqLO7KGANc6DqAt0=";
   };
 
   meta = {
