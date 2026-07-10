@@ -6,7 +6,7 @@
 }:
 buildHelixPlugin rec {
   pname = "helix-file-watcher";
-  version = "unstable-2026-05-21";
+  version = "0-unstable-2026-05-21";
 
   src = fetchFromGitHub {
     owner = "mattwparas";

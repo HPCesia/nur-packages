@@ -6,7 +6,7 @@
 }:
 buildHelixPlugin {
   pname = "notify.hx";
-  version = "unstable-2026-05-30";
+  version = "0-unstable-2026-05-30";
 
   src = fetchFromGitHub {
     owner = "chuwy";

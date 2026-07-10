@@ -6,7 +6,7 @@
 }:
 buildHelixPlugin {
   pname = "forest.hx";
-  version = "unstable-2026-07-08";
+  version = "0-unstable-2026-07-08";
 
   src = fetchFromGitHub {
     owner = "Ra77a3l3-jar";

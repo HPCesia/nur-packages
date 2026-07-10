@@ -6,7 +6,7 @@
 }:
 buildHelixPlugin rec {
   pname = "scooter.hx";
-  version = "unstable-2026-06-22";
+  version = "0-unstable-2026-06-22";
 
   src = fetchFromGitHub {
     owner = "thomasschafer";

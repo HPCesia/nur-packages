@@ -6,7 +6,7 @@
 }:
 buildHelixPlugin rec {
   pname = "helix-fcitx-focus";
-  version = "unstable-2026-05-06";
+  version = "0-unstable-2026-05-06";
 
   src = fetchFromGitHub {
     owner = "mtul0729";

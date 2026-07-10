@@ -5,7 +5,7 @@
 }:
 buildHelixPlugin {
   pname = "file-tree.hx";
-  version = "unstable-2026-05-01";
+  version = "0-unstable-2026-05-01";
 
   src = fetchFromGitHub {
     owner = "mattwparas";
