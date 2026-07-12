@@ -2,10 +2,9 @@
   lib,
   pkgs,
   config,
-  inputs,
   ...
 }: let
-  utils = import "${inputs.nixpkgs}/nixos/lib/utils.nix" {inherit lib pkgs config;};
+  utils = pkgs.callPackage "${pkgs.path}/nixos/lib/utils.nix" {};
 
   cfg = config.services.mihomo;
 
