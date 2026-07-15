@@ -34,7 +34,7 @@
 | --- | --- | --- | --- | --- |
 | `helixPlugins.fcitx-focus` | [helix-fcitx-focus](https://github.com/mtul0729/helix-fcitx-focus) | `0-unstable-2026-05-06` | [MIT](https://spdx.org/licenses/MIT.html) | Steel native module for Helix fcitx5 focus and mode switching |
 | `helixPlugins.file-tree` | [file-tree.hx](https://github.com/mattwparas/file-tree.hx) | `0-unstable-2026-05-01` | Not specified | File tree for helix, using Steel. |
-| `helixPlugins.forest` | [forest.hx](https://github.com/Ra77a3l3-jar/forest.hx) | `0-unstable-2026-07-10` | [MIT](https://spdx.org/licenses/MIT.html) | A file explorer tree for Helix |
+| `helixPlugins.forest` | [forest.hx](https://github.com/Ra77a3l3-jar/forest.hx) | `0-unstable-2026-07-13` | [MIT](https://spdx.org/licenses/MIT.html) | A file explorer tree for Helix |
 | `helixPlugins.glyph` | [glyph.hx](https://github.com/Ra77a3l3-jar/glyph.hx) | `0-unstable-2026-07-06` | [MIT](https://spdx.org/licenses/MIT.html) | Shared icon library for Helix plugins |
 | `helixPlugins.helix-file-watcher` | [helix-file-watcher](https://github.com/mattwparas/helix-file-watcher) | `0-unstable-2026-05-21` | Not specified | Helix file watcher plugin |
 | `helixPlugins.notify` | [notify.hx](https://github.com/chuwy/notify.hx) | `0-unstable-2026-05-30` | [MIT](https://spdx.org/licenses/MIT.html) | A notification engine for Helix |
