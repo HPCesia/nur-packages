@@ -20,13 +20,13 @@
 }:
 stdenv.mkDerivation {
   pname = "nocturne";
-  version = "1.3.1";
+  version = "1.3.2";
 
   src = fetchFromGitHub {
     owner = "Jeffser";
     repo = "Nocturne";
-    rev = "469023d6c96450d3954364c961819ed0858d4d81";
-    hash = "sha256-Hh4ix8w0z+s3QC5/UOZKtiAqmJ8yGqrkQnBqThTAFSo=";
+    rev = "cf2b2866b5028725cba988ee9155fde2e6eedbe0";
+    hash = "sha256-mtt7+6OG2/oSFv15DsXuid1E8cJgDFK6ek/S48EPXK4=";
   };
 
   nativeBuildInputs = [
