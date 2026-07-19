@@ -13,7 +13,7 @@
 | --- | --- | --- | --- | --- |
 | `artalk` | [artalk](https://github.com/ArtalkJS/Artalk) | `2.9.1` | [MIT](https://spdx.org/licenses/MIT.html) | Self-hosted comment system |
 | `dwproton-bin` | [dwproton](https://dawn.wine/dawn-winery/dwproton) | `11.0-6` | [BSD-3-Clause](https://spdx.org/licenses/BSD-3-Clause.html) | Dawn Winery's custom Proton fork with fixes for various games |
-| `elio` | [elio](https://github.com/elio-fm/elio) | `1.10.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
+| `elio` | [elio](https://github.com/elio-fm/elio) | `1.11.1` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.22` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.1.15` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
