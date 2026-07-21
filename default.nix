@@ -48,4 +48,6 @@ in {
   shimmie2 = callPackage ./pkgs/shimmie2 {};
 
   spritz-wine-bin = callPackage ./pkgs/spritz-wine-bin {};
+
+  steelix = callPackage ./pkgs/steelix {};
 }

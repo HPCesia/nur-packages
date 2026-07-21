@@ -27,6 +27,7 @@
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-4](https://github.com/NelloKudo/spritz-wine) | `11.0-4` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.tkg` | [spritz-wine-tkg-bin-11.9-2](https://github.com/NelloKudo/spritz-wine) | `11.9-2` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
+| `steelix` | [steelix](https://github.com/mattwparas/helix) | `0-unstable-2026-07-18` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Helix editor with Steel (Scheme) scripting support |
 
 ### helixPlugins
 
