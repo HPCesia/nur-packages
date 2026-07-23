@@ -41,6 +41,7 @@
 | `helixPlugins.notify` | [notify.hx](https://github.com/chuwy/notify.hx) | `0-unstable-2026-05-30` | [MIT](https://spdx.org/licenses/MIT.html) | A notification engine for Helix |
 | `helixPlugins.oil` | [oil.hx](https://github.com/Ra77a3l3-jar/oil.hx) | `0-unstable-2026-06-21` | [MIT](https://spdx.org/licenses/MIT.html) | File Manager in a buffer for Helix editor |
 | `helixPlugins.scooter` | [scooter.hx](https://github.com/thomasschafer/scooter.hx) | `0-unstable-2026-06-22` | [MIT](https://spdx.org/licenses/MIT.html) | Interactive find-and-replace Helix plugin |
+| `helixPlugins.smith` | [smith.hx](https://github.com/kn66/smith.hx) | `0-unstable-2026-07-12` | [MIT](https://spdx.org/licenses/MIT.html) | A declarative Helix plugin manager |
 | `helixPlugins.trail` | [trail.hx](https://github.com/Ra77a3l3-jar/trail.hx) | `0-unstable-2026-07-06` | [MIT](https://spdx.org/licenses/MIT.html) | A recent-project picker for Helix |
 | `helixPlugins.wakatime` | [wakatime.hx](https://github.com/Xerxes-2/wakatime.hx) | `0-unstable-2026-05-01` | [MIT](https://spdx.org/licenses/MIT.html) | Wakatime plugin for Helix Steel |
 
