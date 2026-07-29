@@ -7,11 +7,11 @@
 }:
 stdenv.mkDerivation {
   pname = "dwproton";
-  version = "11.0-6";
+  version = "11.0-9";
 
   src = fetchzip {
-    url = "https://dawn.wine/dawn-winery/dwproton/releases/download/dwproton-11.0-6/dwproton-11.0-6-x86_64.tar.xz";
-    hash = "sha256-7nj4uEr8FnCWThD4A2iBynfxTFfNeScxMHshEzgN9F4=";
+    url = "https://dawn.wine/dawn-winery/dwproton/releases/download/dwproton-11.0-9/dwproton-11.0-9-x86_64.tar.xz";
+    hash = "sha256-kWMYlF0H9iYjRcKmq/G4Ws4sTl+gN8nSFgfYvAOd754=";
   };
 
   outputs = [
