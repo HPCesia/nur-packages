@@ -1,7 +1,7 @@
 # Modify from https://github.com/bet4it/nur-packages/blob/cad7c4585ef10f189352ca894866d345081a44ce/pkgs/kelivo/package.nix
 {
   lib,
-  flutter338,
+  flutter344,
   fetchFromGitHub,
   copyDesktopItems,
   makeDesktopItem,
@@ -9,15 +9,15 @@
   keybinder3,
   libappindicator,
 }:
-flutter338.buildFlutterApplication {
+flutter344.buildFlutterApplication {
   pname = "kelivo";
-  version = "1.1.15";
+  version = "1.2.4";
 
   src = fetchFromGitHub {
     owner = "Chevey339";
     repo = "kelivo";
-    rev = "87c85a51a381adfa2e378365eb1a1d7f54cc8ab0";
-    hash = "sha256-5fVZ3KVkmojjUIFAnkWMhnNz64QIIbSHUhwvLfQCIgo=";
+    rev = "6a293ef085bd4830905b2e199908af396d86c075";
+    hash = "sha256-D2Si7LAzp7C+g13uCUov3o6fLeQ3gz0hxJ3enhipqsE=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
