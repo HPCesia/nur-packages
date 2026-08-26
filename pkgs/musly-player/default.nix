@@ -11,13 +11,13 @@
 }:
 flutter341.buildFlutterApplication rec {
   pname = "musly-player";
-  version = "1.0.13";
+  version = "2.0.1";
 
   src = fetchFromGitHub {
     owner = "dddevid";
     repo = "Musly";
     tag = "v${version}";
-    hash = "sha256-ddPX+3MRTf978G41yTVT7KoEgxvEDlsvBkPFTFlhwwY=";
+    hash = "sha256-NQm4BEgquCxzt1DJoU8KmTv8FxByz9ZvZhWnpx2dBoc=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
@@ -44,7 +44,7 @@ flutter341.buildFlutterApplication rec {
     (makeDesktopItem {
       name = "Musly";
       exec = pname;
-      icon = "${src}/logo.png";
+      icon = "${src}/assets/logo.png";
       genericName = "Music Player";
       desktopName = "Musly";
       categories = ["AudioVideo" "Audio" "Player" "Music"];
