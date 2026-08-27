@@ -19,9 +19,9 @@ in {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  artalk = callPackage ./pkgs/artalk {};
+  artalk = selfLib.deprecatePackage "artalk" "use the package of the same name from nixpkgs instead" pkgs.artalk;
 
-  dwproton-bin = callPackage ./pkgs/dwproton-bin {};
+  dwproton-bin = selfLib.deprecatePackage "dwproton-bin" "use the package of the same name from nixpkgs instead" pkgs.dwproton-bin;
 
   elio = callPackage ./pkgs/elio {};
 
@@ -41,7 +41,7 @@ in {
 
   musly-player = callPackage ./pkgs/musly-player {};
 
-  nocturne = callPackage ./pkgs/nocturne {};
+  nocturne = selfLib.deprecatePackage "nocturne" "use the package of the same name from nixpkgs instead" pkgs.nocturne;
 
   particle-music = callPackage ./pkgs/particle-music {};
 

@@ -10,4 +10,16 @@ with pkgs.lib; {
           nurRenamed = true;
         };
     }));
+
+  deprecatePackage = name: reason: drv:
+    derivations.warnOnInstantiate
+    "${name} has been deprecated: ${reason}"
+    (drv.overrideAttrs (old: {
+      meta =
+        (old.meta or {})
+        // {
+          nurDeprecated = true;
+          nurDeprecatedReason = reason;
+        };
+    }));
 }

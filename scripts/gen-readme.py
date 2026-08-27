@@ -81,7 +81,7 @@ let
           }};
         in
           if isDer v then
-            if v.meta.nurRenamed or false then [] else [ pkgInfo ]
+            if v.meta.nurRenamed or v.meta.nurDeprecated or false then [] else [ pkgInfo ]
           else if isScope v then collect fullPrefix v
           else []
       ) names;
