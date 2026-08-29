@@ -2,7 +2,6 @@
   lib,
   buildHelixPlugin,
   fetchFromGitHub,
-  ...
 }:
 buildHelixPlugin {
   pname = "smith.hx";

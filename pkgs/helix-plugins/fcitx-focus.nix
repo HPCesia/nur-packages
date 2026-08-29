@@ -1,10 +1,9 @@
 {
   lib,
-  buildHelixPlugin,
+  buildHelixPluginWithNative,
   fetchFromGitHub,
-  rustPlatform,
 }:
-buildHelixPlugin rec {
+buildHelixPluginWithNative {
   pname = "helix-fcitx-focus";
   version = "0-unstable-2026-05-06";
 
@@ -15,10 +14,7 @@ buildHelixPlugin rec {
     hash = "sha256-VmJV2uy4uiTJSzUszaTJjkcmQI8fc1i6HPk+phT/36Q=";
   };
 
-  cargoDeps = rustPlatform.fetchCargoVendor {
-    inherit src;
-    hash = "sha256-LVNwdhn2h50un3r391JwPJiPhlTmRPl863rqB595RKo=";
-  };
+  cargoHash = "sha256-LVNwdhn2h50un3r391JwPJiPhlTmRPl863rqB595RKo=";
 
   meta = {
     description = "Steel native module for Helix fcitx5 focus and mode switching";
