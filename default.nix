@@ -9,7 +9,7 @@
 {pkgs ? import <nixpkgs> {}}: let
   selfLib = import ./lib {inherit pkgs;};
   callPackage = pkgs.lib.callPackageWith (pkgs // {inherit selfLib;});
-in {
+in rec {
   # The `lib`, `overlays`, `nixosModules`, `homeModules`,
   # `darwinModules` and `flakeModules` names are special
   lib = selfLib;
@@ -43,11 +43,13 @@ in {
 
   nocturne = selfLib.deprecatePackage "nocturne" "use the package of the same name from nixpkgs instead" pkgs.nocturne;
 
-  particle-music = callPackage ./pkgs/particle-music {};
-
   shimmie2 = callPackage ./pkgs/shimmie2 {};
 
   spritz-wine-bin = callPackage ./pkgs/spritz-wine-bin {};
 
   steelix = callPackage ./pkgs/steelix {};
+
+  sylvakru = callPackage ./pkgs/sylvakru {};
+
+  particle-music = selfLib.renamePackage "particle-music" "sylvakru" sylvakru;
 }
