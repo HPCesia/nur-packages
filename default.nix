@@ -41,6 +41,8 @@ in rec {
 
   musly-player = callPackage ./pkgs/musly-player {};
 
+  navibeat = callPackage ./pkgs/navibeat {};
+
   nocturne = selfLib.deprecatePackage "nocturne" "use the package of the same name from nixpkgs instead" pkgs.nocturne;
 
   shimmie2 = callPackage ./pkgs/shimmie2 {};
