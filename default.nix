@@ -54,4 +54,6 @@ in rec {
   sylvakru = callPackage ./pkgs/sylvakru {};
 
   particle-music = selfLib.renamePackage "particle-music" "sylvakru" sylvakru;
+
+  realitlscanner = callPackage ./pkgs/realitlscanner {};
 }
