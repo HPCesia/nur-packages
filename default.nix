@@ -51,6 +51,8 @@ in rec {
 
   steelix = callPackage ./pkgs/steelix {};
 
+  stinkpot = callPackage ./pkgs/stinkpot {};
+
   sylvakru = callPackage ./pkgs/sylvakru {};
 
   particle-music = selfLib.renamePackage "particle-music" "sylvakru" sylvakru;
