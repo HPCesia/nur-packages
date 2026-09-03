@@ -5,20 +5,20 @@
   callPackage,
   miaomiaowu-frontend ? callPackage ./frontend.nix {},
 }: let
-  version = "0.7.8";
+  version = "0.8.3";
 
   src = fetchFromGitHub {
     owner = "iluobei";
     repo = "miaomiaowu";
     tag = "v${version}";
-    hash = "sha256-zdD2aW0zqVqBSuzJv5C5hG+hd4/SFkWJo2F5ohWzoKM=";
+    hash = "sha256-LEcU5v5khTGktSeOzf0CLv2iuK4NsLuQwGUCcUKEvJo=";
   };
 in
   buildGoModule (finalAttrs: {
     pname = "miaomiaowu";
     inherit version src;
 
-    vendorHash = "sha256-Q3dpE3sncuSOVjDa2LgevNGb9VJj7mR0cn/sZiGRxjI=";
+    vendorHash = "sha256-2w8sBHpRaSv2RqwNRxNE8Q2O1A0b96WdHsugrWrSixE=";
 
     subPackages = ["./cmd/server"];
 
