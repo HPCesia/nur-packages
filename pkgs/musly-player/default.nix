@@ -11,13 +11,13 @@
 }:
 flutter341.buildFlutterApplication rec {
   pname = "musly-player";
-  version = "2.0.1";
+  version = "2.0.2";
 
   src = fetchFromGitHub {
     owner = "dddevid";
     repo = "Musly";
     tag = "v${version}";
-    hash = "sha256-NQm4BEgquCxzt1DJoU8KmTv8FxByz9ZvZhWnpx2dBoc=";
+    hash = "sha256-gVCkeSkeu8CKZijgoj1L7LX5gxguWMbPo/SG8KfFzC0=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
