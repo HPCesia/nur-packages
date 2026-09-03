@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Run passthru.updateScript-based package updates (see scripts/update.nix).
+#
+# Usage:
+#   ./scripts/update-package <attr-path> [<attr-path>...]
+#   ./scripts/update-package --all
+#   ./scripts/update-package --list
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+case "${1:-}" in
+--all)
+	exec nix-shell scripts/update.nix --argstr packages ""
+	;;
+--list)
+	exec nix-instantiate --eval --json --strict \
+		-E 'map (p: p.attrPath) (import ./scripts/update-packages.nix {})'
+	;;
+"")
+	echo "Usage: $0 <attr-path>... | --all | --list" >&2
+	exit 1
+	;;
+*)
+	exec nix-shell scripts/update.nix --argstr packages "$*"
+	;;
+esac

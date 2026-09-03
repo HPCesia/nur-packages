@@ -1,0 +1,17 @@
+name: "Auto update packages"
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "13 20 * * *"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  auto-update:
+    runs-on: nixos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Update packages and open PRs
+        run: |
+          nix-shell shell.nix --run './scripts/update-ci.sh'
