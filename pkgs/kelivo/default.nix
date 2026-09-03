@@ -9,15 +9,15 @@
   keybinder3,
   libappindicator,
 }:
-flutter344.buildFlutterApplication {
+flutter344.buildFlutterApplication (finalAttrs: {
   pname = "kelivo";
-  version = "1.2.4";
+  version = "1.2.5";
 
   src = fetchFromGitHub {
     owner = "Chevey339";
     repo = "kelivo";
-    rev = "6a293ef085bd4830905b2e199908af396d86c075";
-    hash = "sha256-D2Si7LAzp7C+g13uCUov3o6fLeQ3gz0hxJ3enhipqsE=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-SZ8EbO00zkQpTOzvsfsV8KskajgDERzNyeWspHo5LIs=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
@@ -61,4 +61,4 @@ flutter344.buildFlutterApplication {
     license = lib.licenses.agpl3Only;
     platforms = ["x86_64-linux" "aarch64-linux"];
   };
-}
+})
