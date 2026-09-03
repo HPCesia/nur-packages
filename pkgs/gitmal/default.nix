@@ -2,6 +2,7 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  nix-update-script,
 }:
 buildGoModule {
   pname = "gitmal";
@@ -15,6 +16,8 @@ buildGoModule {
   };
 
   vendorHash = "sha256-12kkN1rh9OWG8YIr9KyHtm1TFJQPUtSpD6ub8zokAhQ=";
+
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = " A static page generator for repos";

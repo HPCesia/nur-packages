@@ -14,6 +14,8 @@ stdenvNoCC.mkDerivation rec {
   pname = "harmonoid";
   version = "0.3.32";
 
+  passthru.updateScript = [(toString ./update.sh)];
+
   src =
     if stdenvNoCC.isAarch64
     then

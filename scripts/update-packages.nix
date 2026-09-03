@@ -73,7 +73,7 @@ Usage:
                 then meta.position or null
                 else null;
             in
-              lib.optional (script != null) {
+              lib.optional (script != null && !(meta.nurRenamed or false) && !(meta.nurDeprecated or false)) {
                 inherit name;
                 attrPath = lib.concatStringsSep "." (prefix ++ [name]);
                 inherit script;
@@ -93,8 +93,10 @@ Usage:
 
   # Deduplicate: aliased attributes (e.g. particle-music -> sylvakru) share
   # the same derivation and would otherwise run twice. Prefer the dotted
-  # attrPath (scope members) over the bare one.
+  # attrPath (scope members) over the bare one, and the non-renamed /
+  # non-deprecated attribute over its aliases.
   deduplicated = let
+    isClean = p: !(p.meta.nurRenamed or false) && !(p.meta.nurDeprecated or false);
     grouped =
       lib.foldl (
         acc: cur: let
@@ -102,7 +104,11 @@ Usage:
             lib.concatStringsSep "\n" (cur.script ++ [(toString cur.position)])
           );
           prev = acc.${key} or null;
-          keep = prev == null || (lib.hasInfix "." cur.attrPath && !lib.hasInfix "." prev.attrPath);
+          keep =
+            prev
+            == null
+            || (isClean cur && !isClean prev)
+            || (isClean cur == isClean prev && lib.hasInfix "." cur.attrPath && !lib.hasInfix "." prev.attrPath);
         in
           acc
           // {

@@ -2,6 +2,7 @@
   lib,
   rustPlatform,
   fetchFromGitHub,
+  nix-update-script,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "elio";
@@ -16,6 +17,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-gnUPukVYevg6JpPIVqDt/9LMtb3FmC8NNgJH6AU8fBE=";
   doCheck = false;
+
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support";

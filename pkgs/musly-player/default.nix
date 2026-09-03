@@ -9,9 +9,14 @@
   copyDesktopItems,
   makeDesktopItem,
 }:
+let
+  updateScript = [(toString ./update.sh)];
+in
 flutter341.buildFlutterApplication rec {
   pname = "musly-player";
   version = "2.0.2";
+
+  passthru = {inherit updateScript;};
 
   src = fetchFromGitHub {
     owner = "dddevid";

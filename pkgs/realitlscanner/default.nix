@@ -2,6 +2,7 @@
   lib,
   buildGoModule,
   fetchFromGitHub,
+  nix-update-script,
 }:
 buildGoModule {
   pname = "realitlscanner";
@@ -15,6 +16,8 @@ buildGoModule {
   };
 
   vendorHash = "sha256-qNAGWAWfin8KwlMwLdEFAzGuqkOYDHcHeTXp8hk3tfw=";
+
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "A TLS server certificate scanner for real IP discovery";

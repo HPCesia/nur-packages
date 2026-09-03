@@ -5,25 +5,27 @@
   fetchurl,
 }: let
   pname = "navibeat";
-  version = "0.9.98";
+  version = "0.9.99";
 
   src =
     if stdenv.hostPlatform.isAarch64
     then
       fetchurl {
         url = "https://github.com/nenadjokic/navibeat-linux/releases/download/v${version}/NaviBeat-linux-aarch64-slim.AppImage";
-        hash = "sha256-3AetyYvDsroV0QVSfI8DCEMC9yJQw2jqR6ajxHPwudg=";
+        hash = "sha256-S9bkO6gMMf4ltIcoFSIUU5MqzknX1ipfFtMY2painXc=";
       }
     else
       fetchurl {
         url = "https://github.com/nenadjokic/navibeat-linux/releases/download/v${version}/NaviBeat-linux-x86_64-slim.AppImage";
-        hash = "sha256-M3LUMASNQINl/QrZ39vWriEdXK41wFUtUMAf2nzLSho=";
+        hash = "sha256-LVvV/fi00FcPwJ+rLgEBmSI0eDOCT9JmztgBGfcgXeE=";
       };
 
   appimageContents = appimageTools.extract {inherit pname version src;};
 in
   appimageTools.wrapType2 {
     inherit pname version src;
+
+    passthru.updateScript = [(toString ./update.sh)];
 
     extraPkgs = pkgs: [
       pkgs.vlc

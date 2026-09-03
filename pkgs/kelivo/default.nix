@@ -8,6 +8,7 @@
   gst_all_1,
   keybinder3,
   libappindicator,
+  nix-update-script,
 }:
 flutter344.buildFlutterApplication (finalAttrs: {
   pname = "kelivo";
@@ -19,6 +20,8 @@ flutter344.buildFlutterApplication (finalAttrs: {
     tag = "v${finalAttrs.version}";
     hash = "sha256-SZ8EbO00zkQpTOzvsfsV8KskajgDERzNyeWspHo5LIs=";
   };
+
+  passthru.updateScript = nix-update-script {};
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
 

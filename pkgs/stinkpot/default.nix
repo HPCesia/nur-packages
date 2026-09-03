@@ -13,6 +13,8 @@ buildGoModule {
     hash = "sha256-HwBtYIwtj5HkUwAv5haoei0Be6dXdLKilbA/A76L46c=";
   };
 
+  passthru.updateScript = [(toString ./update.sh)];
+
   vendorHash = "sha256-IVPACl1oWnBKGzcXvG5gzev8MwhzIKNI7zwEKJjhFc8=";
 
   env.CGO_ENABLED = "0";

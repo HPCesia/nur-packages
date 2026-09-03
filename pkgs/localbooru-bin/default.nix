@@ -8,12 +8,15 @@
   makeWrapper,
   wrapGAppsHook3,
   mpv-unwrapped,
+  nix-update-script,
   xdg-user-dirs,
   zenity,
 }:
 stdenv.mkDerivation rec {
   pname = "localbooru-bin";
   version = "1.6.1";
+
+  passthru.updateScript = nix-update-script {};
 
   src = fetchurl {
     url = "https://github.com/resucutie/localbooru/releases/download/${version}/localbooru-linux.deb";
