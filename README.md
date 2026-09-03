@@ -31,7 +31,7 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
-| `helixPlugins.fcitx-focus` | [helix-fcitx-focus](https://github.com/mtul0729/helix-fcitx-focus) | `0-unstable-2026-05-06` | [MIT](https://spdx.org/licenses/MIT.html) | Steel native module for Helix fcitx5 focus and mode switching |
+| `helixPlugins.fcitx-focus` | [helix-fcitx-focus](https://github.com/mtul0729/helix-fcitx-focus) | `0-unstable-2026-06-29` | [MIT](https://spdx.org/licenses/MIT.html) | Steel native module for Helix fcitx5 focus and mode switching |
 | `helixPlugins.smith` | [smith.hx](https://github.com/kn66/smith.hx) | `0-unstable-2026-07-12` | [MIT](https://spdx.org/licenses/MIT.html) | A declarative Helix plugin manager |
 
 <!-- END_PACKAGE_TABLE -->

@@ -5,13 +5,13 @@
 }:
 buildHelixPluginWithNative {
   pname = "helix-fcitx-focus";
-  version = "0-unstable-2026-05-06";
+  version = "0-unstable-2026-06-29";
 
   src = fetchFromGitHub {
     owner = "mtul0729";
     repo = "helix-fcitx-focus";
-    rev = "d0797824239a8e7254c7e8ed8d686d14c7657b0f";
-    hash = "sha256-VmJV2uy4uiTJSzUszaTJjkcmQI8fc1i6HPk+phT/36Q=";
+    rev = "d2572a926b9c71ee1f61666cff27a76096d1b323";
+    hash = "sha256-Uo24YqtguCZD1nJL16+cI3GNJQfssFP2rRgUBSBNUxM=";
   };
 
   cargoHash = "sha256-LVNwdhn2h50un3r391JwPJiPhlTmRPl863rqB595RKo=";
