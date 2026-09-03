@@ -9,7 +9,7 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
-| `elio` | [elio](https://github.com/elio-fm/elio) | `1.11.1` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
+| `elio` | [elio](https://github.com/elio-fm/elio) | `1.12.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.32` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.2.5` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |

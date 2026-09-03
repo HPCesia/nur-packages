@@ -3,18 +3,18 @@
   rustPlatform,
   fetchFromGitHub,
 }:
-rustPlatform.buildRustPackage {
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "elio";
-  version = "1.11.1";
+  version = "1.12.0";
 
   src = fetchFromGitHub {
     owner = "elio-fm";
     repo = "elio";
-    rev = "754f8457b12608025e5eb6051a749e7ca8c89f8e";
-    hash = "sha256-SrYRn+JZXSy7F3Jfx1u2ht/lL31FG+BtxzuIu4kHeek=";
+    tag = "v${finalAttrs.version}";
+    hash = "sha256-FT5F3L8IgbX6vPjEd+TSudoyIZe4TX7no0FF9C75aaU=";
   };
 
-  cargoHash = "sha256-W7C3e8pRCPoorxQhs1jkpnTKNn3oTEOhI1tG3HZFxpw=";
+  cargoHash = "sha256-gnUPukVYevg6JpPIVqDt/9LMtb3FmC8NNgJH6AU8fBE=";
   doCheck = false;
 
   meta = {
@@ -24,4 +24,4 @@ rustPlatform.buildRustPackage {
     mainProgram = "elio";
     platforms = lib.platforms.linux;
   };
-}
+})
