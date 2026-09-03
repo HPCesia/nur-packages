@@ -10,6 +10,7 @@
 stdenvNoCC.mkDerivation (args
   // {
     name = "${name}-bin-${version}";
+    passthru.updateScript = [(toString ./update.sh)];
     installPhase = "cp -r $src $out";
     meta = {
       description = "Spritz-Wine builds for some games ";

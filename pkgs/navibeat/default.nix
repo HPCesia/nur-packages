@@ -25,6 +25,8 @@ in
   appimageTools.wrapType2 {
     inherit pname version src;
 
+    passthru.updateScript = [(toString ./update.sh)];
+
     extraPkgs = pkgs: [
       pkgs.vlc
     ];

@@ -57,6 +57,12 @@
     pname = "steelix";
     strictDeps = true;
 
+    passthru =
+      (previousAttrs.passthru or {})
+      // {
+        updateScript = [(toString ./update.sh)];
+      };
+
     meta =
       previousAttrs.meta
       // {

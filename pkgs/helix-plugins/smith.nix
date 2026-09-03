@@ -2,6 +2,7 @@
   lib,
   buildHelixPlugin,
   fetchFromGitHub,
+  nix-update-script,
 }:
 buildHelixPlugin {
   pname = "smith.hx";
@@ -12,6 +13,10 @@ buildHelixPlugin {
     repo = "smith.hx";
     rev = "a5ddb240aad6999b7c095ceb352b90a12167034e";
     hash = "sha256-ccLoMI9E3v8BLPLKtrjg1c0UK5VgdBH6L/d59HaQ4yg=";
+  };
+
+  passthru.updateScript = nix-update-script {
+    extraArgs = ["--version" "branch"];
   };
 
   meta = {

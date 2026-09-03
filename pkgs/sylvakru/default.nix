@@ -10,9 +10,14 @@
   copyDesktopItems,
   makeDesktopItem,
 }:
+let
+  updateScript = [(toString ./update.sh)];
+in
 flutter344.buildFlutterApplication rec {
   pname = "sylvakru";
   version = "3.6.0";
+
+  passthru = {inherit updateScript;};
 
   src = fetchFromGitHub {
     owner = "AfalpHy";

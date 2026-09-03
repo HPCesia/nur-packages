@@ -2,6 +2,7 @@
   lib,
   buildHelixPluginWithNative,
   fetchFromGitHub,
+  nix-update-script,
 }:
 buildHelixPluginWithNative {
   pname = "helix-fcitx-focus";
@@ -15,6 +16,10 @@ buildHelixPluginWithNative {
   };
 
   cargoHash = "sha256-LVNwdhn2h50un3r391JwPJiPhlTmRPl863rqB595RKo=";
+
+  passthru.updateScript = nix-update-script {
+    extraArgs = ["--version" "branch"];
+  };
 
   meta = {
     description = "Steel native module for Helix fcitx5 focus and mode switching";

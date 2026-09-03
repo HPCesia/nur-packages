@@ -8,6 +8,7 @@
   wineWow64Packages,
   unzip,
   makeWrapper,
+  nix-update-script,
   protontricks,
 }: let
   version = "7.0.0-rc7";
@@ -145,6 +146,15 @@
 
     inherit version;
     src = mo2-lint-src;
+
+    passthru.updateScript = nix-update-script {
+      extraArgs = [
+        "--version"
+        "unstable"
+        "--version-regex"
+        "^([0-9.]+-rc[0-9]+)$"
+      ];
+    };
 
     nativeBuildInputs = [makeWrapper];
 
