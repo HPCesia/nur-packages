@@ -41,6 +41,10 @@
     "11.0-3": {
       "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-dwproton-11.0-3/wine-dwproton-wow64-11.0-3-x86_64.tar.xz",
       "hash": "sha256-DiwrBpHQohAtsn5dyaLqzeo5MZh5xy9XO3JpUGojAR0="
+    },
+    "11.0-11": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-dwproton-11.0-11/wine-dwproton-wow64-11.0-11-x86_64.tar.xz",
+      "hash": "sha256-u7S2MDfpMzRX1fJbzGQmPrGMNr+Xszran/5QKsLLFsU="
     }
   },
   "tkg": {
@@ -79,6 +83,10 @@
     "10.15-6": {
       "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-tkg-aagl-v10.15-6/spritz-wine-tkg-staging-wow64-10.15-6-x86_64.tar.xz",
       "hash": "sha256-mV9x/XlfoIUZR9HLd4SFM5pmO+TN6q1adCfmMRTLUxo="
+    },
+    "11.14-1": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/spritz-wine-11.14-1/spritz-wine-tkg-staging-wow64-11.14-1-x86_64.tar.xz",
+      "hash": "sha256-tuO2Hnbjj25MWXvfzjn/vzIjIUf6vXi++LzGac8HtDA="
     }
   }
 }
