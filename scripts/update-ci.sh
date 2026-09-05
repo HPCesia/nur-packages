@@ -13,11 +13,25 @@ export NIXPKGS_ALLOW_UNFREE=1
 MAIN_BRANCH=$(git symbolic-ref --short HEAD)
 REPO_REMOTE_URL=$(git remote get-url origin)
 
+# In CI the token is a short-lived JWT minted for a Forgejo "Authorized
+# Integration" (see .forgejo/workflows/auto-update.yml). JWTs authenticate over
+# HTTP via an `Authorization: Bearer` header and cannot be embedded in the
+# remote URL, unlike a classic access token (local runs).
+if [[ "$FORGEJO_TOKEN" =~ ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$ ]]; then
+	IS_JWT=1
+else
+	IS_JWT=0
+fi
+
 fj auth add-token "$FORGEJO_TOKEN"
 
 case "$REPO_REMOTE_URL" in
 https://*)
-	git remote set-url origin "https://oauth2:${FORGEJO_TOKEN}@${REPO_REMOTE_URL#https://}"
+	if [[ "$IS_JWT" -eq 1 ]]; then
+		git config --local http.extraHeader "Authorization: Bearer ${FORGEJO_TOKEN}"
+	else
+		git remote set-url origin "https://oauth2:${FORGEJO_TOKEN}@${REPO_REMOTE_URL#https://}"
+	fi
 	;;
 esac
 

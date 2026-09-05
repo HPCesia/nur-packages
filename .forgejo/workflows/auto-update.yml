@@ -3,15 +3,33 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "13 20 * * *"
-permissions:
-  contents: write
-  pull-requests: write
+# See https://forgejo.org/docs/latest/user/api/authorized-integrations/
+enable-openid-connect: true
+env:
+  AUTHORIZED_INTEGRATION_AUDIENCE: "u:302663:cf6d5efd-a70c-4b33-a5af-d9b6eea3b0bd"
 jobs:
   auto-update:
     runs-on: nixos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+        with:
+          # Do not persist the (read-only) automatic token; all git operations
+          # authenticate with the Authorized Integration JWT instead.
+          persist-credentials: false
+      - name: Fetch JWT for authorized integration
+        id: jwt
+        run: |
+          jwt=$(
+            curl --fail \
+              -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUTHORIZED_INTEGRATION_AUDIENCE" \
+            | jq -r .value
+          )
+          echo "::add-mask::$jwt"
+          echo "jwt=$jwt" >> "$FORGEJO_OUTPUT"
       - name: Update packages and open PRs
+        env:
+          FORGEJO_TOKEN: ${{ steps.jwt.outputs.jwt }}
         run: |
           nix-shell shell.nix --run './scripts/update-ci.sh'
