@@ -26,6 +26,7 @@ in
     inherit pname version src;
 
     passthru.updateScript = [(toString ./update.sh)];
+    preferLocalBuild = true;
 
     extraPkgs = pkgs: [
       pkgs.vlc

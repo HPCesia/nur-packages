@@ -12,6 +12,7 @@ stdenvNoCC.mkDerivation (args
     name = "${name}-bin-${version}";
     passthru.updateScript = [(toString ./update.sh)];
     installPhase = "cp -r $src $out";
+    preferLocalBuild = true;
     meta = {
       description = "Spritz-Wine builds for some games ";
       homepage = "https://github.com/NelloKudo/spritz-wine";

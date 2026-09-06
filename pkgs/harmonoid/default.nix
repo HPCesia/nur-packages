@@ -15,6 +15,7 @@ stdenvNoCC.mkDerivation rec {
   version = "0.3.32";
 
   passthru.updateScript = [(toString ./update.sh)];
+  preferLocalBuild = true;
 
   src =
     if stdenvNoCC.isAarch64

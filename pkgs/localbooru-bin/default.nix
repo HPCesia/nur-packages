@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
   version = "1.6.1";
 
   passthru.updateScript = nix-update-script {};
+  preferLocalBuild = true;
 
   src = fetchurl {
     url = "https://github.com/resucutie/localbooru/releases/download/${version}/localbooru-linux.deb";
