@@ -22,4 +22,7 @@ with pkgs.lib; {
           nurDeprecatedReason = reason;
         };
     }));
+
+  removePackage = name: reason:
+    throw "${name} has been removed: ${reason}";
 }

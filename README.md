@@ -27,11 +27,4 @@
 | `stinkpot` | [stinkpot](https://tangled.org/oppi.li/stinkpot) | `0-unstable-2026-08-18` | Not specified | sqlite-backed shell history |
 | `sylvakru` | [sylvakru](https://github.com/AfalpHy/sylvakru) | `3.6.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform music player for local and self-hosted libraries |
 
-### helixPlugins
-
-| Path | Name | Version | License | Description |
-| --- | --- | --- | --- | --- |
-| `helixPlugins.fcitx-focus` | [helix-fcitx-focus](https://github.com/mtul0729/helix-fcitx-focus) | `0-unstable-2026-06-29` | [MIT](https://spdx.org/licenses/MIT.html) | Steel native module for Helix fcitx5 focus and mode switching |
-| `helixPlugins.smith` | [smith.hx](https://github.com/kn66/smith.hx) | `0-unstable-2026-07-12` | [MIT](https://spdx.org/licenses/MIT.html) | A declarative Helix plugin manager |
-
 <!-- END_PACKAGE_TABLE -->

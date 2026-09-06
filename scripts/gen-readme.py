@@ -70,6 +70,7 @@ let
       builtins.concatMap (name:
         let
           v = attrs.${{name}};
+          evaluated = builtins.tryEval v;
           fullPrefix = if prefix == "" then name else "${{prefix}}.${{name}}";
           pkgInfo = {{
             path = fullPrefix;
@@ -80,9 +81,10 @@ let
             license = getLic v.meta;
           }};
         in
-          if isDer v then
-            if v.meta.nurRenamed or v.meta.nurDeprecated or false then [] else [ pkgInfo ]
-          else if isScope v then collect fullPrefix v
+          if !evaluated.success then []
+          else if isDer evaluated.value then
+            if evaluated.value.meta.nurRenamed or evaluated.value.meta.nurDeprecated or false then [] else [ pkgInfo ]
+          else if isScope evaluated.value then collect fullPrefix evaluated.value
           else []
       ) names;
 in
