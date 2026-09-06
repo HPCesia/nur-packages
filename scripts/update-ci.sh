@@ -41,20 +41,18 @@ git config user.email "nur-update-bot@users.noreply.git.net.trin.one"
 FAILED=""
 PENDING=""
 
-for PKG in $(./scripts/update-package --list | jq -r '.[]'); do
-	echo ""
-	echo "=== $PKG ==="
+update_pkg() {
+	local PKG="$1"
+	local OLD_VERSION NEW_VERSION
 
-	# Reset to a clean main state.
 	git checkout -f "$MAIN_BRANCH"
 	git checkout -- . 2>/dev/null || true
 	git clean -fd -- pkgs/ 2>/dev/null || true
 
-	# Skip if a PR for this package is already open (branch exists on origin).
 	if git ls-remote --exit-code origin "refs/heads/update/$PKG" >/dev/null 2>&1; then
 		echo ">>> $PKG: PR already open, skipping"
 		PENDING="$PENDING $PKG"
-		continue
+		return
 	fi
 
 	OLD_VERSION=$(nix-instantiate --eval --strict -A "$PKG.version" . 2>/dev/null | tr -d '"')
@@ -62,18 +60,18 @@ for PKG in $(./scripts/update-package --list | jq -r '.[]'); do
 	if ! ./scripts/update-package "$PKG"; then
 		echo ">>> $PKG: update script failed" >&2
 		FAILED="$FAILED $PKG"
-		continue
+		return
 	fi
 
 	if [ -z "$(git status --porcelain -- pkgs/)" ]; then
 		echo ">>> $PKG: no changes"
-		continue
+		return
 	fi
 
 	if ! nix-instantiate --show-trace -A "$PKG" . >/dev/null 2>&1; then
 		echo ">>> $PKG: evaluation failed after update" >&2
 		FAILED="$FAILED $PKG"
-		continue
+		return
 	fi
 
 	NEW_VERSION=$(nix-instantiate --eval --strict -A "$PKG.version" . 2>/dev/null | tr -d '"')
@@ -88,6 +86,12 @@ for PKG in $(./scripts/update-package --list | jq -r '.[]'); do
 		--body "Automated update by CI.
 
 $PKG: \`$OLD_VERSION\` -> \`$NEW_VERSION\`"
+}
+
+for PKG in $(./scripts/update-package --list | jq -r '.[]'); do
+	echo "::group::$PKG"
+	update_pkg "$PKG"
+	echo "::endgroup::"
 done
 
 if [ -n "$PENDING" ]; then

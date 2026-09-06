@@ -33,4 +33,7 @@ jobs:
         env:
           FORGEJO_TOKEN: ${{ steps.jwt.outputs.jwt }}
         run: |
+          echo "::group::Build nix-shell environment"
+          nix-shell shell.nix --run 'true'
+          echo "::endgroup::"
           nix-shell shell.nix --run './scripts/update-ci.sh'
