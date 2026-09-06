@@ -56,7 +56,12 @@ with builtins; let
 
   nurPkgs = flattenPkgs (
     listToAttrs (
-      map (n: nameValuePair n nurAttrs.${n}) (filter (n: !isReserved n) (attrNames nurAttrs))
+      concatMap (n: let
+        r = tryEval nurAttrs.${n};
+      in
+        if r.success
+        then [(nameValuePair n r.value)]
+        else []) (filter (n: !isReserved n) (attrNames nurAttrs))
     )
   );
 in rec {
