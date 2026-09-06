@@ -7,6 +7,7 @@ on:
 enable-openid-connect: true
 env:
   AUTHORIZED_INTEGRATION_AUDIENCE: "u:302663:cf6d5efd-a70c-4b33-a5af-d9b6eea3b0bd"
+  NIX_PATH: nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
 jobs:
   auto-update:
     runs-on: nixos-latest
