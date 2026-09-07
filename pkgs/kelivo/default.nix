@@ -1,7 +1,7 @@
 # Modify from https://github.com/bet4it/nur-packages/blob/cad7c4585ef10f189352ca894866d345081a44ce/pkgs/kelivo/package.nix
 {
   lib,
-  flutter344,
+  flutter347,
   fetchFromGitHub,
   copyDesktopItems,
   makeDesktopItem,
@@ -10,15 +10,15 @@
   libappindicator,
   nix-update-script,
 }:
-flutter344.buildFlutterApplication (finalAttrs: {
+flutter347.buildFlutterApplication (finalAttrs: {
   pname = "kelivo";
-  version = "1.2.5";
+  version = "1.2.6";
 
   src = fetchFromGitHub {
     owner = "Chevey339";
     repo = "kelivo";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-SZ8EbO00zkQpTOzvsfsV8KskajgDERzNyeWspHo5LIs=";
+    hash = "sha256-Xdh21OmhQsxD1+bPE+bMud0GEHrq5WcDOyNYnBBG9Gw=";
   };
 
   passthru.updateScript = nix-update-script {};
