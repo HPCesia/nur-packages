@@ -5,8 +5,6 @@
   callPackage,
   miaomiaowu-frontend ? callPackage ./frontend.nix {},
 }: let
-  updateScript = [(toString ./update.sh)];
-
   version = "0.8.3";
 
   src = fetchFromGitHub {
@@ -19,7 +17,8 @@ in
   buildGoModule (finalAttrs: {
     pname = "miaomiaowu";
     inherit version src;
-    passthru = {inherit updateScript;};
+
+    passthru.updateScript = [(toString ./update.sh)];
 
     vendorHash = "sha256-2w8sBHpRaSv2RqwNRxNE8Q2O1A0b96WdHsugrWrSixE=";
 

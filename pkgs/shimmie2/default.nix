@@ -6,13 +6,10 @@
   shimmie2-unwrapped ? callPackage ./unwrapped.nix {},
   defaultDataDir ? "$HOME/.shimmie2",
 }:
-let
-  updateScript = [(toString ./update.sh)];
-in
 writeShellApplication {
   name = "shimmie2";
 
-  passthru = {inherit updateScript;};
+  passthru.updateScript = [(toString ./update.sh)];
 
   derivationArgs = {
     inherit (shimmie2-unwrapped) meta version;
