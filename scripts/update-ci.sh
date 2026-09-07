@@ -1,22 +1,13 @@
 #!/usr/bin/env bash
-# Update all packages with passthru.updateScript and open one PR per package.
-# Intended to run inside `nix-shell shell.nix` in CI (see
-# .forgejo/workflows/auto-update.yml). Expects FORGEJO_TOKEN to be set.
 set -euo pipefail
 
 FORGEJO_TOKEN="${FORGEJO_TOKEN:?FORGEJO_TOKEN not set}"
 
-# Some packages (e.g. harmonoid, navibeat) are unfree; nix-instantiate
-# refuses them without this.
 export NIXPKGS_ALLOW_UNFREE=1
 
 MAIN_BRANCH=$(git symbolic-ref --short HEAD)
 REPO_REMOTE_URL=$(git remote get-url origin)
 
-# In CI the token is a short-lived JWT minted for a Forgejo "Authorized
-# Integration" (see .forgejo/workflows/auto-update.yml). JWTs authenticate over
-# HTTP via an `Authorization: Bearer` header and cannot be embedded in the
-# remote URL, unlike a classic access token (local runs).
 if [[ "$FORGEJO_TOKEN" =~ ^[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$ ]]; then
 	IS_JWT=1
 else
