@@ -5,12 +5,12 @@
 }:
 buildGoModule {
   pname = "stinkpot";
-  version = "0-unstable-2026-08-18";
+  version = "0-unstable-2026-09-06";
 
   src = fetchFromTangled {
     did = "did:plc:wqstj3k5tslmm246baaf3tpa";
-    rev = "63594fa4893cc4d00a6c952430dc05be523882f9";
-    hash = "sha256-HwBtYIwtj5HkUwAv5haoei0Be6dXdLKilbA/A76L46c=";
+    rev = "9bc8ad17ddf66095b28f3a9bb9ca3a01c1e2092d";
+    hash = "sha256-grsoctCXQf7uzf6jmPQpfT+O7imnLQIp66/tPMeT3dY=";
   };
 
   passthru.updateScript = [(toString ./update.sh)];
