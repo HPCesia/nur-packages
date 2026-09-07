@@ -11,7 +11,22 @@
       import ./default.nix {
         pkgs = import nixpkgs {inherit system;};
       });
-    packages = forAllSystems (system: nixpkgs.lib.filterAttrs (_: v: nixpkgs.lib.isDerivation v) self.legacyPackages.${system});
+    packages = forAllSystems (system: let
+      attrs = self.legacyPackages.${system};
+    in
+      builtins.listToAttrs (
+        builtins.concatMap (name: let
+          result = builtins.tryEval attrs.${name};
+        in
+          if result.success && nixpkgs.lib.isDerivation result.value
+          then [
+            {
+              inherit name;
+              value = result.value;
+            }
+          ]
+          else []) (builtins.attrNames attrs)
+      ));
     devShells = forAllSystems (system: {
       default = import ./shell.nix {
         pkgs = import nixpkgs {inherit system;};
