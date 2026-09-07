@@ -25,18 +25,18 @@ fi
 
 fj auth add-token "$FORGEJO_TOKEN"
 
-case "$REPO_REMOTE_URL" in
-https://*)
+if [[ "$REPO_REMOTE_URL" == https://* ]]; then
 	if [[ "$IS_JWT" -eq 1 ]]; then
-		git config --local http.extraHeader "Authorization: Bearer ${FORGEJO_TOKEN}"
+		FORGEJO_HOST="${REPO_REMOTE_URL#https://}"
+		FORGEJO_HOST="${FORGEJO_HOST%%/*}"
+		git config --local "http.https://${FORGEJO_HOST}/.extraHeader" "Authorization: Bearer ${FORGEJO_TOKEN}"
 	else
 		git remote set-url origin "https://oauth2:${FORGEJO_TOKEN}@${REPO_REMOTE_URL#https://}"
 	fi
-	;;
-esac
+fi
 
 git config user.name "nur-update-bot"
-git config user.email "nur-update-bot@users.noreply.git.net.trin.one"
+git config user.email "nur-update-bot@noreply.example.org"
 
 FAILED=""
 PENDING=""
