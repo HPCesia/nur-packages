@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p curl -p jq -p nix -p nix-prefetch-git -p flutter344
+#!nix-shell -i bash -p curl -p jq -p nix -p nix-prefetch-git -p flutter347
 # shellcheck shell=bash
 set -euo pipefail
 
@@ -28,6 +28,8 @@ cp "$SCRIPT_DIR/pubspec.lock.json" "$TMPDIR/pubspec.lock.json.old"
 
 (
 	cd "$TMPDIR"
+	# Relax the flutter pin to what nixpkgs provides (mirrors postPatch in default.nix).
+	sed -i 's/  flutter: 3\.47\.2/  flutter: ^3.47.0/' pubspec.yaml
 	flutter pub get >/dev/null
 )
 

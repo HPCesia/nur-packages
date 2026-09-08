@@ -4,15 +4,15 @@
   fetchurl,
   unzip,
   fetchFromGitHub,
-  flutter344,
+  flutter347,
   libappindicator,
   mpv-unwrapped,
   copyDesktopItems,
   makeDesktopItem,
 }:
-flutter344.buildFlutterApplication rec {
+flutter347.buildFlutterApplication rec {
   pname = "sylvakru";
-  version = "3.6.0";
+  version = "4.1.0";
 
   passthru.updateScript = [(toString ./update.sh)];
 
@@ -20,14 +20,14 @@ flutter344.buildFlutterApplication rec {
     owner = "AfalpHy";
     repo = "sylvakru";
     tag = "v${version}";
-    hash = "sha256-uOmn8FYTgdb8rszHwJeqU1m+YSy5mPvkVGWUtFSYXSY=";
+    hash = "sha256-LKe90tmWl27yKhk8vQR5Y42f3nLLhKKVhnKNO/78qe4=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
 
   riveLinuxLibs = fetchurl {
-    url = "https://rive-flutter-artifacts.rive.app/rive_native_versions/0.1.10%2B2/rive_native_artifacts_linux.zip";
-    hash = "sha512-5420epvMhyfbth0au+OhOiNQG1sU7hnRjnaAdGQmKumOKJmVN2zVbq2NVwlM9vL9ZzgW41jiM+S/T3e95zkhEg==";
+    url = "https://rive-flutter-artifacts.rive.app/rive_native_versions/0.1.11%2B3/rive_native_artifacts_linux.zip";
+    hash = "sha512-TPQZn3zD890nm88ruZck1jctmp/Ci52y7U+hQ3coREsoY8u8f3RdAfIRCnGZ7xADnlmxPP5GViclvyQBWCTaSA==";
   };
 
   customSourceBuilders = {
@@ -107,13 +107,14 @@ flutter344.buildFlutterApplication rec {
     media_kit_libs_ios_audio = media-kit-hash;
     media_kit_libs_macos_audio = media-kit-hash;
     media_kit_libs_windows_audio = media-kit-hash;
-    tray_manager = "sha256-JvT62iBbTVr2CAyCoAVpAoIywCqjxx4TkTgljH6BnYE=";
+    rive_animated_icon = "sha256-iCvFf5CX9X9cxQm1WhyUdQ4DnutRmS5HKwuTU/iyg5g=";
     window_manager = "sha256-Xt9m+YzLTVKDF5Gk165MVy6yx81O/1Arqqk0caTGoXc=";
+    windows_taskbar = "sha256-6HMAyWNxkukjEWIf+cpcKRM3egErfIVgpDdhPC0msUA=";
   };
 
   postPatch = ''
     substituteInPlace pubspec.yaml \
-      --replace-fail "flutter: 3.44.8" "flutter: ^3.44.8"
+      --replace-fail "flutter: 3.47.2" "flutter: ^3.47.0"
 
     # Don't statically link mimalloc into the main executable: its global
     # operator new override trips a libc++ assertion in Flutter >= 3.44
