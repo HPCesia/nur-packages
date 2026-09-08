@@ -1,5 +1,11 @@
 {
   description = "My personal NUR repository";
+  nixConfig = {
+    extra-substituters = ["https://hpcesia-nur.cachix.org"];
+    extra-trusted-public-keys = [
+      "hpcesia-nur.cachix.org-1:/Fz990j/JffxBxEQ3QopyGGhH9uO8goHdSKZnzaQSWg="
+    ];
+  };
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   outputs = {
     self,
