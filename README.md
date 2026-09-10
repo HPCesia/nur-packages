@@ -14,7 +14,7 @@
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.32` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.2.6` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
-| `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.8.4` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
+| `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.8.5` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
 | `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer) | `7.0.0-rc7` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `2.0.2` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
 | `navibeat` | [navibeat](https://navibeat.app/linux) | `1.0.4` | **Unfree** | Navidrome and Subsonic music client for Linux |
@@ -25,6 +25,6 @@
 | `spritz-wine-bin.tkg` | [spritz-wine-tkg-bin-11.14-1](https://github.com/NelloKudo/spritz-wine) | `11.14-1` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `steelix` | [steelix](https://github.com/mattwparas/helix) | `0-unstable-2026-08-31` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Helix editor with Steel (Scheme) scripting support |
 | `stinkpot` | [stinkpot](https://tangled.org/oppi.li/stinkpot) | `0-unstable-2026-09-06` | Not specified | sqlite-backed shell history |
-| `sylvakru` | [sylvakru](https://github.com/AfalpHy/sylvakru) | `3.6.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform music player for local and self-hosted libraries |
+| `sylvakru` | [sylvakru](https://github.com/AfalpHy/sylvakru) | `4.1.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform music player for local and self-hosted libraries |
 
 <!-- END_PACKAGE_TABLE -->
