@@ -20,11 +20,13 @@ jobs:
           persist-credentials: false
       - name: Fetch JWT for authorized integration
         id: jwt
+        env:
+          AUD: u:4:ae3ef453-d9e5-4e8a-be08-e5841f02e319
         run: |
           jwt=$(
             curl --fail \
               -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUTHORIZED_INTEGRATION_AUDIENCE" \
+              "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=$AUD" \
             | jq -r .value
           )
           echo "::add-mask::$jwt"

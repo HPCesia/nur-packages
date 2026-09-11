@@ -26,8 +26,8 @@ if [[ "$REPO_REMOTE_URL" == https://* ]]; then
 	fi
 fi
 
-git config user.name "nur-update-bot"
-git config user.email "nur-update-bot@noreply.example.org"
+git config user.name "Ineffa"
+git config user.email "ineffa@noreply.git.trin.one"
 
 FAILED=""
 PENDING=""
