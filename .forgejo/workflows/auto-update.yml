@@ -29,6 +29,9 @@ jobs:
           )
           echo "::add-mask::$jwt"
           echo "jwt=$jwt" >> "$FORGEJO_OUTPUT"
+      - name: Setup GitHub Token
+        run: |
+          echo "access-tokens = github.com=${{ secrets.NIX_GITHUB_TOKEN }}" >> /etc/nix/nix.conf
       - name: Update packages and open PRs
         env:
           FORGEJO_TOKEN: ${{ steps.jwt.outputs.jwt }}
