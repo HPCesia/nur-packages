@@ -25,6 +25,8 @@ in rec {
 
   elio = callPackage ./pkgs/elio {};
 
+  flyline = callPackage ./pkgs/flyline {};
+
   gitmal = callPackage ./pkgs/gitmal {};
 
   harmonoid = callPackage ./pkgs/harmonoid {};
