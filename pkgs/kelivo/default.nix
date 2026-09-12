@@ -12,13 +12,13 @@
 }:
 flutter347.buildFlutterApplication (finalAttrs: {
   pname = "kelivo";
-  version = "1.2.6";
+  version = "1.2.7";
 
   src = fetchFromGitHub {
     owner = "Chevey339";
     repo = "kelivo";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Xdh21OmhQsxD1+bPE+bMud0GEHrq5WcDOyNYnBBG9Gw=";
+    hash = "sha256-Y6S29ms0rOE45SrXZIPl3AYEzU3ojFpEn/o8hB+K/a0=";
   };
 
   passthru.updateScript = nix-update-script {};
