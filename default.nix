@@ -21,6 +21,8 @@ in rec {
 
   artalk = selfLib.deprecatePackage "artalk" "use the package of the same name from nixpkgs instead" pkgs.artalk;
 
+  cosmic-enroll = callPackage ./pkgs/cosmic-enroll {};
+
   dwproton-bin = selfLib.deprecatePackage "dwproton-bin" "use the package of the same name from nixpkgs instead" pkgs.dwproton-bin;
 
   elio = callPackage ./pkgs/elio {};
