@@ -44,6 +44,9 @@ jobs:
       - name: Setup Nix
         run: |
           echo "access-tokens = github.com=${{ secrets.NIX_GITHUB_TOKEN }}" >> /etc/nix/nix.conf
+          echo "substituters = https://mirrors.ustc.edu.cn/nix-channels/store?priority=39 \
+          https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=39 \
+          https://cache.nixos.org?priority=40" >> /etc/nix/nix.conf
           echo "NIX_PATH=${{ matrix.nixPath }}" >> $FORGEJO_ENV
       - name: Show nixpkgs version
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
