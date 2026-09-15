@@ -23,6 +23,8 @@ in rec {
 
   cosmic-enroll = callPackage ./pkgs/cosmic-enroll {};
 
+  dcg = callPackage ./pkgs/dcg {};
+
   dwproton-bin = selfLib.deprecatePackage "dwproton-bin" "use the package of the same name from nixpkgs instead" pkgs.dwproton-bin;
 
   elio = callPackage ./pkgs/elio {};
