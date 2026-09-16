@@ -6,16 +6,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "dcg";
-  version = "0.14.3";
+  version = "0.14.4";
 
   src = fetchFromGitHub {
     owner = "Dicklesworthstone";
     repo = "destructive_command_guard";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-KkdNrJvqA6jYXyeBcwd+e1wb51n3CHHJP5LDfL3YivM=";
+    hash = "sha256-XFSIn+hN4A9bWKabJoqc3mCsfQtGqJDRAXAKSpJVJGg=";
   };
 
-  cargoHash = "sha256-+rWsM+8ZF1hTixNm8aENwy+jS36IJWIAllUrMUjcDFU=";
+  cargoHash = "sha256-GfCQIiAURkEKKTQwRBGPWwuwRX+Rc2ivswxCQSZ/ngY=";
 
   postPatch = ''
     rm .cargo/config.toml
