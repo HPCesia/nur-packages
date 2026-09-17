@@ -19,6 +19,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-pf8JMBQxUoLjo7mpqFYa/yJpZc2ZJOZqMx0oMEKB7wA=";
+
+  patches = [./no-delete-line.patch];
   doCheck = false;
 
   # macOS-only: fix Mach-O reproducibility leaks and re-add -undefined
