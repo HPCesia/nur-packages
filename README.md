@@ -9,7 +9,7 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
-| `cosmic-enroll` | [cosmic-enroll](https://github.com/cosmic-utils/enroll) | `1.2.6` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | COSMIC GUI for enrolling fingerprints with fprintd |
+| `cosmic-enroll` | [cosmic-enroll](https://github.com/cosmic-utils/enroll) | `1.2.7` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | COSMIC GUI for enrolling fingerprints with fprintd |
 | `dcg` | [dcg](https://github.com/Dicklesworthstone/destructive_command_guard) | `0.14.4` | **Unfree** | PreToolUse hook that blocks destructive shell commands for AI coding agents |
 | `elio` | [elio](https://github.com/elio-fm/elio) | `1.12.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `flyline` | [flyline](https://github.com/HalFrgrd/flyline) | `1.8.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Bash plugin to replace readline for a modern line editing experience |
