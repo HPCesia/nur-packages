@@ -25,6 +25,8 @@
         }.so";
         sha256 =
           {
+            _3_5_2-x86_64-linux = "sha256-RdsYQ+ujyR16Ip72A7u2o7uavqtDC72V26pAJAxxOAk=";
+            _3_5_2-aarch64-linux = "sha256-LMKxM9hJXdCGytVuYSro3iYbMuDwDk6fcqvzVYHD7s0=";
             _3_6_0-x86_64-linux = "sha256-zQkSbJ6FGR8rT1fmwLzSMsdIH1b7HWWbeTdMytIb/vk=";
             _3_6_0-aarch64-linux = "sha256-MHt26xqayuRRfM6iJTAiC6Pe7ez7FuWiY1ZLaqEwwp8=";
           }

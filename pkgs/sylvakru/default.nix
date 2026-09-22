@@ -1,5 +1,6 @@
 {
   lib,
+  selfLib,
   stdenv,
   fetchurl,
   unzip,
@@ -31,6 +32,7 @@ flutter347.buildFlutterApplication rec {
   };
 
   customSourceBuilders = {
+    sqlite3 = selfLib.sqlite3SourceBuilder;
     sqlite3_flutter_libs = {
       version,
       src,
