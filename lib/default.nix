@@ -1,5 +1,7 @@
 {pkgs}:
 with pkgs.lib; {
+  sqlite3SourceBuilder = pkgs.callPackage ./sqlite3-source-builder.nix {};
+
   renamePackage = oldName: newName: drv:
     derivations.warnOnInstantiate
     "${oldName} has been renamed to ${newName}"

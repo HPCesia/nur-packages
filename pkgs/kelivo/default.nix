@@ -1,6 +1,7 @@
 # Modify from https://github.com/bet4it/nur-packages/blob/cad7c4585ef10f189352ca894866d345081a44ce/pkgs/kelivo/package.nix
 {
   lib,
+  selfLib,
   flutter347,
   fetchFromGitHub,
   copyDesktopItems,
@@ -23,6 +24,8 @@ flutter347.buildFlutterApplication (finalAttrs: {
   passthru.updateScript = [(toString ./update.sh)];
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
+
+  customSourceBuilders.sqlite3 = selfLib.sqlite3SourceBuilder;
 
   nativeBuildInputs = [
     copyDesktopItems
