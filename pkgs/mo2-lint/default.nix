@@ -11,13 +11,13 @@
   nix-update-script,
   protontricks,
 }: let
-  version = "7.0.0-rc7";
+  version = "7.0.0";
 
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
     tag = version;
-    hash = "sha256-0U0JCQxXUrhmURRJowwm0v1sgmwP73XFuEJFvS/ROEk=";
+    hash = "sha256-qNkop6My1xyeC+zL2vQmiGDokyxr2CEogOgVKtJcsqQ=";
   };
 
   python-embed = fetchurl {
@@ -147,14 +147,7 @@
     inherit version;
     src = mo2-lint-src;
 
-    passthru.updateScript = nix-update-script {
-      extraArgs = [
-        "--version"
-        "unstable"
-        "--version-regex"
-        "^([0-9.]+-rc[0-9]+)$"
-      ];
-    };
+    passthru.updateScript = nix-update-script {};
 
     nativeBuildInputs = [makeWrapper];
 
