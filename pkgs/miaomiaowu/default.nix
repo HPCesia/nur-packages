@@ -5,13 +5,13 @@
   callPackage,
   miaomiaowu-frontend ? callPackage ./frontend.nix {},
 }: let
-  version = "0.8.5";
+  version = "0.8.6";
 
   src = fetchFromGitHub {
     owner = "iluobei";
     repo = "miaomiaowu";
     tag = "v${version}";
-    hash = "sha256-NZFfWNWp7opHnogAfyAQRTeoICTtyu89imDr1jiPfeA=";
+    hash = "sha256-2rJBouOw8Y5piCUUktvzXNCDOQGQJSG3brYOwWrAGt0=";
   };
 in
   buildGoModule (finalAttrs: {
@@ -20,7 +20,7 @@ in
 
     passthru.updateScript = [(toString ./update.sh)];
 
-    vendorHash = "sha256-CaaeWx5z9m3ZRnVGfYIxvCSr8q1liqgajDr+T7MLm34=";
+    vendorHash = "sha256-kEElQMRReCND/cjhm6jJL2MB7ZHwrM5b4AeoqxkOVaM=";
 
     subPackages = ["./cmd/server"];
 
