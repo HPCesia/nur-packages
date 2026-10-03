@@ -6,16 +6,16 @@
 (
   php.buildComposerProject2 (finalAttrs: {
     pname = "shimmie2-unwrapped";
-    version = "2.12.2";
+    version = "2.12.3";
 
     src = fetchFromGitHub {
       owner = "shish";
       repo = "shimmie2";
       tag = "v${finalAttrs.version}";
-      hash = "sha256-hhQ37nrnndBgv5NRZ8wuwqCSPNNk4LlhLBlRdf+vlGE=";
+      hash = "sha256-BlHz6PLHDgkfl0Nc/ZSoCNuAkNyH6hU/gdSfCV6KHTI=";
     };
 
-    vendorHash = "sha256-qItFGSLgwq0ryx5ByTbMwXSjwD5ev0iOb0E3Y9JF3XU=";
+    vendorHash = "sha256-ReHN0/QfOodI2pD6ecI9h2pBJAUz4yYwsIE0XRyrRRU=";
 
     postInstall = ''
       mkdir -p $out/share/php/${finalAttrs.pname}/data
