@@ -11,13 +11,13 @@
   nix-update-script,
   protontricks,
 }: let
-  version = "7.0.2";
+  version = "7.0.3";
 
   mo2-lint-src = fetchFromGitHub {
     owner = "Furglitch";
     repo = "modorganizer2-linux-installer";
     tag = version;
-    hash = "sha256-7EWFRCtupsW0Z2PcyaWySLpYpJA6O1JzoBpd3gxhZDo=";
+    hash = "sha256-qybjSUmfVjw9NrRFbPClKGOYvCT6llcoLJ6jK/59J34=";
   };
 
   python-embed = fetchurl {
