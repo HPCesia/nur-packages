@@ -39,6 +39,8 @@ in rec {
 
   kelivo = callPackage ./pkgs/kelivo {};
 
+  lxgw-marker-gothic = callPackage ./pkgs/lxgw-marker-gothic {};
+
   miaomiaowu = callPackage ./pkgs/miaomiaowu {};
 
   localbooru-bin = callPackage ./pkgs/localbooru-bin {};
