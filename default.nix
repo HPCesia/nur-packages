@@ -41,6 +41,8 @@ in rec {
 
   lxgw-marker-gothic = callPackage ./pkgs/lxgw-marker-gothic {};
 
+  lxgw-neozhisong = callPackage ./pkgs/lxgw-neozhisong {};
+
   miaomiaowu = callPackage ./pkgs/miaomiaowu {};
 
   localbooru-bin = callPackage ./pkgs/localbooru-bin {};
