@@ -68,4 +68,6 @@ in rec {
   particle-music = selfLib.renamePackage "particle-music" "sylvakru" sylvakru;
 
   realitlscanner = callPackage ./pkgs/realitlscanner {};
+
+  zhuque-fangsong = callPackage ./pkgs/zhuque-fangsong {};
 }
