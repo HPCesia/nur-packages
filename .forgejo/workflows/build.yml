@@ -34,9 +34,6 @@ jobs:
         # https://github.com/<your_githubname>/nur-packages/settings/secrets
         cachixName:
           - hpcesia-nur
-        nixPath:
-          - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-unstable.tar.gz
-          # - nixpkgs=https://github.com/NixOS/nixpkgs/archive/refs/heads/nixos-26.05.tar.gz
     runs-on: nixos-latest-high
     steps:
       - name: Checkout repository
@@ -47,7 +44,8 @@ jobs:
           echo "substituters = https://mirrors.ustc.edu.cn/nix-channels/store?priority=39 \
           https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store?priority=39 \
           https://cache.nixos.org?priority=40" >> /etc/nix/nix.conf
-          echo "NIX_PATH=${{ matrix.nixPath }}" >> $FORGEJO_ENV
+          nixpkgsRev=$(nix-instantiate --eval -E '(builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked.rev' | tr -d '"')
+          echo "NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/${nixpkgsRev}.tar.gz" >> $FORGEJO_ENV
       - name: Show nixpkgs version
         run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
       - name: Setup cachix
