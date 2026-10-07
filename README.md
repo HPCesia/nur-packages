@@ -11,7 +11,7 @@
 | --- | --- | --- | --- | --- |
 | `cosmic-enroll` | [cosmic-enroll](https://github.com/cosmic-utils/enroll) | `1.2.8` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | COSMIC GUI for enrolling fingerprints with fprintd |
 | `dcg` | [dcg](https://github.com/Dicklesworthstone/destructive_command_guard) | `0.15.2` | **Unfree** | PreToolUse hook that blocks destructive shell commands for AI coding agents |
-| `elio` | [elio](https://github.com/elio-fm/elio) | `1.12.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
+| `elio` | [elio](https://github.com/elio-fm/elio) | `1.13.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `flyline` | [flyline](https://github.com/HalFrgrd/flyline) | `1.9.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Bash plugin to replace readline for a modern line editing experience |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.32` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
