@@ -8,13 +8,13 @@ helix-unwrapped.overrideAttrs (
   finalAttrs: _: {
     pname = "steelix-unwrapped";
 
-    version = "0-unstable-2026-09-30";
+    version = "0-unstable-2026-10-09";
 
     src = fetchFromGitHub {
       owner = "mattwparas";
       repo = "helix";
-      rev = "ee451df4ff6b0f6416a128f26affc2052b0669c6";
-      hash = "sha256-pPQFqMoUvDFsCDBjEWzrxb6x+5YXY/ELD5CTl/Tf5N8=";
+      rev = "c16fac096a9dd162d46f53bf2411f36251d755f3";
+      hash = "sha256-FMC6m2RNL//Wd3HUdLrRUGDS0hZgQf8H5QC3SjK6/Is=";
     };
 
     cargoDeps = rustPlatform.fetchCargoVendor {

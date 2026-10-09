@@ -28,7 +28,7 @@
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-11](https://github.com/NelloKudo/spritz-wine) | `11.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.tkg` | [spritz-wine-tkg-bin-11.19-1](https://github.com/NelloKudo/spritz-wine) | `11.19-1` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
-| `steelix` | [steelix](https://github.com/mattwparas/helix) | `0-unstable-2026-09-30` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Helix editor with Steel (Scheme) scripting support |
+| `steelix` | [steelix](https://github.com/mattwparas/helix) | `0-unstable-2026-10-09` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Helix editor with Steel (Scheme) scripting support |
 | `stinkpot` | [stinkpot](https://tangled.org/oppi.li/stinkpot) | `0-unstable-2026-09-16` | Not specified | sqlite-backed shell history |
 | `sylvakru` | [sylvakru](https://github.com/AfalpHy/sylvakru) | `4.1.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | A cross-platform music player for local and self-hosted libraries |
 | `zhuque-fangsong` | [zhuque-fangsong](https://github.com/TrionesType/zhuque) | `0.212` | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html) | Open-source Chinese Fangsong typeface |
