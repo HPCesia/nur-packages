@@ -5,13 +5,13 @@
   callPackage,
   miaomiaowu-frontend ? callPackage ./frontend.nix {},
 }: let
-  version = "0.8.7";
+  version = "0.8.8";
 
   src = fetchFromGitHub {
     owner = "iluobei";
     repo = "miaomiaowu";
     tag = "v${version}";
-    hash = "sha256-i5aaldpXZrZDUdCmO4XERHxSpq6xEUClhvtHVxPkDWg=";
+    hash = "sha256-nPKMqu4tPyW+hzziGl+DjHIO7oQ/OrPQtYbuubYje+k=";
   };
 in
   buildGoModule (finalAttrs: {

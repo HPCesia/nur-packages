@@ -19,7 +19,7 @@
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
 | `lxgw-marker-gothic` | [lxgw-marker-gothic](https://github.com/lxgw/LxgwMarkerGothic) | `1.003` | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html) | Open-source Chinese font derived from Tanugo |
 | `lxgw-neozhisong` | [lxgw-neozhisong](https://github.com/lxgw/LxgwNeoZhiSong) | `1.067` | [IPA](https://spdx.org/licenses/IPA.html) | Chinese serif font derived from IPAex Mincho and IPAmj Mincho |
-| `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.8.7` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
+| `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.8.8` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
 | `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer) | `7.0.3` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `2.0.2` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
 | `navibeat` | [navibeat](https://navibeat.app/linux) | `1.0.30` | **Unfree** | Navidrome and Subsonic music client for Linux |
