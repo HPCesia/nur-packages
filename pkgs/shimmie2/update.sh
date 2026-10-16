@@ -18,9 +18,17 @@ fi
 
 NEW_HASH=$(nix store prefetch-file --json --unpack "${REPO_URL}/archive/refs/tags/v${NEW_VERSION}.tar.gz" | jq -r .hash)
 
+TMP_PKG_FILE=$(mktemp --suffix=.nix)
+trap 'rm -f "$TMP_PKG_FILE"' EXIT
+
+sed \
+	-e "s/version = \"$OLD_VERSION\";/version = \"$NEW_VERSION\";/" \
+	-e "/src = fetchFromGitHub {/,/^    };/ s|hash = \"sha256-[^\"]*\";|hash = \"$NEW_HASH\";|" \
+	"$PKG_FILE" >"$TMP_PKG_FILE"
+
 COMPOSER_HASH=$(nix-build --no-out-link --expr "
   let pkgs = import <nixpkgs> {};
-      unwrapped = import \"$PKG_FILE\" {
+      unwrapped = import \"$TMP_PKG_FILE\" {
         inherit (pkgs) lib php fetchFromGitHub;
       };
   in unwrapped.composerVendor.overrideAttrs (_: { outputHash = \"\"; outputHashAlgo = \"sha256\"; })
