@@ -5,16 +5,16 @@
   installFonts,
   nix-update-script,
 }: let
-  version = "1.067";
+  version = "1.068";
 
   main = fetchurl {
     url = "https://github.com/lxgw/LxgwNeoZhiSong/releases/download/v${version}/LXGWNeoZhiSong.ttf";
-    hash = "sha256-MrOY+cYnjE7TT0Ewd63SwvPIQDTUY68rnLmPEsTCxs0=";
+    hash = "sha256-rkgNWSlLajGBc+NYGljRo4XPOtRGemWQsFs3R+opKjo=";
   };
 
   plus = fetchurl {
     url = "https://github.com/lxgw/LxgwNeoZhiSong/releases/download/v${version}/LXGWNeoZhiSongPlus.ttf";
-    hash = "sha256-Y5WVxlABhy0NoW2srrfeO6OWxkw3twoW/rFTYJG7bB8=";
+    hash = "sha256-CKd65yM9hLEym3rEMJerfDzOS/yOabrXheq0Lvg0kRk=";
   };
 in
   stdenvNoCC.mkDerivation {
