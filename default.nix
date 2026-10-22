@@ -35,6 +35,8 @@ in rec {
 
   harmonoid = callPackage ./pkgs/harmonoid {};
 
+  helium = callPackage ./pkgs/helium {};
+
   helixPlugins = selfLib.removePackage "helixPlugins" "use helix-plugins-nix (https://codeberg.org/maxschipper/helix-plugins-nix) instead";
 
   kelivo = callPackage ./pkgs/kelivo {};
