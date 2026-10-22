@@ -4,13 +4,13 @@
   fetchFromGitHub,
   jq,
 }: let
-  version = "0.9.2";
+  version = "0.9.3";
 
   src = fetchFromGitHub {
     owner = "iluobei";
     repo = "miaomiaowu";
     tag = "v${version}";
-    hash = "sha256-n4im/FSue9k7rewEHXTVoK29Uv7MRIAhS/4VrXvfLEI=";
+    hash = "sha256-2TIOo2KYL587rQ7/lcJOfZwbZD9KyVE0LDp5j+IT8fY=";
   };
 in
   buildNpmPackage {
@@ -18,7 +18,7 @@ in
     inherit version;
     src = "${src}/miaomiaowu";
 
-    npmDepsHash = "sha256-vQFlasbhiY3uafoav9ampPrtpH8wCsJ0GwahIr1nH6w=";
+    npmDepsHash = "sha256-xZ87RfEBchWctPZGxNsikxcjn2GB+h8kWGnSfoX20fc=";
     npmDepsFetcherVersion = 2;
     makeCacheWritable = true;
 
