@@ -122,6 +122,8 @@ stdenv.mkDerivation rec {
     kdePackages.qtbase
   ];
 
+  runtimeDependencies = [gtk3];
+
   # Qt is linked by optional KDE integration helpers only, so the browser must
   # not be wrapped with a QPA environment.
   dontWrapQtApps = true;
