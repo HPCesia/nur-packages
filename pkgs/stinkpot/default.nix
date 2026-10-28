@@ -2,10 +2,11 @@
   lib,
   buildGoModule,
   fetchFromTangled,
+  unstableGitUpdater,
 }:
 buildGoModule {
   pname = "stinkpot";
-  version = "0-unstable-2026-09-16";
+  version = "0.1.0-unstable-2026-09-16";
 
   src = fetchFromTangled {
     did = "did:plc:wqstj3k5tslmm246baaf3tpa";
@@ -13,7 +14,7 @@ buildGoModule {
     hash = "sha256-Ku4xDZwvtGcMADQ0xrzznyHLQjEttDJTF2jzP8Yhgv8=";
   };
 
-  passthru.updateScript = [(toString ./update.sh)];
+  passthru.updateScript = unstableGitUpdater {tagPrefix = "v";};
 
   vendorHash = "sha256-IVPACl1oWnBKGzcXvG5gzev8MwhzIKNI7zwEKJjhFc8=";
 

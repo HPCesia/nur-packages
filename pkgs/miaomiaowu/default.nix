@@ -3,7 +3,7 @@
   buildGoModule,
   fetchFromGitHub,
   callPackage,
-  miaomiaowu-frontend ? callPackage ./frontend.nix {},
+  nix-update-script,
 }: let
   version = "0.9.3";
 
@@ -13,12 +13,17 @@
     tag = "v${version}";
     hash = "sha256-2TIOo2KYL587rQ7/lcJOfZwbZD9KyVE0LDp5j+IT8fY=";
   };
+
+  frontend = callPackage ./frontend.nix {inherit version src;};
 in
   buildGoModule (finalAttrs: {
     pname = "miaomiaowu";
     inherit version src;
 
-    passthru.updateScript = [(toString ./update.sh)];
+    passthru = {
+      inherit frontend;
+      updateScript = nix-update-script {extraArgs = ["--subpackage" "frontend"];};
+    };
 
     vendorHash = "sha256-POjHwoelPdMYJaetVyGLGHyAhy73CVP/Ev4VW/P8cYk=";
 
@@ -28,7 +33,7 @@ in
 
     postPatch = ''
       mkdir -p internal/web/dist
-      cp -r ${miaomiaowu-frontend}/* internal/web/dist/
+      cp -r ${frontend}/* internal/web/dist/
     '';
 
     postInstall = ''

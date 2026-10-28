@@ -3,13 +3,17 @@
   bubblewrap,
   php,
   callPackage,
+  nix-update-script,
   shimmie2-unwrapped ? callPackage ./unwrapped.nix {},
   defaultDataDir ? "$HOME/.shimmie2",
 }:
 writeShellApplication {
   name = "shimmie2";
 
-  passthru.updateScript = [(toString ./update.sh)];
+  passthru = {
+    unwrapped = shimmie2-unwrapped;
+    updateScript = nix-update-script {attrPath = "shimmie2.unwrapped";};
+  };
 
   derivationArgs = {
     inherit (shimmie2-unwrapped) meta version;

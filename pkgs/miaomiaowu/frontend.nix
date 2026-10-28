@@ -1,22 +1,16 @@
 {
   lib,
   buildNpmPackage,
-  fetchFromGitHub,
   jq,
+  version,
+  src,
 }: let
-  version = "0.9.3";
-
-  src = fetchFromGitHub {
-    owner = "iluobei";
-    repo = "miaomiaowu";
-    tag = "v${version}";
-    hash = "sha256-2TIOo2KYL587rQ7/lcJOfZwbZD9KyVE0LDp5j+IT8fY=";
-  };
+  source = "${src}/miaomiaowu";
 in
   buildNpmPackage {
     pname = "miaomiaowu-frontend";
     inherit version;
-    src = "${src}/miaomiaowu";
+    src = source;
 
     npmDepsHash = "sha256-xZ87RfEBchWctPZGxNsikxcjn2GB+h8kWGnSfoX20fc=";
     npmDepsFetcherVersion = 2;
