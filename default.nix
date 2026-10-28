@@ -33,6 +33,10 @@ in rec {
 
   gitmal = callPackage ./pkgs/gitmal {};
 
+  hardware-quality = callPackage ./pkgs/hardware-quality {};
+
+  hardware-quality-free = callPackage ./pkgs/hardware-quality {enableGeekBench = false;};
+
   harmonoid = callPackage ./pkgs/harmonoid {};
 
   helium = callPackage ./pkgs/helium {};

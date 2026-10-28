@@ -14,6 +14,8 @@
 | `elio` | [elio](https://github.com/elio-fm/elio) | `1.14.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
 | `flyline` | [flyline](https://github.com/HalFrgrd/flyline) | `1.10.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Bash plugin to replace readline for a modern line editing experience |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
+| `hardware-quality` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-07-15` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
+| `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-07-15` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.32` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `helium` | [helium](https://helium.computer/) | `0.20.1.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.3.2` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
