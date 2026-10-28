@@ -52,7 +52,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "helium";
-  version = "0.20.1.1";
+  version = "0.20.2.1";
 
   passthru.updateScript = [(toString ./update.sh)];
   preferLocalBuild = true;
@@ -62,12 +62,12 @@ stdenv.mkDerivation rec {
     then
       fetchurl {
         url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-arm64_linux.tar.xz";
-        hash = "sha256-IRqV4Qlg1is3Z1GSD7uTzf8FH1v8+hNrUulw9OaWNXc=";
+        hash = "sha256-x6tF6ElhqgESQErE7yvj2oLRucivYLhVVzmBIvp8vGY=";
       }
     else
       fetchurl {
         url = "https://github.com/imputnet/helium-linux/releases/download/${version}/helium-${version}-x86_64_linux.tar.xz";
-        hash = "sha256-ICP6RM76D70+GQcch+kNYSdfCLqPW0jVjCNSFVZem1M=";
+        hash = "sha256-upKssn7GzaNqi5SOIVQAmq7g1jMiKtJEviXnNqFD5vo=";
       };
 
   nativeBuildInputs = [

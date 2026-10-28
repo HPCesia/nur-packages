@@ -17,7 +17,7 @@
 | `hardware-quality` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-07-15` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-07-15` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.32` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
-| `helium` | [helium](https://helium.computer/) | `0.20.1.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
+| `helium` | [helium](https://helium.computer/) | `0.20.2.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.3.2` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
 | `lxgw-marker-gothic` | [lxgw-marker-gothic](https://github.com/lxgw/LxgwMarkerGothic) | `1.004` | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html) | Open-source Chinese font derived from Tanugo |
