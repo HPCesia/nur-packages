@@ -19,13 +19,9 @@ in rec {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  artalk = selfLib.deprecatePackage "artalk" "use the package of the same name from nixpkgs instead" pkgs.artalk;
-
   cosmic-enroll = callPackage ./pkgs/cosmic-enroll {};
 
   dcg = callPackage ./pkgs/dcg {};
-
-  dwproton-bin = selfLib.deprecatePackage "dwproton-bin" "use the package of the same name from nixpkgs instead" pkgs.dwproton-bin;
 
   elio = callPackage ./pkgs/elio {};
 
@@ -58,8 +54,6 @@ in rec {
   musly-player = callPackage ./pkgs/musly-player {};
 
   navibeat = callPackage ./pkgs/navibeat {};
-
-  nocturne = selfLib.deprecatePackage "nocturne" "use the package of the same name from nixpkgs instead" pkgs.nocturne;
 
   shimmie2 = callPackage ./pkgs/shimmie2 {};
 
