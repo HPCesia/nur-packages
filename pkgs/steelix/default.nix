@@ -10,47 +10,13 @@
 (helix.override {
   helix-unwrapped = steelix-unwrapped;
   lockedGrammars = lockedGrammars;
-  grammarsOverlay = final: prev: {
-    tree-sitter-agda = prev.tree-sitter-agda.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-beancount = prev.tree-sitter-beancount.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-git-rebase = prev.tree-sitter-git-rebase.overrideAttrs {
-      dontPatch = true;
-    };
-    tree-sitter-glimmer = prev.tree-sitter-glimmer.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-janet-simple = prev.tree-sitter-janet-simple.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-qmljs = prev.tree-sitter-qmljs.overrideAttrs {
-      dontCheckForBrokenSymlinks = true;
-    };
-    tree-sitter-sql = prev.tree-sitter-sql.override {
-      generate = false;
-    };
-    tree-sitter-strace = prev.tree-sitter-strace.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-tact = prev.tree-sitter-tact.override {
-      excludeBrokenTreeSitterJson = false;
-    };
+  # helix replaces its `defaultGrammarsOverlay` rather than composing it when
+  # `grammarsOverlay` is set, so compose it back and layer our fixes on top.
+  grammarsOverlay = lib.composeExtensions helix.passthru.defaultGrammarsOverlay (final: prev: {
     tree-sitter-tlaplus = prev.tree-sitter-tlaplus.overrideAttrs {
       dontPatch = true;
     };
-    tree-sitter-vue = prev.tree-sitter-vue.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-wit = prev.tree-sitter-wit.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-    tree-sitter-yuck = prev.tree-sitter-yuck.override {
-      excludeBrokenTreeSitterJson = false;
-    };
-  };
+  });
 }).overrideAttrs
 (
   _: previousAttrs: {
