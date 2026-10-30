@@ -10,16 +10,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "cosmic-enroll";
-  version = "1.2.10";
+  version = "1.2.11";
 
   src = fetchFromGitHub {
     owner = "cosmic-utils";
     repo = "enroll";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Z2LMoTZbV/9tXRZcz96evN24pmJ8DH1DZAi3GNK+crQ=";
+    hash = "sha256-76MvogSutIRMh7dYDVpuT9e+LtweXKAlYb/QhgQBLKU=";
   };
 
-  cargoHash = "sha256-RW4dZgq77WuDFLvQNoZ2622Qo5GCoGx6cr592yBEIMY=";
+  cargoHash = "sha256-TC18MPEOFH0S24btCQFugJtKLuVC63ZC4kxqdemgq+Q=";
   doCheck = false;
 
   nativeBuildInputs = [
