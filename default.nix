@@ -21,6 +21,8 @@ in rec {
 
   cosmic-enroll = callPackage ./pkgs/cosmic-enroll {};
 
+  crush = callPackage ./pkgs/crush {};
+
   dcg = callPackage ./pkgs/dcg {};
 
   elio = callPackage ./pkgs/elio {};

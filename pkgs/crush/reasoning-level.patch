@@ -1,0 +1,640 @@
+diff --git a/internal/config/load.go b/internal/config/load.go
+index 7eaa28d..5d51b6b 100644
+--- a/internal/config/load.go
++++ b/internal/config/load.go
+@@ -456,18 +456,26 @@ func (c *Config) configureProviders(ctx context.Context, store *ConfigStore, env
+ 				p.APIKey = config.APIKey
+ 			}
+ 			if len(config.Models) > 0 {
++				catalogMap := make(map[string]catwalk.Model, len(p.Models))
++				for _, m := range p.Models {
++					catalogMap[m.ID] = m
++				}
++
+ 				models := []catwalk.Model{}
+ 				seen := make(map[string]bool)
+ 
+-				for _, model := range config.Models {
+-					if seen[model.ID] {
++				for _, userModel := range config.Models {
++					if seen[userModel.ID] {
+ 						continue
+ 					}
+-					seen[model.ID] = true
+-					if model.Name == "" {
+-						model.Name = model.ID
++					seen[userModel.ID] = true
++					if catalogModel, exists := catalogMap[userModel.ID]; exists {
++						userModel = mergeCatalogModel(catalogModel, userModel)
+ 					}
+-					models = append(models, model)
++					if userModel.Name == "" {
++						userModel.Name = userModel.ID
++					}
++					models = append(models, userModel)
+ 				}
+ 				for _, model := range p.Models {
+ 					if seen[model.ID] {
+@@ -679,6 +687,132 @@ func (c *Config) configureProviders(ctx context.Context, store *ConfigStore, env
+ 	return nil
+ }
+ 
++// mergeCatalogModel merges a user model override on top of a base catalog
++// model. Fields explicitly set on the override replace the base values;
++// unset fields inherit from the catalog entry.
++func mergeCatalogModel(base, override catwalk.Model) catwalk.Model {
++	merged := base
++
++	if override.Type != "" {
++		merged.Type = override.Type
++	}
++	if override.Name != "" {
++		merged.Name = override.Name
++	}
++	if override.ContextWindow > 0 {
++		merged.ContextWindow = override.ContextWindow
++	}
++	if override.DefaultMaxTokens > 0 {
++		merged.DefaultMaxTokens = override.DefaultMaxTokens
++	}
++	if override.MaxAttachments > 0 {
++		merged.MaxAttachments = override.MaxAttachments
++	}
++
++	merged.Pricing = mergePricing(base.Pricing, override.Pricing)
++	merged.Reasoning = mergeReasoning(base.Reasoning, override.Reasoning)
++
++	// Capabilities are booleans that are always serialized, so a false
++	// override is indistinguishable from an unset one. Union the flags
++	// instead of letting an unset field disable a catalog capability.
++	merged.Capabilities = catwalk.Capabilities{
++		Vision: base.Capabilities.Vision || override.Capabilities.Vision,
++		Audio:  base.Capabilities.Audio || override.Capabilities.Audio,
++	}
++
++	merged.Options = mergeModelOptions(base.Options, override.Options)
++
++	return merged
++}
++
++func mergePricing(base, override catwalk.Pricing) catwalk.Pricing {
++	merged := base
++	if override.Input > 0 {
++		merged.Input = override.Input
++	}
++	if override.Output > 0 {
++		merged.Output = override.Output
++	}
++	if override.CacheCreate > 0 {
++		merged.CacheCreate = override.CacheCreate
++	}
++	if override.CacheHit > 0 {
++		merged.CacheHit = override.CacheHit
++	}
++	return merged
++}
++
++// mergeReasoning keeps the catalog effort levels and unions any levels the
++// override declares, so a model can add levels the catalog does not know
++// about without losing the ones it does.
++func mergeReasoning(base, override catwalk.Reasoning) catwalk.Reasoning {
++	merged := base
++	if override.Thinking != "" {
++		merged.Thinking = override.Thinking
++	}
++
++	switch {
++	case len(override.EffortLevels) > 0:
++		seen := make(map[string]bool, len(base.EffortLevels)+len(override.EffortLevels))
++		levels := make([]catwalk.EffortLevel, 0, len(base.EffortLevels)+len(override.EffortLevels))
++		for _, level := range slices.Concat(base.EffortLevels, override.EffortLevels) {
++			if seen[level.Value] {
++				continue
++			}
++			seen[level.Value] = true
++			levels = append(levels, level)
++		}
++		merged.EffortLevels = levels
++	case len(base.EffortLevels) > 0:
++		merged.EffortLevels = slices.Clone(base.EffortLevels)
++	}
++
++	if override.DefaultEffortLevel != "" {
++		merged.DefaultEffortLevel = override.DefaultEffortLevel
++		// The configured default must be selectable, otherwise
++		// ValidateReasoningEffort rejects it later.
++		if len(merged.EffortLevels) > 0 && !slices.ContainsFunc(merged.EffortLevels, func(level catwalk.EffortLevel) bool {
++			return level.Value == override.DefaultEffortLevel
++		}) {
++			merged.EffortLevels = append(merged.EffortLevels, catwalk.NewEffortLevels(override.DefaultEffortLevel)...)
++		}
++	}
++
++	// An override that asks for effort levels implicitly enables
++	// reasoning, even when it does not restate the thinking mode.
++	if merged.Thinking == "" && len(merged.EffortLevels) > 0 {
++		merged.Thinking = catwalk.ThinkingToggleable
++	}
++
++	return merged
++}
++
++func mergeModelOptions(base, override catwalk.ModelOptions) catwalk.ModelOptions {
++	merged := base
++	if override.Temperature != nil {
++		merged.Temperature = override.Temperature
++	}
++	if override.TopP != nil {
++		merged.TopP = override.TopP
++	}
++	if override.TopK != nil {
++		merged.TopK = override.TopK
++	}
++	if override.FrequencyPenalty != nil {
++		merged.FrequencyPenalty = override.FrequencyPenalty
++	}
++	if override.PresencePenalty != nil {
++		merged.PresencePenalty = override.PresencePenalty
++	}
++	if len(override.ProviderOptions) > 0 {
++		opts := make(map[string]any, len(base.ProviderOptions)+len(override.ProviderOptions))
++		maps.Copy(opts, base.ProviderOptions)
++		maps.Copy(opts, override.ProviderOptions)
++		merged.ProviderOptions = opts
++	}
++	return merged
++}
++
+ // applyEnv sets top-level env vars from the config. Keys are sorted for
+ // deterministic ordering so that vars referencing other vars via the
+ // value resolver produce consistent results.
+diff --git a/internal/config/load_test.go b/internal/config/load_test.go
+index 645f4a2..f1f3266 100644
+--- a/internal/config/load_test.go
++++ b/internal/config/load_test.go
+@@ -497,6 +497,196 @@ func TestConfig_configureProvidersWithOverride(t *testing.T) {
+ 	require.Equal(t, "Updated", pc.Models[0].Name)
+ }
+ 
++func TestConfig_configureProviders_MergesCatalogModelMetadata(t *testing.T) {
++	temp := 0.5
++	knownProviders := []catwalk.Provider{
++		{
++			ID:          "zai",
++			APIKey:      "$ZAI_API_KEY",
++			APIEndpoint: "https://api.zai.com/v1",
++			Models: []catwalk.Model{
++				{
++					ID:   "glm-5.3-flash",
++					Name: "GLM-5.3 Flash",
++					Pricing: catwalk.Pricing{
++						Input:       0.1,
++						Output:      0.2,
++						CacheCreate: 0.05,
++						CacheHit:    0.1,
++					},
++					ContextWindow:    128000,
++					DefaultMaxTokens: 4096,
++					Reasoning: catwalk.Reasoning{
++						Thinking:           catwalk.ThinkingToggleable,
++						EffortLevels:       catwalk.NewEffortLevels("low", "high", "max"),
++						DefaultEffortLevel: "high",
++					},
++					Capabilities: catwalk.Capabilities{Vision: true},
++					Options: catwalk.ModelOptions{
++						Temperature: &temp,
++					},
++				},
++			},
++		},
++	}
++
++	cfg := &Config{
++		Providers: csync.NewMap[string, ProviderConfig](),
++	}
++	cfg.Providers.Set("zai", ProviderConfig{
++		Models: []catwalk.Model{
++			{
++				ID: "glm-5.3-flash",
++				Reasoning: catwalk.Reasoning{
++					DefaultEffortLevel: "xhigh",
++				},
++			},
++		},
++	})
++	cfg.setDefaults(t.TempDir(), "")
++
++	env := env.NewFromMap(map[string]string{
++		"ZAI_API_KEY": "test-key",
++	})
++	resolver := NewShellVariableResolver(env)
++	err := cfg.configureProviders(context.Background(), testStore(cfg), env, resolver, knownProviders)
++	require.NoError(t, err)
++
++	pc, ok := cfg.Providers.Get("zai")
++	require.True(t, ok)
++	require.Len(t, pc.Models, 1)
++
++	m := pc.Models[0]
++	require.Equal(t, "glm-5.3-flash", m.ID)
++	require.Equal(t, "GLM-5.3 Flash", m.Name)
++	require.Equal(t, 0.1, m.Pricing.Input)
++	require.Equal(t, 0.2, m.Pricing.Output)
++	require.Equal(t, 0.05, m.Pricing.CacheCreate)
++	require.Equal(t, 0.1, m.Pricing.CacheHit)
++	require.Equal(t, int64(128000), m.ContextWindow)
++	require.Equal(t, int64(4096), m.DefaultMaxTokens)
++	require.True(t, m.Capabilities.Vision)
++	require.Equal(t, catwalk.ThinkingToggleable, m.Reasoning.Thinking)
++	require.Equal(t, "xhigh", m.Reasoning.DefaultEffortLevel)
++	require.Equal(t, []string{"low", "high", "max", "xhigh"}, m.ReasoningEffortLevels())
++	require.NotNil(t, m.Options.Temperature)
++	require.Equal(t, 0.5, *m.Options.Temperature)
++}
++
++func TestConfig_configureProviders_OverridesCatalogModelExplicitFields(t *testing.T) {
++	knownProviders := []catwalk.Provider{
++		{
++			ID:          "zai",
++			APIKey:      "$ZAI_API_KEY",
++			APIEndpoint: "https://api.zai.com/v1",
++			Models: []catwalk.Model{
++				{
++					ID:               "glm-5.3-flash",
++					Name:             "GLM-5.3 Flash",
++					ContextWindow:    128000,
++					DefaultMaxTokens: 4096,
++					Reasoning: catwalk.Reasoning{
++						Thinking:     catwalk.ThinkingToggleable,
++						EffortLevels: catwalk.NewEffortLevels("low", "high", "max"),
++					},
++					Capabilities: catwalk.Capabilities{Vision: true},
++				},
++			},
++		},
++	}
++
++	cfg := &Config{
++		Providers: csync.NewMap[string, ProviderConfig](),
++	}
++	cfg.Providers.Set("zai", ProviderConfig{
++		Models: []catwalk.Model{
++			{
++				ID:            "glm-5.3-flash",
++				Name:          "My Custom GLM",
++				ContextWindow: 65536,
++				Reasoning: catwalk.Reasoning{
++					Thinking:     catwalk.ThinkingToggleable,
++					EffortLevels: catwalk.NewEffortLevels("minimal", "extreme"),
++				},
++			},
++		},
++	})
++	cfg.setDefaults(t.TempDir(), "")
++
++	env := env.NewFromMap(map[string]string{
++		"ZAI_API_KEY": "test-key",
++	})
++	resolver := NewShellVariableResolver(env)
++	err := cfg.configureProviders(context.Background(), testStore(cfg), env, resolver, knownProviders)
++	require.NoError(t, err)
++
++	pc, ok := cfg.Providers.Get("zai")
++	require.True(t, ok)
++	require.Len(t, pc.Models, 1)
++
++	m := pc.Models[0]
++	require.Equal(t, "My Custom GLM", m.Name)
++	require.Equal(t, int64(65536), m.ContextWindow)
++	require.Equal(t, int64(4096), m.DefaultMaxTokens)
++	require.True(t, m.Capabilities.Vision)
++	require.Equal(t, catwalk.ThinkingToggleable, m.Reasoning.Thinking)
++	require.Equal(t, []string{"low", "high", "max", "minimal", "extreme"}, m.ReasoningEffortLevels())
++}
++
++func TestConfig_configureProviders_ReasoningEffortValidationWithShadowedModel(t *testing.T) {
++	knownProviders := []catwalk.Provider{
++		{
++			ID:          "zai",
++			APIKey:      "$ZAI_API_KEY",
++			APIEndpoint: "https://api.zai.com/v1",
++			Models: []catwalk.Model{
++				{
++					ID: "glm-5.3-flash",
++					Reasoning: catwalk.Reasoning{
++						Thinking:     catwalk.ThinkingToggleable,
++						EffortLevels: catwalk.NewEffortLevels("low", "high", "max"),
++					},
++				},
++			},
++		},
++	}
++
++	cfg := &Config{
++		Providers: csync.NewMap[string, ProviderConfig](),
++	}
++	cfg.Providers.Set("zai", ProviderConfig{
++		Models: []catwalk.Model{
++			{
++				ID: "glm-5.3-flash",
++				Reasoning: catwalk.Reasoning{
++					DefaultEffortLevel: "xhigh",
++				},
++			},
++		},
++	})
++	cfg.setDefaults(t.TempDir(), "")
++
++	env := env.NewFromMap(map[string]string{
++		"ZAI_API_KEY": "test-key",
++	})
++	resolver := NewShellVariableResolver(env)
++	err := cfg.configureProviders(context.Background(), testStore(cfg), env, resolver, knownProviders)
++	require.NoError(t, err)
++
++	// Catalog levels still pass.
++	require.NoError(t, cfg.ValidateReasoningEffort("zai", "glm-5.3-flash", "low"))
++	require.NoError(t, cfg.ValidateReasoningEffort("zai", "glm-5.3-flash", "high"))
++	require.NoError(t, cfg.ValidateReasoningEffort("zai", "glm-5.3-flash", "max"))
++
++	// The user-specified default effort is selectable too.
++	require.NoError(t, cfg.ValidateReasoningEffort("zai", "glm-5.3-flash", "xhigh"))
++
++	// Non-existent levels fail with the list of all accepted values.
++	err = cfg.ValidateReasoningEffort("zai", "glm-5.3-flash", "invalid")
++	require.Error(t, err)
++	require.Contains(t, err.Error(), "accepted values: low, high, max, xhigh")
++}
++
+ func TestConfig_configureProvidersWithNewProvider(t *testing.T) {
+ 	knownProviders := []catwalk.Provider{
+ 		{
+diff --git a/internal/shellconfig/flags.go b/internal/shellconfig/flags.go
+index 8623d7c..40f8022 100644
+--- a/internal/shellconfig/flags.go
++++ b/internal/shellconfig/flags.go
+@@ -28,6 +28,9 @@ const (
+ 	flagJSONObject
+ 	// flagJSONAny parses the value as arbitrary JSON.
+ 	flagJSONAny
++	// flagStringSlice parses comma-separated strings or JSON arrays of
++	// strings into a []any of strings.
++	flagStringSlice
+ )
+ 
+ // flagOp is how a parsed flag value is written into the target map.
+@@ -47,6 +50,10 @@ const (
+ 	// opSetInChild assigns childMap(target, child)[jsonKey] = value, e.g.
+ 	// --price-input F stored under pricing.input.
+ 	opSetInChild
++	// opAppendInChild appends value to the []any at
++	// childMap(target, child)[jsonKey], e.g. repeated --reasoning-level
++	// stored under reasoning.effort_levels.
++	opAppendInChild
+ )
+ 
+ // flagSpec declares one command-line flag: how it parses, where it writes,
+@@ -177,6 +184,26 @@ func parseFlagValue(spec flagSpec, args []string, i int) (any, int, error) {
+ 		}
+ 		return parsed, i + 2, nil
+ 
++	case flagStringSlice:
++		v, err := nextArg(args, i, name)
++		if err != nil {
++			return nil, 0, err
++		}
++		if strings.HasPrefix(v, "[") && strings.HasSuffix(v, "]") {
++			var raw []any
++			if err := json.Unmarshal([]byte(v), &raw); err == nil {
++				return raw, i + 2, nil
++			}
++		}
++		var list []any
++		for _, part := range strings.Split(v, ",") {
++			part = strings.TrimSpace(part)
++			if part != "" {
++				list = append(list, part)
++			}
++		}
++		return list, i + 2, nil
++
+ 	default:
+ 		return nil, 0, fmt.Errorf("%s: --%s has unknown flag kind", args[0], name)
+ 	}
+@@ -208,5 +235,13 @@ func storeFlag(target map[string]any, spec flagSpec, val any) {
+ 		}
+ 	case opSetInChild:
+ 		childMap(target, spec.child)[spec.jsonKey] = val
++	case opAppendInChild:
++		child := childMap(target, spec.child)
++		arr, _ := child[spec.jsonKey].([]any)
++		if slice, ok := val.([]any); ok {
++			child[spec.jsonKey] = append(arr, slice...)
++		} else {
++			child[spec.jsonKey] = append(arr, val)
++		}
+ 	}
+ }
+diff --git a/internal/shellconfig/model.go b/internal/shellconfig/model.go
+index 2de30b7..5359394 100644
+--- a/internal/shellconfig/model.go
++++ b/internal/shellconfig/model.go
+@@ -7,6 +7,8 @@ import (
+ 	"log/slog"
+ 	"slices"
+ 	"strings"
++
++	"charm.land/catwalk/v3/pkg/catwalk"
+ )
+ 
+ // handleModel implements the `model` builtin.
+@@ -17,8 +19,8 @@ import (
+ //	    [--default-max-tokens N] [--thinking always|never|toggleable]
+ //	    [--supports-images true|false] [--price-input F]
+ //	    [--price-output F] [--price-cache-create F]
+-//	    [--price-cache-hit F] [--reasoning-effort low|medium|high]
+-//	    [--max-attachments N]
++//	    [--price-cache-hit F] [--reasoning-effort EFFORT]
++//	    [--reasoning-levels LEVEL,...] [--max-attachments N]
+ //	model remove <provider>/<id>   (alias: rm)
+ //	model large [<provider>/<id>] [--think] [--reasoning-effort L]
+ //	    [--max-tokens N] [--temperature F] [--top-p F] [--top-k N]
+@@ -80,12 +82,14 @@ var modelAddFlags = []flagSpec{
+ 	{name: "--price-cache-create", jsonKey: "cache_create", child: "pricing", kind: flagFloat, op: opSetInChild},
+ 	{name: "--price-cache-hit", jsonKey: "cache_hit", child: "pricing", kind: flagFloat, op: opSetInChild},
+ 	{name: "--reasoning-effort", jsonKey: "default_effort_level", child: "reasoning", kind: flagString, op: opSetInChild},
++	{name: "--reasoning-levels", jsonKey: "effort_levels", child: "reasoning", kind: flagStringSlice, op: opAppendInChild},
++	{name: "--reasoning-level", jsonKey: "effort_levels", child: "reasoning", kind: flagStringSlice, op: opAppendInChild},
+ 	{name: "--max-attachments", jsonKey: "max_attachments", kind: flagInt, op: opSet},
+ }
+ 
+ func modelAdd(b *ConfigBuilder, args []string, stderr io.Writer) error {
+ 	if len(args) < 3 {
+-		return usage(stderr, "usage: model add <provider>/<id> [--name NAME] [--context-window N] [--default-max-tokens N] [--thinking always|never|toggleable] [--supports-images true|false] [--price-input F] [--price-output F] [--price-cache-create F] [--price-cache-hit F] [--reasoning-effort low|medium|high] [--max-attachments N]")
++		return usage(stderr, "usage: model add <provider>/<id> [--name NAME] [--context-window N] [--default-max-tokens N] [--thinking always|never|toggleable] [--supports-images true|false] [--price-input F] [--price-output F] [--price-cache-create F] [--price-cache-hit F] [--reasoning-effort EFFORT] [--reasoning-levels LEVEL,...] [--max-attachments N]")
+ 	}
+ 	provider, id, ok := splitProviderModel(args[2])
+ 	if !ok {
+@@ -112,6 +116,8 @@ func modelAdd(b *ConfigBuilder, args []string, stderr io.Writer) error {
+ 		childMap(model, "reasoning")["thinking"] = thinking
+ 	}
+ 
++	normalizeEffortLevels(model)
++
+ 	p := childMap(providers, provider)
+ 	// Re-adding a model id replaces the existing entry, matching the
+ 	// update-in-place behavior of `provider add` and `lsp add`.
+@@ -129,6 +135,47 @@ func modelAdd(b *ConfigBuilder, args []string, stderr io.Writer) error {
+ 	return nil
+ }
+ 
++// normalizeEffortLevels rewrites the flat effort levels collected from
++// --reasoning-levels into the {value, display} objects the config schema
++// expects. Levels are deduplicated in declaration order, the configured
++// default effort is folded in so the model can actually select it, and
++// thinking is enabled unless the user set it explicitly.
++func normalizeEffortLevels(model map[string]any) {
++	reasoning, ok := model["reasoning"].(map[string]any)
++	if !ok {
++		return
++	}
++
++	declared, _ := reasoning["effort_levels"].([]any)
++	values := make([]string, 0, len(declared)+1)
++	for _, level := range declared {
++		value, ok := level.(string)
++		if !ok || value == "" || slices.Contains(values, value) {
++			continue
++		}
++		values = append(values, value)
++	}
++
++	if effort, ok := reasoning["default_effort_level"].(string); ok && effort != "" && !slices.Contains(values, effort) {
++		values = append(values, effort)
++	}
++
++	if len(values) == 0 {
++		delete(reasoning, "effort_levels")
++		return
++	}
++
++	levels := make([]any, 0, len(values))
++	for _, level := range catwalk.NewEffortLevels(values...) {
++		levels = append(levels, map[string]any{"value": level.Value, "display": level.Display})
++	}
++	reasoning["effort_levels"] = levels
++
++	if _, ok := reasoning["thinking"]; !ok {
++		reasoning["thinking"] = string(catwalk.ThinkingToggleable)
++	}
++}
++
+ func modelRemove(b *ConfigBuilder, args []string, stderr io.Writer) error {
+ 	if len(args) < 3 {
+ 		return usage(stderr, "usage: model remove <provider>/<id>")
+diff --git a/internal/shellconfig/model_test.go b/internal/shellconfig/model_test.go
+index 1c4777b..f955455 100644
+--- a/internal/shellconfig/model_test.go
++++ b/internal/shellconfig/model_test.go
+@@ -3,6 +3,7 @@ package shellconfig
+ import (
+ 	"encoding/json"
+ 	"path/filepath"
++	"strings"
+ 	"testing"
+ 
+ 	"github.com/stretchr/testify/require"
+@@ -193,3 +194,93 @@ provider rm anthropic`)
+ 	require.Len(t, models, 1)
+ 	require.Equal(t, "b", models[0].(map[string]any)["id"])
+ }
++
++// modelReasoning returns the reasoning object of the single model a script
++// registered on the given provider.
++func modelReasoning(t *testing.T, result map[string]any, provider string) map[string]any {
++	t.Helper()
++	models := result["providers"].(map[string]any)[provider].(map[string]any)["models"].([]any)
++	require.Len(t, models, 1)
++	return models[0].(map[string]any)["reasoning"].(map[string]any)
++}
++
++// effortLevels renders declared levels the way the config schema stores
++// them, so tests can assert on the full {value, display} pairs.
++func effortLevels(values ...string) []any {
++	levels := make([]any, 0, len(values))
++	for _, value := range values {
++		display := strings.ToUpper(value[:1]) + value[1:]
++		if value == "xhigh" {
++			display = "X-High"
++		}
++		levels = append(levels, map[string]any{"value": value, "display": display})
++	}
++	return levels
++}
++
++func TestModelAdd_ReasoningLevelsCommaSeparated(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add openai --api-key k
++model add openai/custom-reasoning --reasoning-levels low,high,max --reasoning-effort max`)
++
++	reasoning := modelReasoning(t, result, "openai")
++	require.Equal(t, "toggleable", reasoning["thinking"])
++	require.Equal(t, "max", reasoning["default_effort_level"])
++	require.Equal(t, effortLevels("low", "high", "max"), reasoning["effort_levels"])
++}
++
++func TestModelAdd_ReasoningLevelsRepeated(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add openai --api-key k
++model add openai/custom-reasoning --reasoning-level low --reasoning-levels high,max`)
++
++	reasoning := modelReasoning(t, result, "openai")
++	require.Equal(t, "toggleable", reasoning["thinking"])
++	require.Equal(t, effortLevels("low", "high", "max"), reasoning["effort_levels"])
++}
++
++func TestModelAdd_ReasoningLevelsJSON(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add anthropic --api-key k
++model add anthropic/custom-reasoning --reasoning-levels '["low", "high", "xhigh"]'`)
++
++	reasoning := modelReasoning(t, result, "anthropic")
++	require.Equal(t, effortLevels("low", "high", "xhigh"), reasoning["effort_levels"])
++}
++
++func TestModelAdd_ReasoningEffortAutoPopulatesLevel(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add openai --api-key k
++model add openai/custom-reasoning --reasoning-effort max`)
++
++	reasoning := modelReasoning(t, result, "openai")
++	require.Equal(t, "toggleable", reasoning["thinking"])
++	require.Equal(t, "max", reasoning["default_effort_level"])
++	require.Equal(t, effortLevels("max"), reasoning["effort_levels"])
++}
++
++func TestModelAdd_ExplicitThinkingPreserved(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add anthropic --api-key k
++model add anthropic/custom-reasoning --thinking never --reasoning-levels low,high`)
++
++	reasoning := modelReasoning(t, result, "anthropic")
++	require.Equal(t, "never", reasoning["thinking"])
++	require.Equal(t, effortLevels("low", "high"), reasoning["effort_levels"])
++}
++
++func TestModelAdd_NoReasoningFlags(t *testing.T) {
++	t.Parallel()
++
++	result := loadScript(t, `provider add openai --api-key k
++model add openai/plain --name "Plain"`)
++
++	models := result["providers"].(map[string]any)["openai"].(map[string]any)["models"].([]any)
++	require.Len(t, models, 1)
++	require.NotContains(t, models[0].(map[string]any), "reasoning")
++}
