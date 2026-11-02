@@ -29,6 +29,7 @@ buildGoModule {
     description = "sqlite-backed shell history";
     homepage = "https://tangled.org/oppi.li/stinkpot";
     mainProgram = "stinkpot";
+    license = lib.licenses.mit;
     platforms = lib.platforms.unix;
   };
 }
