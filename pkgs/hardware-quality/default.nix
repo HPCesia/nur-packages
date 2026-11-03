@@ -35,15 +35,15 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "hardware-quality";
-  version = "0-unstable-2026-07-15";
+  version = "0-unstable-2026-11-04";
 
   preferLocalBuild = true;
 
   src = fetchFromGitHub {
     owner = "xykt";
     repo = "HardwareQuality";
-    rev = "06f99880d516bb744afa2948261b9697c79789e2";
-    hash = "sha256-roxfN8+gRJvwZITJ1lXZhXjCUP0HkSZQmRMBV2Jm3qU=";
+    rev = "229e1934dc4681c4e2e304f25996ad85c4025f16";
+    hash = "sha256-nT+YmfQmPp3ZyxKZtuJGgoKV+6b87SwvFKUnl91Jvic=";
   };
 
   nativeBuildInputs = [makeWrapper];
