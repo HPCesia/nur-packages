@@ -34,7 +34,7 @@ buildNpmPackage (finalAttrs: {
   '';
 
   passthru.updateScript = nix-update-script {
-    extraArgs = [ "--version-regex" "transports/v(.*)" ];
+    extraArgs = ["--version-regex" "transports/v(.*)"];
   };
 
   meta = {

@@ -10,7 +10,6 @@
   writableTmpDirAsHomeHook,
   versionCheckHook,
 }:
-
 buildGo127Module (finalAttrs: {
   pname = "crush";
   version = "0.99.0";
@@ -40,18 +39,16 @@ buildGo127Module (finalAttrs: {
     installShellFiles
   ];
 
-  checkFlags =
-    let
-      # these tests fail in the sandbox
-      skippedTests = [
-        "TestCoderAgent"
-        "TestOpenAIClientStreamChoices"
-        "TestGrepWithIgnoreFiles"
-        "TestSearchImplementations"
-        "TestDispatch_BinaryPassthroughExecutes"
-      ];
-    in
-    [ "-skip=^${builtins.concatStringsSep "$|^" skippedTests}$" ];
+  checkFlags = let
+    # these tests fail in the sandbox
+    skippedTests = [
+      "TestCoderAgent"
+      "TestOpenAIClientStreamChoices"
+      "TestGrepWithIgnoreFiles"
+      "TestSearchImplementations"
+      "TestDispatch_BinaryPassthroughExecutes"
+    ];
+  in ["-skip=^${builtins.concatStringsSep "$|^" skippedTests}$"];
 
   __darwinAllowLocalNetworking = true;
 
@@ -60,7 +57,7 @@ buildGo127Module (finalAttrs: {
     writableTmpDirAsHomeHook
   ];
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
+  nativeInstallCheckInputs = [versionCheckHook];
   doInstallCheck = true;
 
   postInstall = lib.optionalString (stdenv.buildPlatform.canExecute stdenv.hostPlatform) ''
@@ -70,7 +67,7 @@ buildGo127Module (finalAttrs: {
       --zsh <($out/bin/crush completion zsh)
   '';
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "Glamourous AI coding agent for your favourite terminal";
