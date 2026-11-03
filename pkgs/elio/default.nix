@@ -6,16 +6,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "elio";
-  version = "1.14.0";
+  version = "1.15.0";
 
   src = fetchFromGitHub {
     owner = "elio-fm";
     repo = "elio";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-E4MEr/Hz7CJvnbqTyrf+rVp9CCJLJN7hWRW+DHNCavg=";
+    hash = "sha256-tHfkNnt5o91VVKHCCRUEJEcdLMYYy5QQC5+E0zT1veQ=";
   };
 
-  cargoHash = "sha256-Ejk1CJxjKljIhf/Fa12LYCzeubzZ7HGNAh9eo1dK/9I=";
+  cargoHash = "sha256-hNyR4uEJIs01+ztzAMFmY35FKWJpP4ETQ24mpBKnK+A=";
   doCheck = false;
 
   passthru.updateScript = nix-update-script {};
