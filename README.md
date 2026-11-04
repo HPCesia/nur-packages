@@ -9,8 +9,6 @@
 
 | Path | Name | Version | License | Description |
 | --- | --- | --- | --- | --- |
-| `bifrost` | [bifrost-http](https://github.com/maximhq/bifrost) | `2.4.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | High-performance AI gateway that unifies access to multiple LLM providers |
-| `bifrost-ui` | [bifrost-ui](https://github.com/maximhq/bifrost) | `2.4.0` | [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html) | Web UI for the Bifrost AI gateway |
 | `cosmic-enroll` | [cosmic-enroll](https://github.com/cosmic-utils/enroll) | `1.2.11` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | COSMIC GUI for enrolling fingerprints with fprintd |
 | `crush` | [crush](https://github.com/charmbracelet/crush) | `0.99.0` | [FSL-1.1-MIT](https://spdx.org/licenses/FSL-1.1-MIT.html) | Glamourous AI coding agent for your favourite terminal |
 | `dcg` | [dcg](https://github.com/Dicklesworthstone/destructive_command_guard) | `0.16.0` | **Unfree** | PreToolUse hook that blocks destructive shell commands for AI coding agents |

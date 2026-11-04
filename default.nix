@@ -19,10 +19,6 @@ in rec {
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  bifrost = callPackage ./pkgs/bifrost {};
-
-  bifrost-ui = callPackage ./pkgs/bifrost/ui.nix {};
-
   cosmic-enroll = callPackage ./pkgs/cosmic-enroll {};
 
   crush = callPackage ./pkgs/crush {};
