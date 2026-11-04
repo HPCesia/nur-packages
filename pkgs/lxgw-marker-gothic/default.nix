@@ -5,7 +5,7 @@
   installFonts,
   nix-update-script,
 }: let
-  version = "1.004";
+  version = "1.010";
 in
   stdenvNoCC.mkDerivation {
     pname = "lxgw-marker-gothic";
@@ -13,7 +13,7 @@ in
 
     src = fetchzip {
       url = "https://github.com/lxgw/LxgwMarkerGothic/releases/download/v${version}/LxgwMarkerGothic-v${version}.zip";
-      hash = "sha256-4tQ7P6r9YvyZa7SOTGr+CQs3mXN4PILgkm8N4gVUwYo=";
+      hash = "sha256-xQeNYri3r1cU79i37Fy2idc1allWiFCkWwsI/cOWVUA=";
     };
 
     nativeBuildInputs = [installFonts];
