@@ -17,7 +17,7 @@
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
 | `hardware-quality` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
-| `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.36` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
+| `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.37` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `helium` | [helium](https://helium.computer/) | `0.20.3.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.3.4` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
