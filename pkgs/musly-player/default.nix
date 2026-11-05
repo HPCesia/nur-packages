@@ -1,17 +1,18 @@
 {
   lib,
   fetchFromGitHub,
-  flutter341,
+  flutter347,
   pkg-config,
   alsa-lib,
+  gst_all_1,
   libnotify,
   mpv-unwrapped,
   copyDesktopItems,
   makeDesktopItem,
 }:
-flutter341.buildFlutterApplication rec {
+flutter347.buildFlutterApplication rec {
   pname = "musly-player";
-  version = "2.0.2";
+  version = "2.0.3";
 
   passthru.updateScript = [(toString ./update.sh)];
 
@@ -19,10 +20,14 @@ flutter341.buildFlutterApplication rec {
     owner = "dddevid";
     repo = "Musly";
     tag = "v${version}";
-    hash = "sha256-gVCkeSkeu8CKZijgoj1L7LX5gxguWMbPo/SG8KfFzC0=";
+    hash = "sha256-Zr8mXs2Tk9LXX08/AO0VxlTuIat/W+VHp3OoB4PRwac=";
   };
 
   pubspecLock = lib.importJSON ./pubspec.lock.json;
+
+  gitHashes = {
+    audioplayers_tizen = "sha256-sxEsVxye+riy4WS+8qGy65opPog+AjlLMbkaOgSiHEk=";
+  };
 
   nativeBuildInputs = [
     copyDesktopItems
@@ -31,11 +36,13 @@ flutter341.buildFlutterApplication rec {
 
   buildInputs = [
     alsa-lib
+    gst_all_1.gst-plugins-base
+    gst_all_1.gstreamer
     libnotify
   ];
 
   extraWrapProgramArgs = ''
-    --prefix LD_LIBRARY_PATH : $out/app/musly/lib:${lib.makeLibraryPath [mpv-unwrapped]}
+    --prefix LD_LIBRARY_PATH : $out/app/${pname}/lib:${lib.makeLibraryPath [mpv-unwrapped]}
   '';
 
   postFixup = ''

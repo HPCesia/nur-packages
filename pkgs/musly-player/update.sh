@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i bash -p curl -p jq -p nix -p flutter341 -p python3 -p python3Packages.pyyaml
+#!nix-shell -i bash -p curl -p jq -p nix -p flutter347 -p python3 -p python3Packages.pyyaml
 # shellcheck shell=bash
 set -euo pipefail
 
