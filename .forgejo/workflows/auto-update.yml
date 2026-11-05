@@ -35,6 +35,11 @@ jobs:
           echo "access-tokens = github.com=${{ secrets.NIX_GITHUB_TOKEN }}" >> /etc/nix/nix.conf
           nixpkgsRev=$(nix-instantiate --eval -E '(builtins.fromJSON (builtins.readFile ./flake.lock)).nodes.nixpkgs.locked.rev' | tr -d '"')
           echo "NIX_PATH=nixpkgs=https://github.com/NixOS/nixpkgs/archive/${nixpkgsRev}.tar.gz" >> "$FORGEJO_ENV"
+      - name: Restore Nix store
+        uses: https://github.com/nix-community/cache-nix-action/restore@v7
+        with:
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          restore-prefixes-first-match: nix-${{ runner.os }}-
       - name: Update packages and open PRs
         env:
           FORGEJO_TOKEN: ${{ steps.jwt.outputs.jwt }}
