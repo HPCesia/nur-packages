@@ -12,13 +12,13 @@
 }:
 buildGo127Module (finalAttrs: {
   pname = "crush";
-  version = "0.99.0";
+  version = "0.100.0";
 
   src = fetchFromGitHub {
     owner = "charmbracelet";
     repo = "crush";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-S3YI+ZO/zogWUHp+Xiu/V9BiY1cVwgh7wxDDqz1iatg=";
+    hash = "sha256-Eq0rXXAoF42prMjX6CwRDoskL670ecU+MTDSowvTUYk=";
   };
 
   patches = [
@@ -28,7 +28,7 @@ buildGo127Module (finalAttrs: {
     ./reasoning-level.patch
   ];
 
-  vendorHash = "sha256-YwjbZrnZn/6aY8Yklu7fEoZnRF2uVicW32D49MA9AJE=";
+  vendorHash = "sha256-jICrWEmSFgfMg3gGzzuFVQuXj9r8EKG0JjuY1fo9Qo8=";
 
   ldflags = [
     "-s"
