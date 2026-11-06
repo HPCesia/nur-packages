@@ -7,6 +7,7 @@
   git,
   installShellFiles,
   nix-update-script,
+  procps,
   writableTmpDirAsHomeHook,
   versionCheckHook,
 }:
@@ -54,6 +55,8 @@ buildGo127Module (finalAttrs: {
 
   nativeCheckInputs = [
     git
+    # TestServiceDetectsRealProcess lists the process table via ps(1).
+    procps
     writableTmpDirAsHomeHook
   ];
 
