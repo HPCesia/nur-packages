@@ -5,13 +5,13 @@
   callPackage,
   nix-update-script,
 }: let
-  version = "0.10.0";
+  version = "0.10.1";
 
   src = fetchFromGitHub {
     owner = "iluobei";
     repo = "miaomiaowu";
     tag = "v${version}";
-    hash = "sha256-NEiGug/JyyuQhY0OYnua8H3YU6N9+MrE0sb6dLVgSv0=";
+    hash = "sha256-ppZIbbuN1YS6gLMu5hgP7ynmYgpKoiEY467vttwzfYY=";
   };
 
   frontend = callPackage ./frontend.nix {inherit version src;};
@@ -25,7 +25,7 @@ in
       updateScript = nix-update-script {extraArgs = ["--subpackage" "frontend"];};
     };
 
-    vendorHash = "sha256-2tAsjajbptKrCV8B0j2R3Tw1BPP5ARH9Nq4MrG5CmCk=";
+    vendorHash = "sha256-5tSHbKuudl/AI+xff0H4ojExNLahZXEpgtmRNBpYBnA=";
 
     subPackages = ["./cmd/server"];
 

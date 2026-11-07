@@ -12,7 +12,7 @@ in
     inherit version;
     src = source;
 
-    npmDepsHash = "sha256-N7q+8F1MZe5wLWaVgVZ17V0g/p6mviBRsUK2ddeaTN0=";
+    npmDepsHash = "sha256-pBL5W518hP16JBt2JbMcUYPs+2MQa4Wxey4zn1l70FU=";
     npmDepsFetcherVersion = 2;
     makeCacheWritable = true;
 
