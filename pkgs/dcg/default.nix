@@ -3,6 +3,9 @@
   rustPlatform,
   fetchFromGitHub,
   nix-update-script,
+  pkg-config,
+  aws-lc,
+  sqlite,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "dcg";
@@ -16,6 +19,13 @@ rustPlatform.buildRustPackage (finalAttrs: {
   };
 
   cargoHash = "sha256-Jwq6qgT5RobnIO1k+gEyDkfDlHKVVVW8S/H0tL7u8KU=";
+
+  nativeBuildInputs = [pkg-config];
+
+  buildInputs = [
+    aws-lc
+    sqlite
+  ];
 
   postPatch = ''
     rm .cargo/config.toml
