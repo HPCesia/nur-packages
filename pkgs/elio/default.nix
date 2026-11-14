@@ -3,6 +3,9 @@
   rustPlatform,
   fetchFromGitHub,
   nix-update-script,
+  pkg-config,
+  sqlite,
+  zstd,
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "elio";
@@ -17,6 +20,12 @@ rustPlatform.buildRustPackage (finalAttrs: {
 
   cargoHash = "sha256-hNyR4uEJIs01+ztzAMFmY35FKWJpP4ETQ24mpBKnK+A=";
   doCheck = false;
+
+  nativeBuildInputs = [pkg-config];
+  buildInputs = [
+    sqlite
+    zstd
+  ];
 
   passthru.updateScript = nix-update-script {};
 
