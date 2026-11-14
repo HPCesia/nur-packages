@@ -39,6 +39,8 @@ in rec {
 
   helium = callPackage ./pkgs/helium {};
 
+  hokit = callPackage ./pkgs/hokit {};
+
   kelivo = callPackage ./pkgs/kelivo {};
 
   lxgw-marker-gothic = callPackage ./pkgs/lxgw-marker-gothic {};
