@@ -19,7 +19,7 @@
 | `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.37` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
 | `helium` | [helium](https://helium.computer/) | `0.21.3.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
-| `hokit` | [hokit](https://github.com/yabi-zzh/HoKit) | `1.8.10` | **Unfree** | All-in-one HarmonyOS NEXT app development toolkit: device mirroring, performance monitoring, app parsing, and re-signing |
+| `hokit` | [hokit](https://github.com/yabi-zzh/HoKit) | `1.8.10` | **Unfree** | All-in-one HarmonyOS NEXT app development toolkit |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.3.5` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
 | `localbooru-bin` | [localbooru-bin](https://github.com/resucutie/localbooru) | `1.6.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Cross platform local booru collection that exclusively works on local storage, without selfhosting |
 | `lxgw-marker-gothic` | [lxgw-marker-gothic](https://github.com/lxgw/LxgwMarkerGothic) | `1.012` | [OFL-1.1](https://spdx.org/licenses/OFL-1.1.html) | Open-source Chinese font derived from Tanugo |
@@ -27,7 +27,7 @@
 | `miaomiaowu` | [miaomiaowu](https://github.com/iluobei/miaomiaowu) | `0.10.1` | [MIT](https://spdx.org/licenses/MIT.html) | Personal Clash subscriptions management system |
 | `mo2-lint` | [mo2-lint](https://github.com/Furglitch/modorganizer2-linux-installer) | `7.0.5` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | An easy-to-use Mod Organizer 2 installer for Linux, rewrited in Python. |
 | `musly-player` | [musly-player](https://github.com/dddevid/Musly) | `2.0.3` | [CC-BY-NC-SA-4.0](https://spdx.org/licenses/CC-BY-NC-SA-4.0.html) | A beautiful Flutter music streaming client for Subsonic-compatible servers with a modern Apple Music-inspired UI. |
-| `navibeat` | [navibeat](https://navibeat.app/linux) | `1.0.72` | **Unfree** | Navidrome and Subsonic music client for Linux |
+| `navibeat` | [navibeat](https://navibeat.app/linux) | `1.0.74` | **Unfree** | Navidrome and Subsonic music client for Linux |
 | `realitlscanner` | [realitlscanner](https://github.com/XTLS/RealiTLScanner) | `0.2.3` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | A TLS server certificate scanner for real IP discovery |
 | `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.14` | [GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html) | An easy-to-install community image gallery (aka booru) |
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
