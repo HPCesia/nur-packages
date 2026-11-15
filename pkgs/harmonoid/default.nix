@@ -12,7 +12,7 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "harmonoid";
-  version = "0.3.37";
+  version = "0.3.40";
 
   passthru.updateScript = [(toString ./update.sh)];
   preferLocalBuild = true;
@@ -22,12 +22,12 @@ stdenvNoCC.mkDerivation rec {
     then
       fetchurl {
         url = "https://github.com/alexmercerind2/harmonoid-releases/releases/download/v${version}/harmonoid-linux-aarch64.tar.gz";
-        hash = "sha256-JTKRbN8NM78+HJGlmZ6gCIhtoMtfDF/NsFnqMFTErvk=";
+        hash = "sha256-v+hxv5KNXQmMJx08hkO9V009OY01xWA0xBWP0zUWO4Y=";
       }
     else
       fetchurl {
         url = "https://github.com/alexmercerind2/harmonoid-releases/releases/download/v${version}/harmonoid-linux-x86_64.tar.gz";
-        hash = "sha256-GK6yJFhjxeBRX1ENKoKie0jNGQGmV8HW4RW57JoFGN8=";
+        hash = "sha256-cFeatg566QWsYNZbJzezPIpEMgxDAISXzdRJLQAg8Nk=";
       };
 
   dontStrip = true;
