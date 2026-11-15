@@ -35,6 +35,8 @@ in rec {
 
   hardware-quality-free = callPackage ./pkgs/hardware-quality {enableGeekBench = false;};
 
+  harmonyos-cmdline-tools = callPackage ./pkgs/harmonyos-cmdline-tools {};
+
   harmonoid = callPackage ./pkgs/harmonoid {};
 
   helium = callPackage ./pkgs/helium {};

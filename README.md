@@ -18,6 +18,7 @@
 | `hardware-quality` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `harmonoid` | [harmonoid](https://harmonoid.com/) | `0.3.40` | **Unfree** | Plays & manages your music library. Looks beautiful & juicy. |
+| `harmonyos-cmdline-tools` | [harmonyos-cmdline-tools](https://developer.huawei.com/consumer/en/download/) | `26.0.0.865` | **Unfree** | Command line tools and SDK for HarmonyOS and OpenHarmony application development |
 | `helium` | [helium](https://helium.computer/) | `0.22.0.1` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Private, fast, and honest web browser based on ungoogled-chromium |
 | `hokit` | [hokit](https://github.com/yabi-zzh/HoKit) | `1.8.10` | **Unfree** | All-in-one HarmonyOS NEXT app development toolkit |
 | `kelivo` | [kelivo](https://github.com/Chevey339/kelivo) | `1.3.5` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | LLM chat client |
