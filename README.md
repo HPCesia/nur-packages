@@ -13,7 +13,7 @@
 | `crush` | [crush](https://github.com/charmbracelet/crush) | `0.101.0` | [FSL-1.1-MIT](https://spdx.org/licenses/FSL-1.1-MIT.html) | Glamourous AI coding agent for your favourite terminal |
 | `dcg` | [dcg](https://github.com/Dicklesworthstone/destructive_command_guard) | `0.16.0` | **Unfree** | PreToolUse hook that blocks destructive shell commands for AI coding agents |
 | `elio` | [elio](https://github.com/elio-fm/elio) | `1.15.0` | [MIT](https://spdx.org/licenses/MIT.html) | Snappy, batteries-included terminal file manager with rich previews, inline images, bulk actions, and trash support |
-| `flyline` | [flyline](https://github.com/HalFrgrd/flyline) | `1.10.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Bash plugin to replace readline for a modern line editing experience |
+| `flyline` | [flyline](https://github.com/HalFrgrd/flyline) | `1.11.0` | [GPL-3.0-only](https://spdx.org/licenses/GPL-3.0-only.html) | Bash plugin to replace readline for a modern line editing experience |
 | `gitmal` | [gitmal](https://github.com/antonmedv/gitmal) | `1.0.2` | [MIT](https://spdx.org/licenses/MIT.html) |  A static page generator for repos |
 | `hardware-quality` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
 | `hardware-quality-free` | [hardware-quality](https://github.com/xykt/HardwareQuality) | `0-unstable-2026-11-04` | [AGPL-3.0-only](https://spdx.org/licenses/AGPL-3.0-only.html) | Hardware quality check script for Linux servers and VPS |
