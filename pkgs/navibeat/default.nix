@@ -5,19 +5,19 @@
   fetchurl,
 }: let
   pname = "navibeat";
-  version = "1.0.76";
+  version = "1.0.78";
 
   src =
     if stdenv.hostPlatform.isAarch64
     then
       fetchurl {
         url = "https://github.com/nenadjokic/navibeat-linux/releases/download/v${version}/NaviBeat-linux-aarch64-slim.AppImage";
-        hash = "sha256-mOqASQRplBgggH/dMzuexvar1EcJN8T8BnZ4lOy8lMY=";
+        hash = "sha256-jCyGpScJQeNb7SHNiytsgIplFdmViOVa9+zYJfRoeqo=";
       }
     else
       fetchurl {
         url = "https://github.com/nenadjokic/navibeat-linux/releases/download/v${version}/NaviBeat-linux-x86_64-slim.AppImage";
-        hash = "sha256-yferAoOi3Rvj1nRh8xD4VxfWvsxVOxyYGjtFBbn2JyM=";
+        hash = "sha256-1u/Y40rmlEh6yPxdqpf+uCSNzSObY89Sy3YihPAesrc=";
       };
 
   appimageContents = appimageTools.extract {inherit pname version src;};
