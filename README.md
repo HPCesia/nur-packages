@@ -32,7 +32,7 @@
 | `realitlscanner` | [realitlscanner](https://github.com/XTLS/RealiTLScanner) | `0.2.3` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | A TLS server certificate scanner for real IP discovery |
 | `shimmie2` | [shimmie2](https://github.com/shish/shimmie2) | `2.12.15` | [GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html) | An easy-to-install community image gallery (aka booru) |
 | `spritz-wine-bin.cachyos` | [spritz-wine-cachyos-bin-10.0-11](https://github.com/NelloKudo/spritz-wine) | `10.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
-| `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-11](https://github.com/NelloKudo/spritz-wine) | `11.0-11` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
+| `spritz-wine-bin.dwproton` | [spritz-wine-dwproton-bin-11.0-17](https://github.com/NelloKudo/spritz-wine) | `11.0-17` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `spritz-wine-bin.tkg` | [spritz-wine-tkg-bin-11.19-2](https://github.com/NelloKudo/spritz-wine) | `11.19-2` | [MIT](https://spdx.org/licenses/MIT.html) | Spritz-Wine builds for some games  |
 | `steelix` | [steelix](https://github.com/mattwparas/helix) | `0-unstable-2026-11-20` | [MPL-2.0](https://spdx.org/licenses/MPL-2.0.html) | Helix editor with Steel (Scheme) scripting support |
 | `stinkpot` | [stinkpot](https://tangled.org/oppi.li/stinkpot) | `0.1.0-unstable-2026-09-16` | [MIT](https://spdx.org/licenses/MIT.html) | sqlite-backed shell history |

@@ -45,6 +45,10 @@
     "11.0-11": {
       "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-dwproton-11.0-11/wine-dwproton-wow64-11.0-11-x86_64.tar.xz",
       "hash": "sha256-u7S2MDfpMzRX1fJbzGQmPrGMNr+Xszran/5QKsLLFsU="
+    },
+    "11.0-17": {
+      "url": "https://github.com/NelloKudo/spritz-wine/releases/download/wine-dwproton-11.0-17/wine-dwproton-wow64-11.0-17-x86_64.tar.xz",
+      "hash": "sha256-eWAF23DDIuMMKDOeYhamvcpvsyI+LGAfvv9ISighSyo="
     }
   },
   "tkg": {
