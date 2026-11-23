@@ -9,16 +9,16 @@
 }:
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "dcg";
-  version = "0.17.0";
+  version = "0.17.1";
 
   src = fetchFromGitHub {
     owner = "Dicklesworthstone";
     repo = "destructive_command_guard";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-Ogu8weoxf2tmMHtoL8W1vyI7hNX7HTnnc/yg6U6dJdA=";
+    hash = "sha256-PcAWYS4dZg/oHg+9nRkX4i0QJoa/OG0yorCEOZsx/8w=";
   };
 
-  cargoHash = "sha256-O6lo+CDHSN51uwO/00aUu3UIf6Whs+OYmr9NBSTYhQs=";
+  cargoHash = "sha256-rLIVs56qpkmHcKTtuDIUE/YBKzObGobBpeynEPGaEBY=";
 
   nativeBuildInputs = [pkg-config];
 
